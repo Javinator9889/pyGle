@@ -98,7 +98,7 @@ __google_url_modifiers__ = {
         "Chinese Simplified": "lang_zh-CN",
         "Chinese Traditional": "lang_zh-TW"
     },
-    "with_country_results": "cr={0}",
+    "with_country_results": "cr=country{0}",
     "with_countries": {
         "Afghanistan": "AF",
         "Åland Islands": "AX",
