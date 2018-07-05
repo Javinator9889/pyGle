@@ -29,14 +29,14 @@ __google_url_modifiers__ = {
         "free_to_use_and_modify_com": "(cc_publicdomain|cc_attribute|cc_sharealike).-(cc_noncommercial|cc_nonderived)"
     },
     "with_licenses": ["cc_publicdomain", "cc_attribute", "cc_sharealike", "cc_noncommercial", "cc_nonderived"],
-    "with_text_in_title": "allintitle%3{0}",
-    "with_text_in_body": "allintext%3{0}",
-    "with_text_in_url": "allinurl%3{0}",
-    "with_text_in_anchor": "allinanchor%3{0}",
+    "with_text_in_title": "allintitle%3A{0}",
+    "with_text_in_body": "allintext%3A{0}",
+    "with_text_in_url": "allinurl%3A{0}",
+    "with_text_in_anchor": "allinanchor%3A{0}",
     "between_two_numbers": "{0}..{1}",
     "with_related_pages_to_a_doc": "as_rq={0}",
     "with_synonymous_searching": "~{0}",
-    "with_defining": "define%3{0}",
+    "with_defining": "define%3A{0}",
     "with_containing_two_terms": "{0}*{1}",
     "with_arithmetic_operation": {
         "sum": '+',
@@ -350,12 +350,15 @@ __google_url_modifiers__ = {
     "with_search_between_two_dates": "tbs=cdr:1,cd_min:{0},cd_max:{1}",
     "with_search_between_two_dates_by_update_time": "tbs=sbd:1,cd_min:{0},cd_max:{1}",
     "with_search_by_update_time": "tbs=sbd:1",
-    "with_searching_apps": "app",
-    "with_searching_books": "bks",
-    "with_searching_images": "isch",
-    "with_searching_news": "nws",
-    "with_searching_patents": "pts",
-    "with_searching_shops": "shop",
-    "with_searching_videos": "vid",
+    "with_searching_at_different_google_pages": "tbm={0}",
+    "with_searching": {
+        "apps": "app",
+        "books": "book",
+        "images": "isch",
+        "news": "nws",
+        "patents": "pts",
+        "shops": "shop",
+        "videos": "vid"
+    },
     "with_starting_at_position": "start={0}"
 }
