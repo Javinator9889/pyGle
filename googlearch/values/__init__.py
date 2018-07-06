@@ -140,3 +140,33 @@ class GooglePages:
     def getGooglePage(self):
         # type: () -> str
         return self.__google_page
+
+
+class GoogleImages:
+    def __init__(self):
+        self.__available_images_modifiers: dict = __google_url_modifiers__["with_image_params"]
+        self.__image_color = None
+
+    def setColor(self, color: str = None):
+        if not color:
+            self.showColors()
+        else:
+            if color in self.__available_images_modifiers:
+                self.__image_color = self.__available_images_modifiers[color]
+            else:
+                print("Color not found. Colors:")
+                self.showColors()
+
+    def showColors(self):
+        self.__print_keys_in_dict("color")
+
+    def showColorTypes(self):
+        self.__print_keys_in_dict("color_type")
+
+    def showImageRights(self):
+        self.__print_keys_in_dict("image_rights")
+
+    def __print_keys_in_dict(self, source_key: str):
+        for key, value in self.__available_images_modifiers[source_key].items():
+            print(key)
+
