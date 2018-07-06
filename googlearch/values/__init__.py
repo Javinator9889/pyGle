@@ -145,17 +145,88 @@ class GooglePages:
 class GoogleImages:
     def __init__(self):
         self.__available_images_modifiers: dict = __google_url_modifiers__["with_image_params"]
-        self.__image_color = None
+        self.__image_params = {
+            "image_color": None,
+            "color_type": None,
+            "rights": None,
+            "size": None,
+            "type": None,
+            "aspect_ratio": None,
+            "image_format": None
+        }
 
     def setColor(self, color: str = None):
         if not color:
             self.showColors()
         else:
-            if color in self.__available_images_modifiers:
-                self.__image_color = self.__available_images_modifiers[color]
+            if color in self.__available_images_modifiers["color"]:
+                self.__image_params["image_color"] = self.__available_images_modifiers["color"][color]
             else:
                 print("Color not found. Colors:")
                 self.showColors()
+
+    def setColorType(self, color_type: str = None):
+        if not color_type:
+            self.showColorTypes()
+        else:
+            if color_type in self.__available_images_modifiers["color_type"]:
+                self.__image_params["color_type"] = self.__available_images_modifiers["color_type"][color_type]
+            else:
+                print("Color-Type not found. Color-Types:")
+                self.showColorTypes()
+
+    def setImageRights(self, rights: str = None):
+        if not rights:
+            self.showImageRights()
+        else:
+            if rights in self.__available_images_modifiers["image_rights"]:
+                self.__image_params["rights"] = self.__available_images_modifiers["image_rights"][rights]
+            else:
+                print("Rights not found. Rights:")
+                self.showImageRights()
+
+    def setImageSize(self, size: str = None):
+        if not size:
+            self.showImageSizes()
+        else:
+            if size in self.__available_images_modifiers["image_size"]:
+                self.__image_params["size"] = self.__available_images_modifiers["image_size"][size]
+            else:
+                print("Size not found. Sizes:")
+                self.showImageSizes()
+
+    def setImageType(self, image_type: str = None):
+        if not image_type:
+            self.showImageTypes()
+        else:
+            if image_type in self.__available_images_modifiers["image_type"]:
+                self.__image_params["type"] = self.__available_images_modifiers["image_type"][image_type]
+            else:
+                print("Image type not found. Types:")
+                self.showImageTypes()
+
+    def setAspectRatio(self, aspect_ratio: str = None):
+        if not aspect_ratio:
+            self.showAspectRatios()
+        else:
+            if aspect_ratio in self.__available_images_modifiers["aspect_ratio"]:
+                self.__image_params["aspect_ratio"] = self.__available_images_modifiers["aspect_ratio"][aspect_ratio]
+            else:
+                print("Aspect ratio not found. Ratios:")
+                self.showAspectRatios()
+
+    def setImageFormat(self, image_format: str = None):
+        if not image_format:
+            self.showImageFormats()
+        else:
+            if image_format in self.__available_images_modifiers["format"]:
+                self.__image_params["image_format"] = self.__available_images_modifiers["format"][image_format]
+            else:
+                print("Format not found. Formats:")
+                self.showImageFormats()
+
+    def getImageParams(self) -> dict:
+        return self.__image_params
 
     def showColors(self):
         self.__print_keys_in_dict("color")
@@ -165,6 +236,18 @@ class GoogleImages:
 
     def showImageRights(self):
         self.__print_keys_in_dict("image_rights")
+
+    def showImageSizes(self):
+        self.__print_keys_in_dict("image_size")
+
+    def showImageTypes(self):
+        self.__print_keys_in_dict("image_type")
+
+    def showAspectRatios(self):
+        self.__print_keys_in_dict("aspect_ratio")
+
+    def showImageFormats(self):
+        self.__print_keys_in_dict("format")
 
     def __print_keys_in_dict(self, source_key: str):
         for key, value in self.__available_images_modifiers[source_key].items():

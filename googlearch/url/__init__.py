@@ -7,7 +7,7 @@
 import requests
 
 from .url_constants import __google_base_url__, __google_url_modifiers__
-from values import TimeLimit, Rights, Languages, Countries, Dates, GooglePages
+from values import TimeLimit, Rights, Languages, Countries, Dates, GooglePages, GoogleImages
 
 
 class GoogleSearch:
@@ -42,6 +42,7 @@ class GoogleSearch:
         self.search_at_different_pages = None
         self.search_at = None
         self.start_position = None
+        self.image_params = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
@@ -168,6 +169,14 @@ class GoogleSearch:
         self.start_position = str(index)
         return self
 
+    def withImageParams(self, params: GoogleImages):
+        params_dict = params.getImageParams()
+        self.image_params = {}
+        for key, value in params_dict.items():
+            if value:
+                self.image_params[key] = value
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
@@ -180,11 +189,17 @@ class URLBuilder:
         if self.params.define and self.params.query:
             raise InvalidCombinationException("You cannot search and define a word at the same time")
         if (self.params.define and self.params.operation) or \
-                (self.params.query and self.params.operation):
+                (self.params.query and self.params.operation) or (self.params.image_params and self.params.operation):
             raise InvalidCombinationException("You cannot search or define a word and perform an operation")
         if self.params.search_between_two_dates and self.params.time_limit:
             raise InvalidCombinationException("You cannot search between two dates and with a time-limit at the "
                                               "same time")
+        if self.params.image_params and self.params.define:
+            raise InvalidCombinationException("You cannot define a word and search an image at the same time")
+        if (self.params.image_params and not self.params.search_at_different_pages) or (
+                self.params.image_params and self.params.search_at_different_pages in ["app", "book", "nws", "pts",
+                                                                                       "shop", "vid"]):
+            raise InvalidCombinationException("You must search at Google Images if you are specifying \"image params\"")
         if not self.params.operation:
             main_query = []
             if self.params.query:
@@ -213,6 +228,7 @@ class URLBuilder:
                     self.params.containing_two_words[0], self.params.containing_two_words[1]))
 
             extra_attributes_query = []
+            tbs_attributes = []
             if self.params.words_in_order:
                 extra_attributes_query.append(
                     __google_url_modifiers__["in_order_displayed"].format(self.params.words_in_order))
@@ -255,14 +271,14 @@ class URLBuilder:
                     __google_url_modifiers__["with_document_county"].format(self.params.document_country))
             if self.params.search_between_two_dates:
                 if self.params.sort_by_update_time:
-                    extra_attributes_query.append(
+                    tbs_attributes.append(
                         __google_url_modifiers__["with_search_between_two_dates_by_update_time"].format(
                             self.params.search_between_two_dates))
                 else:
-                    extra_attributes_query.append(__google_url_modifiers__["with_search_between_two_dates"].format(
+                    tbs_attributes.append(__google_url_modifiers__["with_search_between_two_dates"].format(
                         self.params.search_between_two_dates))
             if self.params.sort_by_update_time and not self.params.search_between_two_dates:
-                extra_attributes_query.append(__google_url_modifiers__["with_search_by_update_time"])
+                tbs_attributes.append(__google_url_modifiers__["with_search_by_update_time"])
             if self.params.search_at_different_pages:
                 extra_attributes_query.append(
                     __google_url_modifiers__["with_searching_at_different_google_pages"].format(
@@ -270,11 +286,25 @@ class URLBuilder:
             if self.params.start_position:
                 extra_attributes_query.append(
                     __google_url_modifiers__["with_starting_at_position"].format(self.params.start_position))
+            if self.params.image_params:
+                for key, value in self.params.image_params.items():
+                    tbs_attributes.append(value)
 
             final_query = '+'.join(main_query)
             final_attributes = '&'.join(extra_attributes_query)
-            return (__google_base_url__ + final_query + '&' + final_attributes) if final_attributes else (
-                    __google_base_url__ + final_query)
+            if len(tbs_attributes) > 0:
+                extra_attributes = __google_url_modifiers__["with_extra_attributes"].format(','.join(tbs_attributes))
+            else:
+                extra_attributes = None
+            if final_attributes and extra_attributes:
+                attributes_query = final_query + '&' + final_attributes + '&' + extra_attributes
+            elif final_attributes:
+                attributes_query = final_query + '&' + final_attributes
+            elif extra_attributes:
+                attributes_query = final_query + '&' + extra_attributes
+            else:
+                attributes_query = final_query
+            return __google_base_url__ + attributes_query
 
         else:
             main_query = [__google_url_modifiers__["query"].format(self.params.operation)]

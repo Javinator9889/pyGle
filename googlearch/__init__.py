@@ -11,19 +11,29 @@ def main():
     import ujson as json
 
     from bs4 import BeautifulSoup
+    from pprint import pprint
+
     from url import GoogleSearch, URLBuilder
-    from values import Countries, TimeLimit, Languages, GooglePages
+    from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
+    from extractor import ImageExtractor
 
     country = Countries()
     country.setCountry("Spain")
+
     lang = Languages()
     lang.setLanguage("Spanish")
+
     limit = TimeLimit()
     limit.setDay()
+
     page = GooglePages()
     page.searchImage()
 
-    prepared_query = GoogleSearch() \
+    image = GoogleImages()
+    image.setImageFormat("jpg")
+    image.setImageSize(">400*300")
+
+    '''prepared_query = GoogleSearch() \
         .withQuery("test") \
         .withContainingTwoTerms("psico", "analysis") \
         .withExcludedWords(["press"]) \
@@ -40,12 +50,16 @@ def main():
         'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134"
                       " Safari/537.36"}
 
-    print(soup.prettify())
+    print(soup.prettify())'''
 
     n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
-        20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page)
-    nbu = URLBuilder(n_p_q).build()
-    print(nbu)
+        20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
+    nbu = URLBuilder(n_p_q)
+    print(nbu.build())
+    extractor = ImageExtractor()
+    result = extractor.extract_url(nbu)
+    pprint(result)
+    '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
     actual_images = []
@@ -57,7 +71,7 @@ def main():
     print(ns.prettify())
     print("There are total: " + str(len(actual_images)) + " images")
     for i, (img_link, img_type) in enumerate(actual_images):
-        print("\t- Image link [" + str(i) + "]: " + img_link + "\n\t\t- Image type [" + str(i) + "]: " + img_type)
+        print("\t- Image link [" + str(i) + "]: " + img_link + "\n\t\t- Image type [" + str(i) + "]: " + img_type)'''
 
 
 if __name__ == '__main__':
