@@ -11,12 +11,13 @@ def main():
     import ujson as json
 
     from bs4 import BeautifulSoup
-    from pprint import pprint
+    import pprint
 
     from url import GoogleSearch, URLBuilder
     from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
-    from extractor import ImageExtractor
+    from extractor import ImageExtractor, SearchExtractor
 
+    pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
     country.setCountry("Spain")
 
@@ -33,7 +34,7 @@ def main():
     image.setImageFormat("jpg")
     image.setImageSize(">400*300")
 
-    '''prepared_query = GoogleSearch() \
+    prepared_query = GoogleSearch() \
         .withQuery("test") \
         .withContainingTwoTerms("psico", "analysis") \
         .withExcludedWords(["press"]) \
@@ -42,6 +43,17 @@ def main():
         .withResultsAtCountry(country) \
         .withResultsLanguage(lang) \
         .withTimeLimit(limit)
+    s_extractor = SearchExtractor()
+    print(URLBuilder(prepared_query).build())
+    sbu = URLBuilder(prepared_query)
+    nr = s_extractor.extract_url(sbu)
+    pp.pprint(nr)
+
+    npq = GoogleSearch().withQuery("pprint").withNumberOfResults(50)
+    print(URLBuilder(npq).build())
+    nr1 = s_extractor.extract_url(URLBuilder(npq))
+    pp.pprint(nr1)
+    '''
     build_url = URLBuilder(prepared_query).build()
     print(build_url)
     data = rq.get(build_url).content
@@ -52,13 +64,14 @@ def main():
 
     print(soup.prettify())'''
 
-    n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
-        20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
-    nbu = URLBuilder(n_p_q)
-    print(nbu.build())
-    extractor = ImageExtractor()
-    result = extractor.extract_url(nbu)
-    pprint(result)
+    # n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
+    #     20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
+    # nbu = URLBuilder(n_p_q)
+    # print(nbu.build())
+    # extractor = ImageExtractor()
+    # result = extractor.extract_url(nbu)
+    # # pprint(result)
+    # pp.pprint(result)
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
