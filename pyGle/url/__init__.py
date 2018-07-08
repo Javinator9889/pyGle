@@ -180,10 +180,10 @@ class GoogleSearch:
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
-        self.params: GoogleSearch = google_search_params
+        self.params = google_search_params
 
     def build(self):
-        # type: () -> str
+        # type: () -> tuple
         from errors import InvalidCombinationException, NullQueryError
 
         if self.params.define and self.params.query:

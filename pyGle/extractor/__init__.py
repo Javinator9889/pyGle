@@ -6,12 +6,16 @@
 #
 import lxml
 import requests
+import urllib.request
+import urllib.parse
+import urlencode as ude
 import ujson as json
 import random
+import time
 
-from bs4 import BeautifulSoup, ResultSet
-from pprint import pprint
+from bs4 import BeautifulSoup
 from concurrent.futures import Future, ThreadPoolExecutor
+from multiprocessing import cpu_count
 
 from url import URLBuilder
 from url.url_constants import __user_agents__
@@ -19,23 +23,29 @@ from errors import GoogleOverloadedException
 
 
 class BaseExtractor:
-    def __init__(self):
+    def __init__(self, must_use_session: bool = False):
         key = random.choice(list(__user_agents__.keys()))
-        # self.headers = {
-        #     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) "
-        #                   "Chrome/43.0.2357.134 Safari/537.36"
-        # }
         self.headers = {"User-Agent": __user_agents__[key]}
-        print(self.headers)
-        # self.headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) "
-        #                               "Chrome/41.0.2228.0 Safari/537.36"}
+        self.cpu_count = cpu_count() * 2
+        self.session = requests.Session() if must_use_session else None
+        # self.http = urllib3.PoolManager()
 
     def extract_url(self, url: URLBuilder) -> Future:
         pass
 
     def obtain_html_object(self, url: URLBuilder) -> BeautifulSoup:
-        built_url = url.build()
-        requested_data = requests.get(built_url, headers=self.headers).content
+        built_url = ude.urlencoder(text=url.build())
+        request = urllib.request.Request(url=built_url[0], headers=self.headers)
+        # with urllib.request.urlopen(request) as web_content:
+        #     requested_data = web_content.read().decode("utf-8")
+        web_content = urllib.request.urlopen(request)
+        requested_data = web_content.read().decode("utf-8")
+        # executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        # executor.submit(web_content.close)
+        # executor.shutdown(wait=False)
+        # requested_data = self.session.get(built_url, headers=self.headers).content if self.session \
+        #     else requests.get(built_url, headers=self.headers).content
+        # requested_data = requests.get(built_url, headers=self.headers).content
         return BeautifulSoup(requested_data, "lxml")
 
     def change_header(self):
@@ -44,10 +54,8 @@ class BaseExtractor:
 
 
 class ImageExtractor(BaseExtractor):
-    def __extractor(self, url: URLBuilder) -> list:
+    def __extractor(self, url: URLBuilder, start_time) -> list:
         html = super().obtain_html_object(url)
-        print(html)
-        html.prettify()
         images = []
         for a in html.find_all("div", {"class": "rg_meta"}):
             image_properties = json.loads(a.text)
@@ -76,39 +84,53 @@ class ImageExtractor(BaseExtractor):
                     "webpage_title": webpage_title
                 }
                 images.append(found_image_properties)
+        images.append({"stats": {"time": str((time.time() - start_time)) + " s", "images_found": len(images)}})
         super().change_header()
         return images
 
     def extract_url(self, url: URLBuilder) -> Future:
-        with ThreadPoolExecutor(max_workers=1) as executor:
-            return executor.submit(self.__extractor, url)
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future
 
 
 class SearchExtractor(BaseExtractor):
-    def __extractor(self, url: URLBuilder) -> list:
+    def __extractor(self, url: URLBuilder, start_time) -> list:
+        print("Performing Google request... | " + str(time.time() - start_time) + " s")
         html = super().obtain_html_object(url)
+        print("Google request done! | " + str(time.time() - start_time) + " s")
         search_results = []
+        print("Finding \"div\" classes... | " + str(time.time() - start_time) + " s")
         results_areas = html.find_all("div", {"class": "srg"})
+        print("\"div\" classes found! | " + str(time.time() - start_time) + " s")
         for section in results_areas:
             found_results = section.find_all("div", {"class": "g"})
             for result in found_results:
                 try:
+                    print("Searching title... | " + str(time.time() - start_time) + " s")
                     search_title_object = result.find_all("h3", {"class": "r"})[0].find_all("a")
                     link = search_title_object[0].get("href")
                     web_page_title = search_title_object[0].string
+                    print("Title found! | " + str(time.time() - start_time) + " s")
                 except IndexError:
                     link = "unavailable"
                     web_page_title = "unavailable"
                 try:
+                    print("Finding more info... | " + str(time.time() - start_time) + " s")
                     more_info = result.find_all("div", {"class": "s"})[0]
+                    print("More info found! | " + str(time.time() - start_time) + " s")
                 except IndexError:
                     raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
                                                     "proxy mode or wait for a few minutes")
                 try:
+                    print("Finding cached version... | " + str(time.time() - start_time) + " s")
                     web_cache_version = more_info.find_all("li",
                                                            {"class": "action-menu-item ab_dropdownitem",
                                                             "role": "menuitem"})[0]
                     web_cache_link = web_cache_version.find_all("a", {"class": "fl"})[0].get("href")
+                    print("Cached version found! | " + str(time.time() - start_time) + " s")
                 except IndexError:
                     web_cache_link = "unavailable"
                 search_more_data = more_info.find_all("span", {"class": "st"})[0]
@@ -159,55 +181,16 @@ class SearchExtractor(BaseExtractor):
             stats = "unavailable"
         search_results.append({"how_many_results": len(search_results),
                                "related_search": related_search,
-                               "stats": stats})
+                               "google_stats": stats,
+                               "stats": {
+                                   "time": str((time.time() - start_time)) + " s"
+                               }})
         super().change_header()
         return search_results
 
     def extract_url(self, url: URLBuilder) -> Future:
-        executor = ThreadPoolExecutor(max_workers=1)
-        future = executor.submit(self.__extractor, url)
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
         return future
-        # return executor.submit(self.__extractor, url)
-        # '''pprint(html.find_all("div", {"class": "g"}))
-        # search_results = []
-        # for results in html.find_all("div", {"class": "g"}):
-        #     pprint(results)
-        #     for result_title in results.find_all("h3", {"class": "r"}):
-        #         link = result_title.a.get("href")
-        #         title = result_title.a.string
-        #     for result_data in results.find_all("div", {"class": "s"}):
-        #         web_cache_obj = result_data.find_all("li",
-        #                                              {"class": "action-menu-item ab_dropdownitem", "role": "menuitem"})
-        #         web_cache_url = web_cache_obj.find_all("a").get("href")
-        #         responses = result_data.find_all("div", {"class": "slp f"}).string
-        #         description_obj = result_data.find_all("span", {"class": "st"})
-        #         date = description_obj.find_all("span", {"class": "f"}).string
-        #         description = description_obj.string
-        #         other_results_found = result_data.find_all("div", {"class": "P1usbc"})
-        #         other_results = []
-        #         for related_search_pages in other_results_found.find_all("a", {"class": "fl"}):
-        #             other_results.append({
-        #                 "link": related_search_pages.get("href"),
-        #                 "name": related_search_pages.string
-        #             })
-        #     search_results.append({
-        #         "link": link,
-        #         "title": title,
-        #         "cached_web_page": web_cache_url,
-        #         "responses": responses,
-        #         "date": date,
-        #         "description": description,
-        #         "other_results": other_results
-        #     })
-        # return search_results
-
-        # import re
-        #
-        # html = super().obtain_html_object(url)
-        # # available_links = html.find_all("a")
-        # search_results = []
-        #
-        # for link in html.find_all("a", href=re.compile("(?<=/url\?q=)(htt.*://.*)")):
-        #     search_results.append(re.split(":(?=http)", link["href"].replace("/url?q=", "")))
-        #
-        # return search_results

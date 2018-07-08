@@ -12,6 +12,7 @@ def main():
 
     from bs4 import BeautifulSoup
     import pprint
+    import time
 
     from url import GoogleSearch, URLBuilder
     from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
@@ -43,19 +44,33 @@ def main():
         .withResultsAtCountry(country) \
         .withResultsLanguage(lang) \
         .withTimeLimit(limit)
-    s_extractor = SearchExtractor()
+    s_extractor = SearchExtractor(True)
     print(URLBuilder(prepared_query).build())
     # sbu = URLBuilder(prepared_query)
     # nr = s_extractor.extract_url(sbu)
     # pp.pprint(nr)
 
-    npq = GoogleSearch().withQuery("medico").withNumberOfResults(20)
-    print(URLBuilder(npq).build())
-    nr1 = s_extractor.extract_url(URLBuilder(npq))
-    print("Waiting for values...")
-    result = nr1.result(1)
-    ex = nr1.exception()
-    pp.pprint((result, ex))
+    npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
+        .withResultsLanguage(lang)
+    url = URLBuilder(npq).build()
+    for i in range(20):
+        print(url)
+        nr1 = s_extractor.extract_url(URLBuilder(npq))
+        print("Waiting for values...")
+        result = nr1.result(10)
+        ex = nr1.exception()
+        if ex:
+            print(ex)
+        pp.pprint(result)
+        time.sleep(0.5)
+    # start_time = time.time()
+    # data = rq.get(url)
+    # end_time = time.time()
+    # print("Data time: " + str((end_time - start_time)) + " s")
+    # start_time = time.time()
+    # content = data.content
+    # end_time = time.time()
+    # print("Content time: " + str((end_time - start_time)) + " s")
     '''
     build_url = URLBuilder(prepared_query).build()
     print(build_url)
@@ -74,7 +89,7 @@ def main():
     # extractor = ImageExtractor()
     # result = extractor.extract_url(nbu)
     # # pprint(result)
-    # pp.pprint(result)
+    # pp.pprint(result.result())
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
