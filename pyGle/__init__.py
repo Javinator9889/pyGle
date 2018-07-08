@@ -44,7 +44,7 @@ def main():
         .withResultsAtCountry(country) \
         .withResultsLanguage(lang) \
         .withTimeLimit(limit)
-    s_extractor = SearchExtractor(True)
+    s_extractor = SearchExtractor(must_use_session=True, with_history_enabled=True)
     print(URLBuilder(prepared_query).build())
     # sbu = URLBuilder(prepared_query)
     # nr = s_extractor.extract_url(sbu)
@@ -54,15 +54,14 @@ def main():
         .withResultsLanguage(lang)
     url = URLBuilder(npq).build()
     for i in range(20):
-        print(url)
+        # print(url)
         nr1 = s_extractor.extract_url(URLBuilder(npq))
-        print("Waiting for values...")
+        # print("Waiting for values...")
         result = nr1.result(10)
         ex = nr1.exception()
         if ex:
             print(ex)
         pp.pprint(result)
-        time.sleep(0.5)
     # start_time = time.time()
     # data = rq.get(url)
     # end_time = time.time()
@@ -81,15 +80,17 @@ def main():
                       " Safari/537.36"}
 
     print(soup.prettify())'''
-
-    # n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
-    #     20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
-    # nbu = URLBuilder(n_p_q)
-    # print(nbu.build())
-    # extractor = ImageExtractor()
-    # result = extractor.extract_url(nbu)
-    # # pprint(result)
-    # pp.pprint(result.result())
+    extractor = ImageExtractor(must_use_session=True, with_history_enabled=True)
+    for m in range(20):
+        n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
+            20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
+        nbu = URLBuilder(n_p_q)
+        # print(nbu.build())
+        result = extractor.extract_url(nbu)
+        # pprint(result)
+        pp.pprint(result.result())
+    s_extractor.printOverallTime()
+    extractor.printOverallTime()
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
