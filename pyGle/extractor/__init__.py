@@ -71,7 +71,7 @@ class BaseExtractor:
 
 
 class ImageExtractor(BaseExtractor):
-    def __extractor(self, url: URLBuilder, start_time) -> list:
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
         html = super().obtain_html_object(url)
         images = []
         for a in html.find_all("div", {"class": "rg_meta"}):
@@ -196,7 +196,7 @@ class SearchExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
-    def __extractor(self, url: URLBuilder, start_time) -> list:
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
         html = super().obtain_html_object(url)
         search_results = []
         results_areas = html.find_all("div", {"class": "srg"})
@@ -239,3 +239,61 @@ class SearchExtractor(BaseExtractor):
         future = executor.submit(self.__extractor, url, start_time)
         executor.shutdown(wait=False)
         return future
+
+
+class NewsExtractor(BaseExtractor):
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future
+
+    @staticmethod
+    def __obtain_thumbnail(picture_class) -> str:
+        try:
+            image = picture_class.find_all("a")[0].find(itemprop="image")
+            return image["src"]
+        except IndexError:
+            return "unavailable"
+
+    @staticmethod
+    def __get_title_link(html) -> tuple:
+        try:
+            header = html.find_all("h3", {"class": "r dO0Ag"})[0].find_all("a")[0]
+            link = header.get("href")
+            title = header.string
+        except IndexError:
+            link = "unavailable"
+            title = "unavailable"
+        return link, title
+
+    @staticmethod
+    def __obtain_publisher_date_extra(main_content) -> tuple:
+        publisher = main_content.find("span", {"class": "xQ82C e8fRJf"})
+        if not publisher:
+            publisher = "unavailable"
+        date = main_content.find("span", {"class": "f nsa fwzPFf"})
+        if not date:
+            date = "unavailable"
+        extra = main_content.find("span", {"class": "HgetDe DwKiF"})
+        return publisher, date, extra
+
+    @staticmethod
+    def __obtain_description(main_content) -> str:
+        description = main_content.text
+        return description if description else "unavailable"
+
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
+        html = super().obtain_html_object(url)
+        news_results = []
+        results_area = html.find_all("div", {"id": "ires"})[0]
+        found_results = results_area.find_all("div", {"class": "g"})
+        for result in found_results:
+            main_content = result.find_all("div", {"class": "gG0TJc"})[0]
+            thumbnail = self.__obtain_thumbnail(main_content.find_all("div",
+                                                                      {"class":  "ts Pg8zWb b80nOe C1Iii FddHQd tsUanb"}
+                                                                      ))
+            link, title = self.__obtain_thumbnail(main_content)
+            publisher, date, extra = self.__obtain_publisher_date_extra(main_content.find("div", {"class": "slp"}))
+            description = self.__obtain_description(main_content.find("div", {"class": "st"}))z
