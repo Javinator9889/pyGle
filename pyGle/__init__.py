@@ -24,7 +24,7 @@ def main():
 
     from url import GoogleSearch, URLBuilder
     from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
-    from extractor import ImageExtractor, SearchExtractor, NewsExtractor
+    from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -46,6 +46,12 @@ def main():
     news = GooglePages()
     news.searchNews()
 
+    vid = GooglePages()
+    vid.searchVideos()
+
+    patents = GooglePages()
+    patents.searchPatents()
+
     prepared_query = GoogleSearch() \
         .withQuery("test") \
         .withContainingTwoTerms("psico", "analysis") \
@@ -62,9 +68,19 @@ def main():
     # nr = s_extractor.extract_url(sbu)
     # pp.pprint(nr)
 
-    # npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
-    #     .withResultsLanguage(lang)
-    # url = URLBuilder(npq).build()
+    npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
+        .withResultsLanguage(lang)
+    npq2 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
+        .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(vid)
+    npq3 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
+        .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(patents)
+    url = URLBuilder(npq3).build()
+    print(url)
+    # v_extractor = VideoExtractor(with_history_enabled=True)
+    # res = v_extractor.extract_url(URLBuilder(npq2))
+    # pp.pprint(res.result())
+    # v_extractor.printOverallTime()
+    #
     # for i in range(10):
     #     # print(url)
     #     nr1 = s_extractor.extract_url(URLBuilder(npq))
@@ -74,6 +90,7 @@ def main():
     #     if ex:
     #         print(ex)
     #     pp.pprint(result)
+    # s_extractor.printOverallTime()
 
     # start_time = time.time()
     # data = rq.get(url)
@@ -105,13 +122,13 @@ def main():
     # s_extractor.printOverallTime()
     # extractor.printOverallTime()
 
-    npqa = GoogleSearch().withQuery("tailandia").withResultsLanguage(lang).withTimeLimit(limit)\
-        .withSearchingAtDifferentGooglePages(news)
-    print(URLBuilder(npqa).build())
-    news_ex = NewsExtractor(with_history_enabled=True, must_use_session=False)
-    rs = news_ex.extract_url(URLBuilder(npqa))
-    # try:
-    pp.pprint(rs.result())
+    # npqa = GoogleSearch().withQuery("tailandia").withResultsLanguage(lang).withTimeLimit(limit)\
+    #     .withSearchingAtDifferentGooglePages(news)
+    # print(URLBuilder(npqa).build())
+    # news_ex = NewsExtractor(with_history_enabled=True, must_use_session=False)
+    # rs = news_ex.extract_url(URLBuilder(npqa))
+    # # try:
+    # pp.pprint(rs.result())
     # except Exception as e:
     #     print(str(e))
     '''print(nbu)

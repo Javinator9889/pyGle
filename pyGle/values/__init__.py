@@ -144,7 +144,7 @@ class GooglePages:
 
 class GoogleImages:
     def __init__(self):
-        self.__available_images_modifiers: dict = __google_url_modifiers__["with_image_params"]
+        self.__available_images_modifiers = __google_url_modifiers__["with_image_params"]
         self.__image_params = {
             "image_color": None,
             "color_type": None,

@@ -60,20 +60,29 @@ class BaseExtractor:
     def getHistory(self) -> list:
         return self.history
 
-    def getOverallTime(self) -> float:
+    def getOverallTime(self) -> tuple:
         if self.history:
-            amount = 0
+            time_amount = 0
+            google_search_amount = 0
+            parsing_elements_amount = 0
+            length = len(self.history)
             for element in self.history:
-                amount += float(element[len(element) - 1]["stats"]["time"].replace(" s", ''))
-            return amount / len(self.history)
+                element_length = len(element) - 1
+                time_amount += float(element[element_length]["stats"]["overall_time"].replace(" s", ''))
+                google_search_amount += float(element[element_length]["stats"]["google_search_time"].replace(" s", ''))
+                parsing_elements_amount += float(
+                    element[element_length]["stats"]["parsing_page_time"].replace(" s", ''))
+            return (time_amount / length), (google_search_amount / length), (parsing_elements_amount / length)
         else:
-            return -1
+            return -1, -1, -1
 
     def printOverallTime(self):
-        overall = self.getOverallTime()
-        if overall != -1:
+        overall_time, google_search, parsing_elements = self.getOverallTime()
+        if overall_time != -1:
             print("Total requests: " + str(len(self.history)))
-            print("Overall time: " + str(overall))
+            print("Overall time: " + str(overall_time))
+            print("Google search overall time: " + str(google_search))
+            print("Parsing elements overall time: " + str(parsing_elements))
         else:
             print("History is disabled or not petition has been done yet")
 
@@ -386,6 +395,119 @@ class NewsExtractor(BaseExtractor):
             self.history.append(news_results)
         super().change_header()
         return news_results
+
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future
+
+
+class VideoExtractor(BaseExtractor):
+    @staticmethod
+    def __get_web_page_title_link(web_section) -> tuple:
+        try:
+            search_title_object = web_section.find_all("h3", {"class": "r"})[0].find_all("a")
+            link = search_title_object[0].get("href")
+            web_page_title = search_title_object[0].string
+        except IndexError:
+            link = "unavailable"
+            web_page_title = "unavailable"
+        return link, web_page_title
+
+    @staticmethod
+    def __obtain_detailed_section(web_section) -> BeautifulSoup:
+        try:
+            return web_section.find_all("div", {"class": "s"})[0]
+        except IndexError:
+            raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
+                                            "proxy mode or wait for a few minutes")
+
+    @staticmethod
+    def __obtain_thumbnail(web_section) -> str:
+        try:
+            thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("g-img").find("img")
+            return thumbnail_section.get("src")
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_duration(web_section) -> str:
+        try:
+            thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("span", {"class": "vdur"})
+            return thumbnail_section.get_text(strip=True).replace("▶", '').strip()
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_location(web_section) -> str:
+        try:
+            data_section = web_section.find("div", class_="hJND5c").find("cite")
+            return data_section.get_text(strip=True)
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_date(web_section) -> str:
+        try:
+            date_section = web_section.find("div", class_="slp f")
+            return date_section.get_text(strip=True)
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_description(web_section) -> str:
+        try:
+            desc_section = web_section.find("span", {"class": "st"})
+            return desc_section.get_text(strip=True)
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_stats(origin_html):
+        try:
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].get_text(strip=True)
+        except IndexError:
+            stats = "unavailable"
+        return stats
+
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
+        html, search_time = super().obtain_html_object(url)
+        vid_results = []
+        elements_start_time = time.time()
+        results_areas = html.find_all("div", {"class": "srg"})
+        for section in results_areas:
+            found_results = section.find_all("div", {"class": "g"})
+            for result in found_results:
+                link, title = self.__get_web_page_title_link(result)
+                more_info = self.__obtain_detailed_section(result)
+                thumbnail = self.__obtain_thumbnail(more_info)
+                duration = self.__obtain_duration(more_info)
+                date = self.__obtain_date(more_info)
+                description = self.__obtain_description(more_info)
+                vid_results.append({
+                    "title": title,
+                    "link": link,
+                    "description": description,
+                    "date": date,
+                    "duration": duration,
+                    "thumbnail": thumbnail
+                })
+                # search_more_data = more_info.find_all("span", {"class": "st"})[0]
+        stats = self.__obtain_stats(html)
+        elements_end_time = time.time()
+        vid_results.append({"how_many_results": len(vid_results),
+                            "google_stats": stats,
+                            "stats": {
+                                "overall_time": str((time.time() - start_time)) + " s",
+                                "google_search_time": str(search_time) + " s",
+                                "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
+                            }})
+        if self.history is not None:
+            self.history.append(vid_results)
+        super().change_header()
+        return vid_results
 
     def extract_url(self, url: URLBuilder) -> Future:
         start_time = time.time()
