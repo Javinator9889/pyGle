@@ -25,7 +25,6 @@ class BaseExtractor:
     def __init__(self, must_use_session: bool = False, with_history_enabled: bool = False):
         key = random.choice(list(__user_agents__.keys()))
         self.headers = {"User-Agent": __user_agents__[key]}
-        print("Using User-Agent: " + __user_agents__[key])
         self.cpu_count = cpu_count() * 2
         self.session_cookies = {"cookie": None} if must_use_session else {"cookie": "disabled"}
         self.history = [] if with_history_enabled else None
@@ -82,7 +81,7 @@ class ImageExtractor(BaseExtractor):
         html = super().obtain_html_object(url)
         images = []
         for a in html.find_all("div", {"class": "rg_meta"}):
-            image_properties = json.loads(a.text)
+            image_properties = json.loads(a.get_text(strip=True))
             link = image_properties.get("ou", None)
             if link:
                 image_format = image_properties.get("ity", "unknown")
@@ -168,8 +167,8 @@ class SearchExtractor(BaseExtractor):
             for related_page in detailed_section.find_all("div", {"class": "VNLkW"}):
                 page_info = {}
                 related_link = related_page.find_all("a", {"class": "fl"})[0].get("href")
-                related_title = related_page.find_all("a", {"class": "fl"})[0].text
-                related_date = related_page.find_all("div", {"class": "G1Rrjc"})[1].text
+                related_title = related_page.find_all("a", {"class": "fl"})[0].get_text(strip=True)
+                related_date = related_page.find_all("div", {"class": "G1Rrjc"})[1].get_text(strip=True)
                 if related_link:
                     page_info["link"] = related_link
                 if related_title:
@@ -190,7 +189,7 @@ class SearchExtractor(BaseExtractor):
             related_search_result = origin_html.find_all("div", {"class": "card-section"})[0]
             related_search = []
             for other_search in related_search_result.find_all("a"):
-                related_search.append(other_search.text)
+                related_search.append(other_search.get_text(strip=True))
         except IndexError:
             related_search = "unavailable"
         return related_search
@@ -198,7 +197,7 @@ class SearchExtractor(BaseExtractor):
     @staticmethod
     def __obtain_stats(origin_html):
         try:
-            stats = origin_html.find_all("div", {"id": "resultStats"})[0].text
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].get_text(strip=True)
         except IndexError:
             stats = "unavailable"
         return stats
@@ -216,7 +215,7 @@ class SearchExtractor(BaseExtractor):
                 search_more_data = more_info.find_all("span", {"class": "st"})[0]
                 date = self.__obtain_date(search_more_data)
                 related_pages = self.__obtain_related_pages(more_info)
-                description = search_more_data.text.replace(date, '', 1)
+                description = search_more_data.get_text(strip=True).replace(date, '', 1)
                 current_results = {
                     "link": link,
                     "title": web_page_title,
@@ -252,16 +251,34 @@ class NewsExtractor(BaseExtractor):
     @staticmethod
     def __obtain_thumbnail(picture_class) -> str:
         try:
-            return picture_class.find("a", {"class": "top NQHJEb dfhHve"}).find("img").get("src")
+            a_section = picture_class.find("a", {"class": "top NQHJEb dfhHve"})
+            image_found = a_section.find("img", {"class": "th BbeB2d"}).get("src")
+            return image_found if NewsExtractor.__is_valid_url(image_found) else "base64 image - URL not available"
+            # return picture_class.find("a", {"class": "top NQHJEb dfhHve"}).find("img", {"class": "th BbeB2d"})\
+            #     .get("src")
         except AttributeError:
             return "unavailable"
+
+    @staticmethod
+    def __is_valid_url(url) -> bool:
+        import re
+
+        # From: https://stackoverflow.com/questions/7160737/python-how-to-validate-a-url-in-python-malformed-or-not
+        regex = re.compile(
+            r'^(?:http|ftp)s?://'  # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
+            r'localhost|'  # localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
+            r'(?::\d+)?'  # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        return re.match(regex, url) is not None
 
     @staticmethod
     def __get_title_link(html) -> tuple:
         try:
             header = html.find_all("h3", {"class": "r dO0Ag"})[0].find_all("a")[0]
             link = header.get("href")
-            title = header.text
+            title = header.get_text(strip=True)
         except IndexError:
             link = "unavailable"
             title = "unavailable"
@@ -269,35 +286,38 @@ class NewsExtractor(BaseExtractor):
 
     @staticmethod
     def __obtain_publisher_date_extra(main_content) -> tuple:
-        publisher = main_content.find("span", {"class": "xQ82C e8fRJf"}).text
+        publisher = main_content.find("span", {"class": "xQ82C e8fRJf"}).get_text(strip=True)
         if not publisher:
             publisher = "unavailable"
-        date = main_content.find("span", {"class": "f nsa fwzPFf"}).text
+        date = main_content.find("span", {"class": "f nsa fwzPFf"}).get_text(strip=True)
         if not date:
             date = "unavailable"
         extra_data = main_content.find("span", {"class": "HgetDe DwKiF"})
-        extra = extra_data.text if extra_data else None
+        extra = extra_data.get_text(strip=True) if extra_data else None
         return publisher, date, extra
 
     @staticmethod
     def __obtain_description(main_content) -> str:
-        description = main_content.text
+        description = main_content.get_text(strip=True)
         return description if description else "unavailable"
 
     @staticmethod
     def __obtain_related_articles(section) -> list:
-        try:
-            found_articles = []
-            articles = section.find_all("div", class_="card-section")
-            for article in articles:
-                article_attributes = {}
+        # try:
+        found_articles = []
+        articles = section.find_all("div", class_="card-section")
+        # print(len(articles))
+        # print(articles)
+        for article in articles:
+            article_attributes = {}
+            try:
                 title_data = article.find("a", {"class": "RTNUJf"})
-                title = title_data.text
+                title = title_data.get_text(strip=True)
                 link = title_data.get("href")
-                publisher = article.find("span", class_="xQ82C").text
-                date = article.find("span", class_="fwzPFf").text
+                publisher = article.find("span", class_="xQ82C").get_text(strip=True)
+                date = article.find("span", class_="fwzPFf").get_text(strip=True)
                 extra_data = article.find("span", class_="HgetDe")
-                extra = extra_data.text if extra_data else None
+                extra = extra_data.get_text(strip=True) if extra_data else None
                 article_attributes["title"] = title if title else "unavailable"
                 article_attributes["link"] = link if link else "unavailable"
                 article_attributes["publisher"] = publisher if publisher else "unavailable"
@@ -305,13 +325,14 @@ class NewsExtractor(BaseExtractor):
                 if extra:
                     article_attributes["extra"] = extra
                 found_articles.append(article_attributes)
-        except AttributeError:
-            return []
+            except AttributeError:
+                pass
+        return found_articles
 
     @staticmethod
     def __obtain_stats(origin_html):
         try:
-            stats = origin_html.find_all("div", {"id": "resultStats"})[0].text
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].get_text(strip=True)
         except IndexError:
             stats = "unavailable"
         return stats
@@ -323,9 +344,7 @@ class NewsExtractor(BaseExtractor):
         found_results = results_area.find_all("div", {"class": "g"})
         for result in found_results:
             main_content = result.find_all("div", {"class": "gG0TJc"})[0]
-            thumbnail = self.__obtain_thumbnail(result.find("div",
-                                                            {"class": "ts Pg8zWb b80nOe C1Iii FddHQd tsUanb"}
-                                                            ))
+            thumbnail = self.__obtain_thumbnail(result.find("div", class_="ts"))
             link, title = self.__get_title_link(main_content)
             publisher, date, extra = self.__obtain_publisher_date_extra(main_content.find("div", {"class": "slp"}))
             description = self.__obtain_description(main_content.find("div", {"class": "st"}))

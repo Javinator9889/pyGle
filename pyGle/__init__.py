@@ -6,6 +6,14 @@
 #
 
 
+def torify():
+    import socks
+    import socket
+
+    socks.set_default_proxy(proxy_type=socks.PROXY_TYPE_SOCKS5, addr="127.0.0.1", port=9050)
+    socket.socket = socks.socksocket
+
+
 def main():
     import requests as rq
     import ujson as json
@@ -47,6 +55,7 @@ def main():
         .withResultsAtCountry(country) \
         .withResultsLanguage(lang) \
         .withTimeLimit(limit)
+    # torify()
     s_extractor = SearchExtractor(must_use_session=True, with_history_enabled=True)
     # print(URLBuilder(prepared_query).build())
     # sbu = URLBuilder(prepared_query)
@@ -101,7 +110,10 @@ def main():
     print(URLBuilder(npqa).build())
     news_ex = NewsExtractor(with_history_enabled=True, must_use_session=False)
     rs = news_ex.extract_url(URLBuilder(npqa))
+    # try:
     pp.pprint(rs.result())
+    # except Exception as e:
+    #     print(str(e))
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
