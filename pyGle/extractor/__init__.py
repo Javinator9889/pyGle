@@ -5,14 +5,11 @@
 #                 under certain conditions; type "-L" for details.
 #
 import lxml
-import requests
 import urllib.request
 import urllib.parse
-import urlencode as ude
 import ujson as json
 import random
 import time
-import httplib2
 
 from bs4 import BeautifulSoup
 from concurrent.futures import Future, ThreadPoolExecutor
@@ -28,27 +25,24 @@ class BaseExtractor:
         key = random.choice(list(__user_agents__.keys()))
         self.headers = {"User-Agent": __user_agents__[key]}
         self.cpu_count = cpu_count() * 2
-        self.session = requests.Session() if must_use_session else None
+        self.session_cookies = {"cookie": None} if must_use_session else {"cookie": "disabled"}
         self.history = [] if with_history_enabled else None
 
     def extract_url(self, url: URLBuilder) -> Future:
         pass
 
     def obtain_html_object(self, url: URLBuilder) -> BeautifulSoup:
-        built_url = ude.urlencoder(text=url.build())
-        # h = httplib2.Http(".cache")
-        # resp, content = h.request(url.build(), "GET", headers=self.headers)
-        request = urllib.request.Request(url=built_url[0], headers=self.headers)
-        # with urllib.request.urlopen(request) as web_content:
-        #     requested_data = web_content.read().decode("utf-8")
+        built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
+        request = urllib.request.Request(url=built_url, headers=self.headers)
+        if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
+            request.add_header("cookie", self.session_cookies["cookie"])
         web_content = urllib.request.urlopen(request)
+        if self.session_cookies["cookie"] != "disabled":
+            self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
         requested_data = web_content.read().decode("utf-8")
         local_executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         local_executor.submit(web_content.close)
         local_executor.shutdown(wait=False)
-        # requested_data = self.session.get(built_url, headers=self.headers).content if self.session \
-        #     else requests.get(built_url, headers=self.headers).content
-        # requested_data = requests.get(built_url, headers=self.headers).content
         return BeautifulSoup(requested_data, "lxml")
 
     def change_header(self):

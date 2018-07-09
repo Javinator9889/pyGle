@@ -4,8 +4,6 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-import requests
-
 from .url_constants import __google_base_url__, __google_url_modifiers__
 from values import TimeLimit, Rights, Languages, Countries, Dates, GooglePages, GoogleImages
 
@@ -308,4 +306,4 @@ class URLBuilder:
 
         else:
             main_query = [__google_url_modifiers__["query"].format(self.params.operation)]
-            return __google_base_url__ + requests.utils.quote(main_query[0])
+            return __google_base_url__ + main_query[0]

@@ -35,6 +35,9 @@ def main():
     image.setImageFormat("jpg")
     image.setImageSize(">400*300")
 
+    news = GooglePages()
+    news.searchNews()
+
     prepared_query = GoogleSearch() \
         .withQuery("test") \
         .withContainingTwoTerms("psico", "analysis") \
@@ -53,7 +56,7 @@ def main():
     npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
         .withResultsLanguage(lang)
     url = URLBuilder(npq).build()
-    for i in range(20):
+    for i in range(10):
         # print(url)
         nr1 = s_extractor.extract_url(URLBuilder(npq))
         # print("Waiting for values...")
@@ -81,9 +84,9 @@ def main():
 
     print(soup.prettify())'''
     extractor = ImageExtractor(must_use_session=True, with_history_enabled=True)
-    for m in range(20):
+    for m in range(10):
         n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
-            20).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
+            10).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
         nbu = URLBuilder(n_p_q)
         # print(nbu.build())
         result = extractor.extract_url(nbu)
@@ -91,6 +94,10 @@ def main():
         pp.pprint(result.result())
     s_extractor.printOverallTime()
     extractor.printOverallTime()
+
+    npqa = GoogleSearch().withQuery("tailandia").withResultsLanguage(lang).withTimeLimit(limit)\
+        .withSearchingAtDifferentGooglePages(news)
+    print(URLBuilder(npqa).build())
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')
