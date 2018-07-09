@@ -7,6 +7,7 @@
 import lxml
 import urllib.request
 import urllib.parse
+import urllib.error
 import ujson as json
 import random
 import time
@@ -17,13 +18,14 @@ from multiprocessing import cpu_count
 
 from url import URLBuilder
 from url.url_constants import __user_agents__
-from errors import GoogleOverloadedException
+from errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 
 
 class BaseExtractor:
     def __init__(self, must_use_session: bool = False, with_history_enabled: bool = False):
         key = random.choice(list(__user_agents__.keys()))
         self.headers = {"User-Agent": __user_agents__[key]}
+        print("Using User-Agent: " + __user_agents__[key])
         self.cpu_count = cpu_count() * 2
         self.session_cookies = {"cookie": None} if must_use_session else {"cookie": "disabled"}
         self.history = [] if with_history_enabled else None
@@ -32,18 +34,23 @@ class BaseExtractor:
         pass
 
     def obtain_html_object(self, url: URLBuilder) -> BeautifulSoup:
-        built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
-        request = urllib.request.Request(url=built_url, headers=self.headers)
-        if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
-            request.add_header("cookie", self.session_cookies["cookie"])
-        web_content = urllib.request.urlopen(request)
-        if self.session_cookies["cookie"] != "disabled":
-            self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
-        requested_data = web_content.read().decode("utf-8")
-        local_executor = ThreadPoolExecutor(max_workers=self.cpu_count)
-        local_executor.submit(web_content.close)
-        local_executor.shutdown(wait=False)
-        return BeautifulSoup(requested_data, "lxml")
+        try:
+            built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
+            request = urllib.request.Request(url=built_url, headers=self.headers)
+            if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
+                request.add_header("cookie", self.session_cookies["cookie"])
+            web_content = urllib.request.urlopen(request)
+            if self.session_cookies["cookie"] != "disabled":
+                self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
+            requested_data = web_content.read().decode("utf-8")
+            local_executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+            local_executor.submit(web_content.close)
+            local_executor.shutdown(wait=False)
+            return BeautifulSoup(requested_data, "lxml")
+        except urllib.error.HTTPError as request_error:
+            raise GoogleBlockingConnectionsError("It looks like Google is blocking errors.\n\t- Headers: "
+                                                 + str(request_error.headers) + "\n\t- Error: "
+                                                 + request_error.read().decode("utf-8"))
 
     def change_header(self):
         new_key = random.choice(list(__user_agents__.keys()))
@@ -242,19 +249,11 @@ class SearchExtractor(BaseExtractor):
 
 
 class NewsExtractor(BaseExtractor):
-    def extract_url(self, url: URLBuilder) -> Future:
-        start_time = time.time()
-        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
-        future = executor.submit(self.__extractor, url, start_time)
-        executor.shutdown(wait=False)
-        return future
-
     @staticmethod
     def __obtain_thumbnail(picture_class) -> str:
         try:
-            image = picture_class.find_all("a")[0].find(itemprop="image")
-            return image["src"]
-        except IndexError:
+            return picture_class.find("a", {"class": "top NQHJEb dfhHve"}).find("img").get("src")
+        except AttributeError:
             return "unavailable"
 
     @staticmethod
@@ -262,7 +261,7 @@ class NewsExtractor(BaseExtractor):
         try:
             header = html.find_all("h3", {"class": "r dO0Ag"})[0].find_all("a")[0]
             link = header.get("href")
-            title = header.string
+            title = header.text
         except IndexError:
             link = "unavailable"
             title = "unavailable"
@@ -270,19 +269,52 @@ class NewsExtractor(BaseExtractor):
 
     @staticmethod
     def __obtain_publisher_date_extra(main_content) -> tuple:
-        publisher = main_content.find("span", {"class": "xQ82C e8fRJf"})
+        publisher = main_content.find("span", {"class": "xQ82C e8fRJf"}).text
         if not publisher:
             publisher = "unavailable"
-        date = main_content.find("span", {"class": "f nsa fwzPFf"})
+        date = main_content.find("span", {"class": "f nsa fwzPFf"}).text
         if not date:
             date = "unavailable"
-        extra = main_content.find("span", {"class": "HgetDe DwKiF"})
+        extra_data = main_content.find("span", {"class": "HgetDe DwKiF"})
+        extra = extra_data.text if extra_data else None
         return publisher, date, extra
 
     @staticmethod
     def __obtain_description(main_content) -> str:
         description = main_content.text
         return description if description else "unavailable"
+
+    @staticmethod
+    def __obtain_related_articles(section) -> list:
+        try:
+            found_articles = []
+            articles = section.find_all("div", class_="card-section")
+            for article in articles:
+                article_attributes = {}
+                title_data = article.find("a", {"class": "RTNUJf"})
+                title = title_data.text
+                link = title_data.get("href")
+                publisher = article.find("span", class_="xQ82C").text
+                date = article.find("span", class_="fwzPFf").text
+                extra_data = article.find("span", class_="HgetDe")
+                extra = extra_data.text if extra_data else None
+                article_attributes["title"] = title if title else "unavailable"
+                article_attributes["link"] = link if link else "unavailable"
+                article_attributes["publisher"] = publisher if publisher else "unavailable"
+                article_attributes["date"] = date if date else "unavailable"
+                if extra:
+                    article_attributes["extra"] = extra
+                found_articles.append(article_attributes)
+        except AttributeError:
+            return []
+
+    @staticmethod
+    def __obtain_stats(origin_html):
+        try:
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].text
+        except IndexError:
+            stats = "unavailable"
+        return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
         html = super().obtain_html_object(url)
@@ -291,9 +323,40 @@ class NewsExtractor(BaseExtractor):
         found_results = results_area.find_all("div", {"class": "g"})
         for result in found_results:
             main_content = result.find_all("div", {"class": "gG0TJc"})[0]
-            thumbnail = self.__obtain_thumbnail(main_content.find_all("div",
-                                                                      {"class":  "ts Pg8zWb b80nOe C1Iii FddHQd tsUanb"}
-                                                                      ))
-            link, title = self.__obtain_thumbnail(main_content)
+            thumbnail = self.__obtain_thumbnail(result.find("div",
+                                                            {"class": "ts Pg8zWb b80nOe C1Iii FddHQd tsUanb"}
+                                                            ))
+            link, title = self.__get_title_link(main_content)
             publisher, date, extra = self.__obtain_publisher_date_extra(main_content.find("div", {"class": "slp"}))
-            description = self.__obtain_description(main_content.find("div", {"class": "st"}))z
+            description = self.__obtain_description(main_content.find("div", {"class": "st"}))
+            related_articles = self.__obtain_related_articles(result)
+            result_data = {
+                "title": title,
+                "link": link,
+                "thumbnail": thumbnail,
+                "publisher": publisher,
+                "date": date,
+                "extra": extra,
+                "description": description,
+                "related_articles": related_articles
+            }
+            if not extra:
+                result_data.pop("extra", None)
+            news_results.append(result_data)
+        stats = self.__obtain_stats(html)
+        news_results.append({"how_many_results": len(news_results),
+                             "google_stats": stats,
+                             "stats": {
+                                 "time": str((time.time() - start_time)) + " s"
+                             }})
+        if self.history is not None:
+            self.history.append(news_results)
+        super().change_header()
+        return news_results
+
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future

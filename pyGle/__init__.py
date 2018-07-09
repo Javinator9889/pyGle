@@ -16,7 +16,7 @@ def main():
 
     from url import GoogleSearch, URLBuilder
     from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
-    from extractor import ImageExtractor, SearchExtractor
+    from extractor import ImageExtractor, SearchExtractor, NewsExtractor
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -48,23 +48,24 @@ def main():
         .withResultsLanguage(lang) \
         .withTimeLimit(limit)
     s_extractor = SearchExtractor(must_use_session=True, with_history_enabled=True)
-    print(URLBuilder(prepared_query).build())
+    # print(URLBuilder(prepared_query).build())
     # sbu = URLBuilder(prepared_query)
     # nr = s_extractor.extract_url(sbu)
     # pp.pprint(nr)
 
-    npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
-        .withResultsLanguage(lang)
-    url = URLBuilder(npq).build()
-    for i in range(10):
-        # print(url)
-        nr1 = s_extractor.extract_url(URLBuilder(npq))
-        # print("Waiting for values...")
-        result = nr1.result(10)
-        ex = nr1.exception()
-        if ex:
-            print(ex)
-        pp.pprint(result)
+    # npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
+    #     .withResultsLanguage(lang)
+    # url = URLBuilder(npq).build()
+    # for i in range(10):
+    #     # print(url)
+    #     nr1 = s_extractor.extract_url(URLBuilder(npq))
+    #     # print("Waiting for values...")
+    #     result = nr1.result(10)
+    #     ex = nr1.exception()
+    #     if ex:
+    #         print(ex)
+    #     pp.pprint(result)
+
     # start_time = time.time()
     # data = rq.get(url)
     # end_time = time.time()
@@ -83,21 +84,24 @@ def main():
                       " Safari/537.36"}
 
     print(soup.prettify())'''
-    extractor = ImageExtractor(must_use_session=True, with_history_enabled=True)
-    for m in range(10):
-        n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
-            10).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
-        nbu = URLBuilder(n_p_q)
-        # print(nbu.build())
-        result = extractor.extract_url(nbu)
-        # pprint(result)
-        pp.pprint(result.result())
-    s_extractor.printOverallTime()
-    extractor.printOverallTime()
+    # extractor = ImageExtractor(must_use_session=True, with_history_enabled=True)
+    # for m in range(10):
+    #     n_p_q = GoogleSearch().withQuery("cursos hablar en público madrid").withNumberOfResults(
+    #         10).withSortByUpdateTime().withSearchingAtDifferentGooglePages(page).withImageParams(image)
+    #     nbu = URLBuilder(n_p_q)
+    #     # print(nbu.build())
+    #     result = extractor.extract_url(nbu)
+    #     # pprint(result)
+    #     pp.pprint(result.result())
+    # s_extractor.printOverallTime()
+    # extractor.printOverallTime()
 
     npqa = GoogleSearch().withQuery("tailandia").withResultsLanguage(lang).withTimeLimit(limit)\
         .withSearchingAtDifferentGooglePages(news)
     print(URLBuilder(npqa).build())
+    news_ex = NewsExtractor(with_history_enabled=True, must_use_session=False)
+    rs = news_ex.extract_url(URLBuilder(npqa))
+    pp.pprint(rs.result())
     '''print(nbu)
     ndata = rq.get(nbu, headers=header).content
     ns = BeautifulSoup(ndata, 'html.parser')

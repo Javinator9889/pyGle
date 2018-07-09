@@ -28,3 +28,9 @@ class GoogleOverloadedException(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message
         super().__init__(message)
+
+
+class GoogleBlockingConnectionsError(RuntimeError):
+    def __init__(self, message: str = None):
+        self.__message = message
+        super().__init__(message)
