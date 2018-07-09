@@ -32,8 +32,9 @@ class BaseExtractor:
     def extract_url(self, url: URLBuilder) -> Future:
         pass
 
-    def obtain_html_object(self, url: URLBuilder) -> BeautifulSoup:
+    def obtain_html_object(self, url: URLBuilder) -> tuple:
         try:
+            start_time = time.time()
             built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
             request = urllib.request.Request(url=built_url, headers=self.headers)
             if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
@@ -42,10 +43,11 @@ class BaseExtractor:
             if self.session_cookies["cookie"] != "disabled":
                 self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
             requested_data = web_content.read().decode("utf-8")
+            end_time = time.time()
             local_executor = ThreadPoolExecutor(max_workers=self.cpu_count)
             local_executor.submit(web_content.close)
             local_executor.shutdown(wait=False)
-            return BeautifulSoup(requested_data, "lxml")
+            return BeautifulSoup(requested_data, "lxml"), (end_time - start_time)
         except urllib.error.HTTPError as request_error:
             raise GoogleBlockingConnectionsError("It looks like Google is blocking errors.\n\t- Headers: "
                                                  + str(request_error.headers) + "\n\t- Error: "
@@ -78,8 +80,9 @@ class BaseExtractor:
 
 class ImageExtractor(BaseExtractor):
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html = super().obtain_html_object(url)
+        html, search_time = super().obtain_html_object(url)
         images = []
+        elements_start_time = time.time()
         for a in html.find_all("div", {"class": "rg_meta"}):
             image_properties = json.loads(a.get_text(strip=True))
             link = image_properties.get("ou", None)
@@ -107,7 +110,15 @@ class ImageExtractor(BaseExtractor):
                     "webpage_title": web_page_title
                 }
                 images.append(found_image_properties)
-        images.append({"stats": {"time": str((time.time() - start_time)) + " s", "images_found": len(images)}})
+        elements_end_time = time.time()
+        images.append({
+            "stats": {
+                "images_found": len(images),
+                "overall_time": str((time.time() - start_time)) + " s",
+                "google_search_time": str(search_time) + " s",
+                "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
+            }
+        })
         if self.history is not None:
             self.history.append(images)
         super().change_header()
@@ -203,8 +214,9 @@ class SearchExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html = super().obtain_html_object(url)
+        html, search_time = super().obtain_html_object(url)
         search_results = []
+        elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "srg"})
         for section in results_areas:
             found_results = section.find_all("div", {"class": "g"})
@@ -228,11 +240,14 @@ class SearchExtractor(BaseExtractor):
                 search_results.append(current_results)
         related_search = self.__obtain_related_search(html)
         stats = self.__obtain_stats(html)
+        elements_end_time = time.time()
         search_results.append({"how_many_results": len(search_results),
                                "related_search": related_search,
                                "google_stats": stats,
                                "stats": {
-                                   "time": str((time.time() - start_time)) + " s"
+                                   "overall_time": str((time.time() - start_time)) + " s",
+                                   "google_search_time": str(search_time) + " s",
+                                   "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
                                }})
         if self.history is not None:
             self.history.append(search_results)
@@ -254,8 +269,6 @@ class NewsExtractor(BaseExtractor):
             a_section = picture_class.find("a", {"class": "top NQHJEb dfhHve"})
             image_found = a_section.find("img", {"class": "th BbeB2d"}).get("src")
             return image_found if NewsExtractor.__is_valid_url(image_found) else "base64 image - URL not available"
-            # return picture_class.find("a", {"class": "top NQHJEb dfhHve"}).find("img", {"class": "th BbeB2d"})\
-            #     .get("src")
         except AttributeError:
             return "unavailable"
 
@@ -303,11 +316,8 @@ class NewsExtractor(BaseExtractor):
 
     @staticmethod
     def __obtain_related_articles(section) -> list:
-        # try:
         found_articles = []
         articles = section.find_all("div", class_="card-section")
-        # print(len(articles))
-        # print(articles)
         for article in articles:
             article_attributes = {}
             try:
@@ -338,8 +348,9 @@ class NewsExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html = super().obtain_html_object(url)
+        html, search_time = super().obtain_html_object(url)
         news_results = []
+        elements_start_time = time.time()
         results_area = html.find_all("div", {"id": "ires"})[0]
         found_results = results_area.find_all("div", {"class": "g"})
         for result in found_results:
@@ -363,10 +374,13 @@ class NewsExtractor(BaseExtractor):
                 result_data.pop("extra", None)
             news_results.append(result_data)
         stats = self.__obtain_stats(html)
+        elements_end_time = time.time()
         news_results.append({"how_many_results": len(news_results),
                              "google_stats": stats,
                              "stats": {
-                                 "time": str((time.time() - start_time)) + " s"
+                                 "overall_time": str((time.time() - start_time)) + " s",
+                                 "google_search_time": str(search_time) + " s",
+                                 "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
                              }})
         if self.history is not None:
             self.history.append(news_results)
