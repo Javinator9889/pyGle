@@ -86,6 +86,26 @@ class BaseExtractor:
         else:
             print("History is disabled or not petition has been done yet")
 
+    @staticmethod
+    def is_valid_url(url) -> bool:
+        import re
+
+        # From: https://stackoverflow.com/questions/7160737/python-how-to-validate-a-url-in-python-malformed-or-not
+        regex = re.compile(
+            r'^(?:http|ftp)s?://'  # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
+            r'localhost|'  # localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
+            r'(?::\d+)?'  # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        return re.match(regex, url) is not None
+
+    @staticmethod
+    def cleanupString(text: str) -> str:
+        import re
+
+        return re.sub(u'[^a-zA-Z0-9áéíóúÁÉÍÓÚâêîôÂÊÎÔãõÃÕçÇñÑÄËÏÖÜäëïöü: \-.()/]', '', text)
+
 
 class ImageExtractor(BaseExtractor):
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
@@ -242,7 +262,7 @@ class SearchExtractor(BaseExtractor):
                     "title": web_page_title,
                     "cached_version": web_cache_link,
                     "date": date.replace(" - ", ''),
-                    "description": description
+                    "description": self.cleanupString(description)
                 }
                 if related_pages:
                     current_results["related_pages"] = related_pages
@@ -277,23 +297,9 @@ class NewsExtractor(BaseExtractor):
         try:
             a_section = picture_class.find("a", {"class": "top NQHJEb dfhHve"})
             image_found = a_section.find("img", {"class": "th BbeB2d"}).get("src")
-            return image_found if NewsExtractor.__is_valid_url(image_found) else "base64 image - URL not available"
+            return image_found if NewsExtractor.is_valid_url(image_found) else "base64 image - URL not available"
         except AttributeError:
             return "unavailable"
-
-    @staticmethod
-    def __is_valid_url(url) -> bool:
-        import re
-
-        # From: https://stackoverflow.com/questions/7160737/python-how-to-validate-a-url-in-python-malformed-or-not
-        regex = re.compile(
-            r'^(?:http|ftp)s?://'  # http:// or https://
-            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
-            r'localhost|'  # localhost...
-            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
-            r'(?::\d+)?'  # optional port
-            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
-        return re.match(regex, url) is not None
 
     @staticmethod
     def __get_title_link(html) -> tuple:
@@ -318,10 +324,9 @@ class NewsExtractor(BaseExtractor):
         extra = extra_data.get_text(strip=True) if extra_data else None
         return publisher, date, extra
 
-    @staticmethod
-    def __obtain_description(main_content) -> str:
+    def __obtain_description(self, main_content) -> str:
         description = main_content.get_text(strip=True)
-        return description if description else "unavailable"
+        return self.cleanupString(description) if description else "unavailable"
 
     @staticmethod
     def __obtain_related_articles(section) -> list:
@@ -456,11 +461,10 @@ class VideoExtractor(BaseExtractor):
         except AttributeError:
             return "unavailable"
 
-    @staticmethod
-    def __obtain_description(web_section) -> str:
+    def __obtain_description(self, web_section) -> str:
         try:
             desc_section = web_section.find("span", {"class": "st"})
-            return desc_section.get_text(strip=True)
+            return self.cleanupString(desc_section.get_text(strip=True))
         except AttributeError:
             return "unavailable"
 
@@ -494,7 +498,6 @@ class VideoExtractor(BaseExtractor):
                     "duration": duration,
                     "thumbnail": thumbnail
                 })
-                # search_more_data = more_info.find_all("span", {"class": "st"})[0]
         stats = self.__obtain_stats(html)
         elements_end_time = time.time()
         vid_results.append({"how_many_results": len(vid_results),
@@ -508,6 +511,125 @@ class VideoExtractor(BaseExtractor):
             self.history.append(vid_results)
         super().change_header()
         return vid_results
+
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future
+
+
+class PatentExtractor(BaseExtractor):
+    @staticmethod
+    def __get_title_link(current_value) -> tuple:
+        try:
+            section = current_value.find("h3", {"class": "r"}).find("a")
+            link = section.get("href")
+            title = section.get_text(strip=True).strip()
+        except AttributeError:
+            link = "unavailable"
+            title = "unavailable"
+        return title, link
+
+    @staticmethod
+    def __obtain_website(details_section) -> str:
+        try:
+            section = details_section.find_all("cite")[0]
+            cite = section.get_text(strip=True).strip()
+        except IndexError:
+            cite = "unavailable"
+        return cite
+
+    def __obtain_description(self, details_section) -> str:
+        try:
+            section = details_section.find("span", {"class": "st"})
+            description = section.get_text(strip=True).strip()
+        except AttributeError:
+            description = "unavailable"
+        return self.cleanupString(description)
+
+    def __obtain_patent_image(self, details_section) -> str:
+        try:
+            section = details_section.find("img", {"class": "rISBZc M4dUYb"})
+            image_link = section.get("src")
+            return image_link if self.is_valid_url(image_link) else "base64 image - URL not available"
+        except AttributeError:
+            return "unavailable"
+
+    def __get_patent_extras(self, details_section) -> tuple:
+        try:
+            section = details_section.find("div", {"class": "slp f"})
+            parts = section.get_text(strip=True).strip().split("-")
+            for i in range(len(parts)):
+                parts[i] = self.cleanupString(parts[i])
+            return parts[0][:-1], parts[1][2:][:-1], parts[2][1:][:-1], parts[3][1:], parts[4][1:]
+        except (AttributeError, IndexError):
+            return "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"
+
+    @staticmethod
+    def __get_patent_description_related_forum(details_section) -> tuple:
+        try:
+            section = details_section.find("div", {"class": "osl"})
+            parts = section.find_all("a")
+            return parts[0].get("href"), parts[1].get("href"), parts[2].get("href")
+        except (AttributeError, IndexError):
+            return "unavailable", "unavailable", "unavailable"
+
+    @staticmethod
+    def __obtain_stats(origin_html):
+        try:
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].get_text(strip=True)
+        except IndexError:
+            stats = "unavailable"
+        return stats
+
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
+        html, search_time = super().obtain_html_object(url)
+        patents_results = []
+        elements_start_time = time.time()
+        results_areas = html.find_all("div", {"id": "ires"})
+        for section in results_areas:
+            found_results = section.find_all("div", {"class": "g"})
+            for result in found_results:
+                current_value = result.find("div", {"class": "rc"})
+                title, link = self.__get_title_link(current_value)
+                details_section = current_value.find("div", {"class": "s"})
+                cite = self.__obtain_website(details_section)
+                description = self.__obtain_description(details_section)
+                patent_image = self.__obtain_patent_image(details_section)
+                status, presentation_date, publication_date, inventor, assignee = \
+                    self.__get_patent_extras(details_section)
+                general_description, related_patents, forum = \
+                    self.__get_patent_description_related_forum(details_section)
+                patents_results.append({
+                    "title": title,
+                    "link": link,
+                    "cite": cite,
+                    "description": description,
+                    "image": patent_image,
+                    "status": status,
+                    "presentation_date": presentation_date,
+                    "publication_date": publication_date,
+                    "inventor": inventor,
+                    "assignee": assignee,
+                    "general_description": general_description,
+                    "related_patents": related_patents,
+                    "forum": forum
+                })
+        stats = self.__obtain_stats(html)
+        elements_end_time = time.time()
+        patents_results.append({"how_many_results": len(patents_results),
+                                "google_stats": stats,
+                                "stats": {
+                                    "overall_time": str((time.time() - start_time)) + " s",
+                                    "google_search_time": str(search_time) + " s",
+                                    "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
+                                }})
+        if self.history is not None:
+            self.history.append(patents_results)
+        super().change_header()
+        return patents_results
 
     def extract_url(self, url: URLBuilder) -> Future:
         start_time = time.time()

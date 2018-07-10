@@ -24,7 +24,7 @@ def main():
 
     from url import GoogleSearch, URLBuilder
     from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
-    from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor
+    from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -72,10 +72,13 @@ def main():
         .withResultsLanguage(lang)
     npq2 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
         .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(vid)
-    npq3 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
+    npq3 = GoogleSearch().withQuery("wine").withNumberOfResults(10) \
         .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(patents)
     url = URLBuilder(npq3).build()
     print(url)
+    p_extractor = PatentExtractor(with_history_enabled=True)
+    res = p_extractor.extract_url(URLBuilder(npq3))
+    pp.pprint(res.result())
     # v_extractor = VideoExtractor(with_history_enabled=True)
     # res = v_extractor.extract_url(URLBuilder(npq2))
     # pp.pprint(res.result())
