@@ -5,12 +5,14 @@
 #                 under certain conditions; type "-L" for details.
 #
 from url.url_constants import __google_url_modifiers__
+from .AvailableLanguages import AvailableLanguages
+from .AvailableCountries import AvailableCountries
 
 
 class TimeLimit:
     def __init__(self):
         self.__time_limit = None
-        self.__times: dict = __google_url_modifiers__["with_time_limitation_for"]
+        self.__times = __google_url_modifiers__["with_time_limitation_for"]
 
     def setDay(self):
         self.__time_limit = self.__times["day"]
@@ -38,7 +40,7 @@ class TimeLimit:
 class Rights:
     def __init__(self):
         self.__rights = None
-        self.__available_rights: dict = __google_url_modifiers__["with_rights_types"]
+        self.__available_rights = __google_url_modifiers__["with_rights_types"]
 
     def setFreeToUse(self):
         self.__rights = self.__available_rights["free_to_use"]
@@ -60,14 +62,15 @@ class Rights:
 class Languages:
     def __init__(self):
         self.__lang = None
-        self.__available_lang: dict = __google_url_modifiers__["with_languages"]
+        self.__available_lang = __google_url_modifiers__["with_languages"]
 
     def show_languages(self):
         for key, value in self.__available_lang.items():
             print(key)
 
-    def setLanguage(self, language: str):
-        self.__lang = self.__available_lang[language]
+    def setLanguage(self, language: AvailableLanguages):
+        self.__lang = language
+        # self.__lang = self.__available_lang[language]
 
     def getLanguage(self):
         # type: () -> str
@@ -77,14 +80,14 @@ class Languages:
 class Countries:
     def __init__(self):
         self.__country = None
-        self.__available_countries: dict = __google_url_modifiers__["with_countries"]
+        self.__available_countries = __google_url_modifiers__["with_countries"]
 
     def show_countries(self):
         for key, values in self.__available_countries.items():
             print(key)
 
-    def setCountry(self, country: str):
-        self.__country = self.__available_countries[country]
+    def setCountry(self, country: AvailableCountries):
+        self.__country = country
 
     def getCountry(self):
         # type: () -> str
@@ -253,3 +256,12 @@ class GoogleImages:
         for key, value in self.__available_images_modifiers[source_key].items():
             print(key)
 
+
+class GooglePatents:
+    def __init__(self):
+        self.__available_patents_modifiers = __google_url_modifiers__["with_patents_params"]
+        self.__patents_params = {
+            "office_patents": None,
+            "patent_status": None,
+            "patent_type": None
+        }

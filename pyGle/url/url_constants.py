@@ -430,28 +430,30 @@ __google_url_modifiers__ = {
             "ico": "ift:ico"
         }
     },
-    "with_search_at_patent_office": "ptso:{0}",
-    "with_office_patents": {
-        "EE.UU.": "us",
-        "Europe": "ep",
-        "International": "wo",
-        "China": "cn",
-        "Germany": "de",
-        "Canada": "ca"
-    },
-    "with_patent_status": "ptss:{0}",
-    "with_available_status": {
-        "Applications": "a",
-        "Issued patents": "g"
-    },
-    "with_patent_type": "ptst:{0}",
-    "with_available_patent_types": {
-        "Utility": "u",
-        "Design": "d",
-        "Plant": "pp",
-        "Defensive Publication": "t",
-        "Additional Improvement": "ai",
-        "Statutory Invention Registration": "h"
+    "with_patents_params": {
+        "with_search_at_patent_office": "ptso:{0}",
+        "with_office_patents": {
+            "EE.UU.": "us",
+            "Europe": "ep",
+            "International": "wo",
+            "China": "cn",
+            "Germany": "de",
+            "Canada": "ca"
+        },
+        "with_patent_status": "ptss:{0}",
+        "with_available_status": {
+            "Applications": "a",
+            "Issued patents": "g"
+        },
+        "with_patent_type": "ptst:{0}",
+        "with_available_patent_types": {
+            "Utility": "u",
+            "Design": "d",
+            "Plant": "pp",
+            "Defensive Publication": "t",
+            "Additional Improvement": "ai",
+            "Statutory Invention Registration": "h"
+        }
     }
 }
 

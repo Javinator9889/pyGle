@@ -23,7 +23,7 @@ def main():
     import time
 
     from url import GoogleSearch, URLBuilder
-    from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages
+    from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages, AvailableLanguages
     from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor
 
     pp = pprint.PrettyPrinter(indent=4)
@@ -31,7 +31,7 @@ def main():
     country.setCountry("Spain")
 
     lang = Languages()
-    lang.setLanguage("Spanish")
+    lang.setLanguage(AvailableLanguages.Spanish)
 
     limit = TimeLimit()
     limit.setDay()

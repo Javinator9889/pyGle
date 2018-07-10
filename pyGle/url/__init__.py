@@ -41,6 +41,7 @@ class GoogleSearch:
         self.search_at = None
         self.start_position = None
         self.image_params = None
+        self.patents_params = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
