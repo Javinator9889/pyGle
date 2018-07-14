@@ -5,7 +5,7 @@
 #                 under certain conditions; type "-L" for details.
 #
 from .url_constants import __google_base_url__, __google_url_modifiers__
-from values import TimeLimit, Rights, Languages, Countries, Dates, GooglePages, GoogleImages
+from values import *
 
 
 class GoogleSearch:
@@ -176,6 +176,14 @@ class GoogleSearch:
                 self.image_params[key] = value
         return self
 
+    def withPatentParams(self, params: GooglePatents):
+        params_dict = params.getPatentModifiers()
+        self.patents_params = {}
+        for key, value in params_dict.items():
+            if value:
+                self.patents_params[key] = value
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
@@ -195,10 +203,18 @@ class URLBuilder:
                                               "same time")
         if self.params.image_params and self.params.define:
             raise InvalidCombinationException("You cannot define a word and search an image at the same time")
-        if (self.params.image_params and not self.params.search_at_different_pages) or (
-                self.params.image_params and self.params.search_at_different_pages in ["app", "book", "nws", "pts",
+        if self.params.image_params and (not self.params.search_at_different_pages or
+                                         self.params.search_at_different_pages in ["app", "book", "nws", "pts",
                                                                                        "shop", "vid"]):
             raise InvalidCombinationException("You must search at Google Images if you are specifying \"image params\"")
+        if self.params.patents_params and self.params.image_params:
+            raise InvalidCombinationException("You only cannot search at Google Images or Google Patents at the same "
+                                              "time")
+        if self.params.patents_params and (not self.params.search_at_different_pages or
+                                           self.params.search_at_different_pages in
+                                           ["app", "book", "nws", "isch", "shop", "vid"]):
+            raise InvalidCombinationException("You must search at Google Patents if you are specifying "
+                                              "\"patents params\"")
         if not self.params.operation:
             main_query = []
             if self.params.query:
@@ -287,6 +303,9 @@ class URLBuilder:
                     __google_url_modifiers__["with_starting_at_position"].format(self.params.start_position))
             if self.params.image_params:
                 for key, value in self.params.image_params.items():
+                    tbs_attributes.append(value)
+            if self.params.patents_params:
+                for key, value in self.params.patents_params.items():
                     tbs_attributes.append(value)
 
             final_query = '+'.join(main_query)

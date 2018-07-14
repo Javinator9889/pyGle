@@ -15,6 +15,7 @@ def torify():
 
 
 def main():
+    # global OfficePatents
     import requests as rq
     import ujson as json
 
@@ -23,12 +24,14 @@ def main():
     import time
 
     from url import GoogleSearch, URLBuilder
-    from values import Countries, TimeLimit, Languages, GooglePages, GoogleImages, AvailableLanguages
+    from values.OptionsForPatents import OfficePatents, PatentStatus, AvailablePatentTypes
     from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor
+    from values import TimeLimit, GooglePatents, AvailableLanguages, GoogleImages, GooglePages, Countries, Languages, \
+        AvailableCountries
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
-    country.setCountry("Spain")
+    # country.setCountry("Spain")
 
     lang = Languages()
     lang.setLanguage(AvailableLanguages.Spanish)
@@ -40,8 +43,8 @@ def main():
     page.searchImage()
 
     image = GoogleImages()
-    image.setImageFormat("jpg")
-    image.setImageSize(">400*300")
+    # image.setImageFormat("jpg")
+    # image.setImageSize(">400*300")
 
     news = GooglePages()
     news.searchNews()
@@ -51,6 +54,11 @@ def main():
 
     patents = GooglePages()
     patents.searchPatents()
+
+    patents_params = GooglePatents()
+    patents_params.setOfficePatent(OfficePatents.USA)
+    patents_params.setPatentStatus(PatentStatus.Applications)
+    patents_params.setPatentType(AvailablePatentTypes.Design)
 
     prepared_query = GoogleSearch() \
         .withQuery("test") \
@@ -70,21 +78,23 @@ def main():
 
     npq = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10)\
         .withResultsLanguage(lang)
-    npq2 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
-        .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(vid)
-    npq3 = GoogleSearch().withQuery("wine").withNumberOfResults(10) \
-        .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(patents)
-    url = URLBuilder(npq3).build()
+
+    # npq2 = GoogleSearch().withQuery("cursos hablar en público en madrid").withNumberOfResults(10) \
+    #     .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(vid)
+    # npq3 = GoogleSearch().withQuery("clock").withNumberOfResults(10) \
+    #     .withResultsLanguage(lang).withSearchingAtDifferentGooglePages(patents).withPatentParams(patents_params)
+    url = URLBuilder(npq).build()
     print(url)
-    p_extractor = PatentExtractor(with_history_enabled=True)
-    res = p_extractor.extract_url(URLBuilder(npq3))
-    pp.pprint(res.result())
+    # p_extractor = PatentExtractor(with_history_enabled=True)
+    # res = p_extractor.extract_url(URLBuilder(npq3))
+    # pp.pprint(res.result())
+
     # v_extractor = VideoExtractor(with_history_enabled=True)
     # res = v_extractor.extract_url(URLBuilder(npq2))
     # pp.pprint(res.result())
     # v_extractor.printOverallTime()
     #
-    # for i in range(10):
+    # for i in range(1):
     #     # print(url)
     #     nr1 = s_extractor.extract_url(URLBuilder(npq))
     #     # print("Waiting for values...")
@@ -124,7 +134,7 @@ def main():
     #     pp.pprint(result.result())
     # s_extractor.printOverallTime()
     # extractor.printOverallTime()
-
+    #
     # npqa = GoogleSearch().withQuery("tailandia").withResultsLanguage(lang).withTimeLimit(limit)\
     #     .withSearchingAtDifferentGooglePages(news)
     # print(URLBuilder(npqa).build())
@@ -147,6 +157,13 @@ def main():
     print("There are total: " + str(len(actual_images)) + " images")
     for i, (img_link, img_type) in enumerate(actual_images):
         print("\t- Image link [" + str(i) + "]: " + img_link + "\n\t\t- Image type [" + str(i) + "]: " + img_type)'''
+    country = Countries()
+    country.setCountry(AvailableCountries.Spain)
+    pages = GoogleSearch()
+    pages.withResultsLanguage(lang).withNumberOfResults(10).withResultsAtCountry(country).withQuery("papás")
+    print(URLBuilder(pages).build())
+    pg = s_extractor.extract_url(URLBuilder(pages))
+    pp.pprint(pg.result())
 
 
 if __name__ == '__main__':
