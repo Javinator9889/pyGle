@@ -178,8 +178,9 @@ class SearchExtractor(BaseExtractor):
         try:
             return web_section.find_all("div", {"class": "s"})[0]
         except IndexError:
-            raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
-                                            "proxy mode or wait for a few minutes")
+            return None
+            # raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
+            #                                 "proxy mode or wait for a few minutes")
 
     @staticmethod
     def __obtain_web_cache(detailed_section) -> str:
@@ -242,21 +243,53 @@ class SearchExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
+    @staticmethod
+    def __find_pages_in_selection(web_section) -> list:
+        try:
+            in_search_page = web_section.find_all("table", {"class": "nrgt"})[0]
+            pages = in_search_page.find_all("div", {"class": "sld vsc"})
+            results = []
+            for page in pages:
+                title_section = page.find("h3", {"class": "r"}).find("a", {"class": "l"})
+                try:
+                    title = title_section.get_text(strip=True).strip()
+                    link = title_section.get("href").strip()
+                    description = page.find("div", {"class": "s"}).find("div",
+                                                                        {"class": "st"}).get_text(strip=True).strip()
+                    results.append({
+                        "title": title,
+                        "link": link,
+                        "description": description
+                    })
+                except AttributeError:
+                    pass
+            return results
+        except IndexError:
+            return []
+
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
         html, search_time = super().obtain_html_object(url)
         search_results = []
         elements_start_time = time.time()
-        results_areas = html.find_all("div", {"class": "srg"})
+        results_areas = html.find_all("div", {"class": "bkWMgd"})
         for section in results_areas:
             found_results = section.find_all("div", {"class": "g"})
             for result in found_results:
                 link, web_page_title = self.__get_web_page_title_link(result)
                 more_info = self.__obtain_detailed_section(result)
+                if more_info is None:
+                    break
                 web_cache_link = self.__obtain_web_cache(more_info)
-                search_more_data = more_info.find_all("span", {"class": "st"})[0]
-                date = self.__obtain_date(search_more_data)
-                related_pages = self.__obtain_related_pages(more_info)
-                description = search_more_data.get_text(strip=True).replace(date, '', 1)
+                inside_pages = self.__find_pages_in_selection(result)
+                try:
+                    search_more_data = more_info.find_all("span", {"class": "st"})[0]
+                    date = self.__obtain_date(search_more_data)
+                    related_pages = self.__obtain_related_pages(more_info)
+                    description = search_more_data.get_text(strip=True).replace(date, '', 1)
+                except IndexError:
+                    date = "unavailable"
+                    related_pages = "unavailable"
+                    description = "unavailable"
                 current_results = {
                     "link": link,
                     "title": web_page_title,
@@ -266,6 +299,8 @@ class SearchExtractor(BaseExtractor):
                 }
                 if related_pages:
                     current_results["related_pages"] = related_pages
+                if len(inside_pages) != 0:
+                    current_results["inside_pages"] = inside_pages
                 search_results.append(current_results)
         related_search = self.__obtain_related_search(html)
         stats = self.__obtain_stats(html)
@@ -563,7 +598,7 @@ class PatentExtractor(BaseExtractor):
             parts = section.get_text(strip=True).strip().split("-")
             for i in range(len(parts)):
                 parts[i] = self.cleanupString(parts[i])
-            return parts[0][:-1], parts[1][2:][:-1], parts[2][1:][:-1], parts[3][1:], parts[4][1:]
+            return parts[0][:-1], parts[1][1:][:-1], parts[2][1:][:-1], parts[3][1:], parts[4][1:]
         except (AttributeError, IndexError):
             return "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"
 
