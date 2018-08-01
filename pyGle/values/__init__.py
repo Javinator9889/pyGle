@@ -286,3 +286,39 @@ class GooglePatents:
 
     def getPatentModifiers(self) -> dict:
         return self.__patents_params
+
+
+class GoogleShop:
+    def __init__(self):
+        self.__available_shop_modifiers = __google_url_modifiers__["with_shop_params"]
+        self.__shop_params = {
+            "sort_order": None,
+            "new_products": None,
+            "max_price": None,
+            "min_price": None
+        }
+
+    def onlyNewProducts(self):
+        self.__shop_params["new_products"] = self.__available_shop_modifiers["only_new_products"]
+
+    def orderByLowerToHigherPrice(self):
+        self.__shop_params["sort_order"] = self.__available_shop_modifiers["sort_order_less_to_high"]
+
+    def orderByHigherToLowerPrice(self):
+        self.__shop_params["sort_order"] = self.__available_shop_modifiers["sort_order_high_to_less"]
+
+    def orderByReviewScore(self):
+        self.__shop_params["sort_order"] = self.__available_shop_modifiers["sort_order_reviews"]
+
+    def withMinPrice(self, price: int):
+        self.__shop_params["min_price"] = self.__available_shop_modifiers["with_min_price"].format(str(price))
+
+    def withMaxPrice(self, price: int):
+        self.__shop_params["max_price"] = self.__available_shop_modifiers["with_max_price"].format(str(price))
+
+    def betweenTwoPrices(self, min_price: int, max_price: int):
+        self.__shop_params["min_price"] = self.__available_shop_modifiers["with_min_price"].format(str(min_price))
+        self.__shop_params["max_price"] = self.__available_shop_modifiers["with_max_price"].format(str(max_price))
+
+    def getShopModifiers(self) -> dict:
+        return self.__shop_params

@@ -672,3 +672,92 @@ class PatentExtractor(BaseExtractor):
         future = executor.submit(self.__extractor, url, start_time)
         executor.shutdown(wait=False)
         return future
+
+
+class ShopExtractor(BaseExtractor):
+    @staticmethod
+    def __find_thumbnail(result) -> str:
+        img = result.find("div", {"class": "JRlvE XNeeld"}).find("img")
+        return img.get("src")
+
+    @staticmethod
+    def __find_link_title(extra_data) -> tuple:
+        try:
+            section = extra_data.find("div", {"class": "eIuuYe"}).find("a")
+            link = "https://google.com" + section.get("href")
+            title = section.get_text(strip=True).strip()
+        except AttributeError:
+            link = "unavailable"
+            title = "unavailable"
+        return link, title
+
+    @staticmethod
+    def __find_price(extra_data) -> str:
+        try:
+            section = extra_data.find("div", {"class": "mQ35Be"}).find("span", {"class": "O8U6h"})
+            return section.get_text(strip=True).strip().replace(u"\xa0", " ")
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __find_description(extra_data) -> str:
+        try:
+            section = extra_data.find_all("div", {"class": "na4ICd"})
+            description = None
+            for result in section:
+                if description:
+                    description = description + "\n" + result.get_text(strip=True).strip()
+                else:
+                    description = result.get_text(strip=True).strip()
+            return description.replace(u"\xa0", " ")
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __find_reviews_score(extra_data) -> str:
+        try:
+            section = extra_data.find("div", {"class": "vq3ore"})
+            return section.get("aria-label").replace(u"\xa0", " ")
+        except AttributeError:
+            return "unavailable"
+
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
+        html, search_time = super().obtain_html_object(url)
+        shop_results = []
+        elements_start_time = time.time()
+        results_areas = html.find_all("div", {"id": "ires"})
+        for section in results_areas:
+            found_results = section.find_all("div", {"class": "sh-dlr__list-result"})
+            for result in found_results:
+                thumbnail = self.__find_thumbnail(result)
+                extra_data = result.find("div", {"class": "ZGFjDb"})
+                link, title = self.__find_link_title(extra_data)
+                price = self.__find_price(extra_data)
+                score = self.__find_reviews_score(extra_data)
+                description = self.__find_description(extra_data)
+                shop_results.append({
+                    "title": title,
+                    "link": link,
+                    "thumbnail": thumbnail,
+                    "price": price,
+                    "score": score,
+                    "description": description
+                })
+        elements_end_time = time.time()
+        shop_results.append({"how_many_results": len(shop_results),
+                             "stats": {
+                                 "overall_time": str((time.time() - start_time)) + " s",
+                                 "google_search_time": str(search_time) + " s",
+                                 "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
+                             }})
+        if self.history is not None:
+            self.history.append(shop_results)
+        super().change_header()
+        return shop_results
+
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future

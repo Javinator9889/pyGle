@@ -42,6 +42,7 @@ class GoogleSearch:
         self.start_position = None
         self.image_params = None
         self.patents_params = None
+        self.shop_params = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
@@ -184,14 +185,21 @@ class GoogleSearch:
                 self.patents_params[key] = value
         return self
 
+    def withShopOptions(self, params: GoogleShop):
+        params_dict = params.getShopModifiers()
+        self.shop_params = {}
+        for key, value in params_dict.items():
+            if value:
+                self.shop_params[key] = value
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
         self.params = google_search_params
 
-    def build(self):
-        # type: () -> tuple
-        from errors import InvalidCombinationException, NullQueryError
+    def __params_validator(self):
+        from errors import InvalidCombinationException
 
         if self.params.define and self.params.query:
             raise InvalidCombinationException("You cannot search and define a word at the same time")
@@ -205,7 +213,7 @@ class URLBuilder:
             raise InvalidCombinationException("You cannot define a word and search an image at the same time")
         if self.params.image_params and (not self.params.search_at_different_pages or
                                          self.params.search_at_different_pages in ["app", "book", "nws", "pts",
-                                                                                       "shop", "vid"]):
+                                                                                   "shop", "vid"]):
             raise InvalidCombinationException("You must search at Google Images if you are specifying \"image params\"")
         if self.params.patents_params and self.params.image_params:
             raise InvalidCombinationException("You only cannot search at Google Images or Google Patents at the same "
@@ -215,6 +223,19 @@ class URLBuilder:
                                            ["app", "book", "nws", "isch", "shop", "vid"]):
             raise InvalidCombinationException("You must search at Google Patents if you are specifying "
                                               "\"patents params\"")
+        if self.params.shop_params and (self.params.image_params or self.params.patents_params):
+            raise InvalidCombinationException("You cannot search at different Google Pages at the same time")
+        if self.params.shop_params and (not self.params.search_at_different_pages or
+                                        self.params.search_at_different_pages in
+                                        ["app", "book", "nws", "isch", "pts", "vid"]):
+            raise InvalidCombinationException("You must search at Google Shopping if you are specifying "
+                                              "\"shop params\"")
+
+    def build(self):
+        # type: () -> tuple
+        from errors import NullQueryError
+
+        self.__params_validator()
         if not self.params.operation:
             main_query = []
             if self.params.query:

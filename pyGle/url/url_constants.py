@@ -454,6 +454,15 @@ __google_url_modifiers__ = {
             "Additional Improvement": "ai",
             "Statutory Invention Registration": "h"
         }
+    },
+    "with_shop_params": {
+        "only_new_products": "new:1",
+        "with_custom_price": "price:1",
+        "with_max_price": "ppr_max:{0}",
+        "with_min_price": "ppr_min:{0}",
+        "sort_order_less_to_high": "p_ord:p",
+        "sort_order_high_to_less": "p_ord:pd",
+        "sort_order_reviews": "p_ord:rv"
     }
 }
 

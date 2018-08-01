@@ -25,9 +25,9 @@ def main():
 
     from url import GoogleSearch, URLBuilder
     from values.OptionsForPatents import OfficePatents, PatentStatus, AvailablePatentTypes
-    from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor
+    from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor, ShopExtractor
     from values import TimeLimit, GooglePatents, AvailableLanguages, GoogleImages, GooglePages, Countries, Languages, \
-        AvailableCountries
+        AvailableCountries, GoogleShop
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -41,6 +41,7 @@ def main():
 
     page = GooglePages()
     page.searchImage()
+    page.searchShops()
 
     image = GoogleImages()
     # image.setImageFormat("jpg")
@@ -160,9 +161,13 @@ def main():
     country = Countries()
     country.setCountry(AvailableCountries.Spain)
     pages = GoogleSearch()
-    pages.withResultsLanguage(lang).withNumberOfResults(10).withResultsAtCountry(country).withQuery("papás")
+    params = GoogleShop()
+    params.orderByReviewScore()
+    params.onlyNewProducts()
+    pages.withResultsLanguage(lang).withNumberOfResults(10).withResultsAtCountry(country).withQuery("papás").withSearchingAtDifferentGooglePages(page).withShopOptions(params)
     print(URLBuilder(pages).build())
-    pg = s_extractor.extract_url(URLBuilder(pages))
+    sh_extractor = ShopExtractor(must_use_session=False, with_history_enabled=True)
+    pg = sh_extractor.extract_url(URLBuilder(pages))
     pp.pprint(pg.result())
 
 
