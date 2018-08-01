@@ -35,7 +35,8 @@ class BaseExtractor:
     def obtain_html_object(self, url: URLBuilder) -> tuple:
         try:
             start_time = time.time()
-            built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
+            # built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
+            built_url = url.build()
             request = urllib.request.Request(url=built_url, headers=self.headers)
             if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
                 request.add_header("cookie", self.session_cookies["cookie"])

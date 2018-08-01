@@ -4,8 +4,11 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
+import urllib.parse
+
 from .url_constants import __google_base_url__, __google_url_modifiers__
 from values import *
+from values.InterfaceLanguages import InterfaceLanguages
 
 
 class GoogleSearch:
@@ -43,6 +46,7 @@ class GoogleSearch:
         self.image_params = None
         self.patents_params = None
         self.shop_params = None
+        self.interface_language = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
@@ -193,6 +197,10 @@ class GoogleSearch:
                 self.shop_params[key] = value
         return self
 
+    def withInterfaceLanguage(self, language: InterfaceLanguages):
+        self.interface_language = language
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
@@ -299,6 +307,9 @@ class URLBuilder:
             if self.params.results_lang:
                 extra_attributes_query.append(
                     __google_url_modifiers__["with_results_language"].format(self.params.results_lang))
+            if self.params.interface_language:
+                extra_attributes_query.append(
+                    __google_url_modifiers__["with_language_interface"].format(self.params.interface_language))
             if self.params.country:
                 extra_attributes_query.append(
                     __google_url_modifiers__["with_country_results"].format(self.params.country))
@@ -343,8 +354,10 @@ class URLBuilder:
                 attributes_query = final_query + '&' + extra_attributes
             else:
                 attributes_query = final_query
-            return __google_base_url__ + attributes_query
+            return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%")
+            # return __google_base_url__ + attributes_query
 
         else:
             main_query = [__google_url_modifiers__["query"].format(self.params.operation)]
-            return __google_base_url__ + main_query[0]
+            return urllib.parse.quote_plus(__google_base_url__ + main_query[0], safe="/?+&:=_.(|)*-%")
+            # return __google_base_url__ + main_query[0]

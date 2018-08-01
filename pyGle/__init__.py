@@ -27,7 +27,7 @@ def main():
     from values.OptionsForPatents import OfficePatents, PatentStatus, AvailablePatentTypes
     from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor, ShopExtractor
     from values import TimeLimit, GooglePatents, AvailableLanguages, GoogleImages, GooglePages, Countries, Languages, \
-        AvailableCountries, GoogleShop
+        AvailableCountries, GoogleShop, InterfaceLanguages
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -164,7 +164,7 @@ def main():
     params = GoogleShop()
     params.orderByReviewScore()
     params.onlyNewProducts()
-    pages.withResultsLanguage(lang).withNumberOfResults(10).withResultsAtCountry(country).withQuery("papás").withSearchingAtDifferentGooglePages(page).withShopOptions(params)
+    pages.withResultsLanguage(lang).withNumberOfResults(10).withResultsAtCountry(country).withQuery("papás").withSearchingAtDifferentGooglePages(page).withShopOptions(params).withInterfaceLanguage(InterfaceLanguages.InterfaceLanguages.English)
     print(URLBuilder(pages).build())
     sh_extractor = ShopExtractor(must_use_session=False, with_history_enabled=True)
     pg = sh_extractor.extract_url(URLBuilder(pages))
