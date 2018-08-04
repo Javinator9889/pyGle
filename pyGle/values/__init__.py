@@ -322,3 +322,33 @@ class GoogleShop:
 
     def getShopModifiers(self) -> dict:
         return self.__shop_params
+
+
+class GoogleBooks:
+    def __init__(self):
+        self.__available_books_modifiers = __google_url_modifiers__["with_books_params"]
+        self.__books_params = {
+            "books_type": None,
+            "with_searching": None
+        }
+
+    def searchOnlyBooksWithPreview(self):
+        self.__books_params["books_type"] = self.__available_books_modifiers["books_with_preview"]
+
+    def searchOnlyGoogleEBooks(self):
+        self.__books_params["books_type"] = self.__available_books_modifiers["google_ebooks"]
+
+    def searchOnlyFreeEBooks(self):
+        self.__books_params["books_type"] = self.__available_books_modifiers["free_ebooks"]
+
+    def searchOnlyBooks(self):
+        self.__books_params["with_searching"] = self.__available_books_modifiers["with_searching_books"]
+
+    def searchOnlyNewsPapers(self):
+        self.__books_params["with_searching"] = self.__available_books_modifiers["with_searching_news"]
+
+    def searchOnlyMagazines(self):
+        self.__books_params["with_searching"] = self.__available_books_modifiers["with_searching_magazines"]
+
+    def getBooksModifiers(self) -> dict:
+        return self.__books_params

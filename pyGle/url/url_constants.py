@@ -354,7 +354,7 @@ __google_url_modifiers__ = {
     "with_searching_at_different_google_pages": "tbm={0}",
     "with_searching": {
         "apps": "app",
-        "books": "book",
+        "books": "bks",
         "images": "isch",
         "news": "nws",
         "patents": "pts",
@@ -463,6 +463,14 @@ __google_url_modifiers__ = {
         "sort_order_less_to_high": "p_ord:p",
         "sort_order_high_to_less": "p_ord:pd",
         "sort_order_reviews": "p_ord:rv"
+    },
+    "with_books_params": {
+        "books_with_preview": "bkv:p",
+        "google_ebooks": "bkv:e",
+        "free_ebooks": "bkv:r",
+        "with_searching_books": "bkt:b",
+        "with_searching_news": "bkt:s",
+        "with_searching_magazines": "bkt:m"
     }
 }
 

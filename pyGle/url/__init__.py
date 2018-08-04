@@ -47,6 +47,7 @@ class GoogleSearch:
         self.patents_params = None
         self.shop_params = None
         self.interface_language = None
+        self.book_params = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
@@ -201,6 +202,14 @@ class GoogleSearch:
         self.interface_language = language
         return self
 
+    def withBookParams(self, params: GoogleBooks):
+        params_dict = params.getBooksModifiers()
+        self.book_params = {}
+        for key, value in params_dict.items():
+            if value:
+                self.book_params[key] = value
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
@@ -220,7 +229,7 @@ class URLBuilder:
         if self.params.image_params and self.params.define:
             raise InvalidCombinationException("You cannot define a word and search an image at the same time")
         if self.params.image_params and (not self.params.search_at_different_pages or
-                                         self.params.search_at_different_pages in ["app", "book", "nws", "pts",
+                                         self.params.search_at_different_pages in ["app", "bks", "nws", "pts",
                                                                                    "shop", "vid"]):
             raise InvalidCombinationException("You must search at Google Images if you are specifying \"image params\"")
         if self.params.patents_params and self.params.image_params:
@@ -228,14 +237,14 @@ class URLBuilder:
                                               "time")
         if self.params.patents_params and (not self.params.search_at_different_pages or
                                            self.params.search_at_different_pages in
-                                           ["app", "book", "nws", "isch", "shop", "vid"]):
+                                           ["app", "bks", "nws", "isch", "shop", "vid"]):
             raise InvalidCombinationException("You must search at Google Patents if you are specifying "
                                               "\"patents params\"")
         if self.params.shop_params and (self.params.image_params or self.params.patents_params):
             raise InvalidCombinationException("You cannot search at different Google Pages at the same time")
         if self.params.shop_params and (not self.params.search_at_different_pages or
                                         self.params.search_at_different_pages in
-                                        ["app", "book", "nws", "isch", "pts", "vid"]):
+                                        ["app", "bks", "nws", "isch", "pts", "vid"]):
             raise InvalidCombinationException("You must search at Google Shopping if you are specifying "
                                               "\"shop params\"")
 

@@ -762,3 +762,112 @@ class ShopExtractor(BaseExtractor):
         future = executor.submit(self.__extractor, url, start_time)
         executor.shutdown(wait=False)
         return future
+
+
+class BookExtractor(BaseExtractor):
+    @staticmethod
+    def __get_book_title_link(web_section) -> tuple:
+        try:
+            search_title_object = web_section.find_all("h3", {"class": "r"})[0].find_all("a")
+            link = search_title_object[0].get("href")
+            web_page_title = search_title_object[0].string
+        except IndexError:
+            link = "unavailable"
+            web_page_title = "unavailable"
+        return link, web_page_title
+
+    @staticmethod
+    def __obtain_detailed_section(web_section) -> BeautifulSoup:
+        try:
+            return web_section.find_all("div", {"class": "s"})[0]
+        except IndexError:
+            raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
+                                            "proxy mode or wait for a few minutes")
+
+    @staticmethod
+    def __obtain_thumbnail(web_section) -> str:
+        try:
+            thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("g-img").find("img")
+            return thumbnail_section.get("src")
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_google_books_url(detailed_section) -> str:
+        try:
+            url_section = detailed_section.find("div", {"class": "f hJND5c TbwUpd"}).find("cite", {"class": "iUh30"})
+            return url_section.get_text(strip=True).strip()
+        except AttributeError:
+            return "unavailable"
+
+    def __get_books_extras(self, details_section) -> tuple:
+        try:
+            section = details_section.find("div", {"class": "slp f"})
+            parts = section.get_text(strip=True).strip().split("-")
+            for i in range(len(parts)):
+                parts[i] = self.cleanupString(parts[i])
+            return parts[0][:-1], parts[1][1:][:-1]
+        except (AttributeError, IndexError):
+            return "unavailable", "unavailable"
+
+    @staticmethod
+    def __get_book_description(details_section) -> str:
+        try:
+            section = details_section.find("span", {"class": "st"})
+            return section.get_text(strip=True).strip().replace(u"\xa0", " ")
+        except AttributeError:
+            return "unavailable"
+
+    @staticmethod
+    def __obtain_stats(origin_html):
+        try:
+            stats = origin_html.find_all("div", {"id": "resultStats"})[0].get_text(strip=True)
+        except IndexError:
+            stats = "unavailable"
+        return stats
+
+    def __extractor(self, url: URLBuilder, start_time: float) -> list:
+        html, search_time = super().obtain_html_object(url)
+        book_results = []
+        elements_start_time = time.time()
+        results_areas = html.find_all("div", {"class": "srg"})
+        for section in results_areas:
+            found_results = section.find_all("div", {"class": "g"})
+            for result in found_results:
+                link, title = self.__get_book_title_link(result)
+                more_info = self.__obtain_detailed_section(result)
+                thumbnail = self.__obtain_thumbnail(more_info)
+                description = self.__get_book_description(more_info)
+                author, age = self.__get_books_extras(more_info)
+                book_url = self.__obtain_google_books_url(more_info)
+                book_results.append({
+                    "title": title,
+                    "link": link,
+                    "description": description,
+                    "book_url": book_url,
+                    "thumbnail": thumbnail,
+                    "publisher": {
+                        "age": age,
+                        "author": author
+                    }
+                })
+        stats = self.__obtain_stats(html)
+        elements_end_time = time.time()
+        book_results.append({"how_many_results": len(book_results),
+                             "google_stats": stats,
+                             "stats": {
+                                 "overall_time": str((time.time() - start_time)) + " s",
+                                 "google_search_time": str(search_time) + " s",
+                                 "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
+                             }})
+        if self.history is not None:
+            self.history.append(book_results)
+        super().change_header()
+        return book_results
+
+    def extract_url(self, url: URLBuilder) -> Future:
+        start_time = time.time()
+        executor = ThreadPoolExecutor(max_workers=self.cpu_count)
+        future = executor.submit(self.__extractor, url, start_time)
+        executor.shutdown(wait=False)
+        return future
