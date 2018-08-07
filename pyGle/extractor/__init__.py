@@ -81,9 +81,9 @@ class BaseExtractor:
         overall_time, google_search, parsing_elements = self.getOverallTime()
         if overall_time != -1:
             print("Total requests: " + str(len(self.history)))
-            print("Overall time: " + str(overall_time))
-            print("Google search overall time: " + str(google_search))
-            print("Parsing elements overall time: " + str(parsing_elements))
+            print("Overall time: " + str(overall_time) + " s")
+            print("Google search overall time: " + str(google_search) + " s")
+            print("Parsing elements overall time: " + str(parsing_elements) + " s")
         else:
             print("History is disabled or not petition has been done yet")
 

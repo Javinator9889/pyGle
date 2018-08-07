@@ -48,6 +48,7 @@ class GoogleSearch:
         self.shop_params = None
         self.interface_language = None
         self.book_params = None
+        # self.search_extractor = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
