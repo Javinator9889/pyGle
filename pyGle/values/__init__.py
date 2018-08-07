@@ -127,9 +127,6 @@ class GooglePages:
     def searchNews(self):
         self.__google_page = self.__available_google_pages["news"]
 
-    def searchApps(self):
-        self.__google_page = self.__available_google_pages["apps"]
-
     def searchBooks(self):
         self.__google_page = self.__available_google_pages["books"]
 

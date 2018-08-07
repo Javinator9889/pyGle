@@ -353,7 +353,6 @@ __google_url_modifiers__ = {
     "with_search_by_update_time": "sbd:1",
     "with_searching_at_different_google_pages": "tbm={0}",
     "with_searching": {
-        "apps": "app",
         "books": "bks",
         "images": "isch",
         "news": "nws",

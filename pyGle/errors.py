@@ -18,6 +18,16 @@ class InvalidCombinationException(RuntimeError):
         super().__init__(message)
 
 
+class TimeCombinationNonValid(InvalidCombinationException):
+    def __init__(self, message: str = None):
+        super().__init__(message)
+
+
+class MixedSearchException(InvalidCombinationException):
+    def __init__(self, message: str = None):
+        super().__init__(message)
+
+
 class NullQueryError(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message

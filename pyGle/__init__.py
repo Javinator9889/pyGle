@@ -27,7 +27,7 @@ def main():
     from values.OptionsForPatents import OfficePatents, PatentStatus, AvailablePatentTypes
     from extractor import ImageExtractor, SearchExtractor, NewsExtractor, VideoExtractor, PatentExtractor, ShopExtractor, BookExtractor
     from values import TimeLimit, GooglePatents, AvailableLanguages, GoogleImages, GooglePages, Countries, Languages, \
-        AvailableCountries, GoogleShop, InterfaceLanguages
+        AvailableCountries, GoogleShop, InterfaceLanguages, GoogleBooks
 
     pp = pprint.PrettyPrinter(indent=4)
     country = Countries()
@@ -162,14 +162,18 @@ def main():
     country.setCountry(AvailableCountries.Spain)
     pages = GoogleSearch()
     page.searchBooks()
-    params = GoogleShop()
-    params.orderByReviewScore()
-    params.onlyNewProducts()
-    pages.withNumberOfResults(10).withQuery("papás").withSearchingAtDifferentGooglePages(page).withInterfaceLanguage(InterfaceLanguages.InterfaceLanguages.English)
+    # params = GoogleShop()
+    # params.orderByReviewScore()
+    # params.onlyNewProducts()
+    params = GoogleBooks()
+    params.searchOnlyBooks()
+    pages.withDefiningTerm("palabra").withResultsLanguage(lang)
     print(URLBuilder(pages).build())
-    b_ex = BookExtractor(must_use_session=False, with_history_enabled=True)
-    pg = b_ex.extract_url(URLBuilder(pages))
-    pp.pprint(pg.result())
+    # pages.withNumberOfResults(10).withQuery("papás").withSearchingAtDifferentGooglePages(page).withInterfaceLanguage(InterfaceLanguages.InterfaceLanguages.English).withBookParams(params)
+    # print(URLBuilder(pages).build())
+    # b_ex = BookExtractor(must_use_session=False, with_history_enabled=True)
+    # pg = b_ex.extract_url(URLBuilder(pages))
+    # pp.pprint(pg.result())
     # sh_extractor = ShopExtractor(must_use_session=False, with_history_enabled=True)
     # pg = sh_extractor.extract_url(URLBuilder(pages))
     # pp.pprint(pg.result())
