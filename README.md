@@ -1,7 +1,7 @@
 # [pyGle](https://github.com/Javinator9889/pyGle)
 A tool for searching the entire web with the Google technology
 
-[![PyPi](https://img.shields.io/badge/v1.0%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
+[![PyPi](https://img.shields.io/badge/v1.1%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
 [![ZIP](https://img.shields.io/badge/Package%20-Zip-blue.svg)](https://github.com/Javinator9889/pyGle/archive/master.zip)
 [![GIT](https://img.shields.io/badge/Package%20-Git-red.svg)](https://github.com/Javinator9889/pyGle.git)
 
