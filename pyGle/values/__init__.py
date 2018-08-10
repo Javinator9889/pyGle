@@ -101,15 +101,15 @@ class Dates:
         self.__date_one = None
         self.__date_two = None
 
-    def setFirstDate(self, day, month, year):
+    def setFirstDate(self, day: int, month: int, year: int):
         from datetime import datetime
 
-        self.__date_one = datetime.strftime(day + '.' + month + '.' + year, "%d.%m.%Y")
+        self.__date_one = datetime(year, month, day).strftime("%d.%m.%Y")
 
-    def setSecondDate(self, day, month, year):
+    def setSecondDate(self, day: int, month: int, year: int):
         from datetime import datetime
 
-        self.__date_two = datetime.strftime(day + '.' + month + '.' + year, "%d.%m.%Y")
+        self.__date_two = datetime(year, month, day).strftime("%d.%m.%Y")
 
     def getDates(self):
         # type: () -> list

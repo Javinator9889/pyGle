@@ -327,7 +327,7 @@ class URLBuilder:
                         self.params.search_between_two_dates))
             else:
                 tbs_attributes.append(__google_url_modifiers__["with_search_between_two_dates"].format(
-                    self.params.search_between_two_dates))
+                    self.params.search_between_two_dates[0], self.params.search_between_two_dates[1]))
         if self.params.sort_by_update_time and not self.params.search_between_two_dates:
             tbs_attributes.append(__google_url_modifiers__["with_search_by_update_time"])
         if self.params.search_at_different_pages:
@@ -361,7 +361,7 @@ class URLBuilder:
             attributes_query = final_query + '&' + extra_attributes
         else:
             attributes_query = final_query
-        return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%")
+        return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,")
         # return __google_base_url__ + attributes_query
 
         # else:
