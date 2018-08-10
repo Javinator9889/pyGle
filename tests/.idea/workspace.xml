@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleBooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleBooks.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +14,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_synonymous_searching_word.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word Coverage Results" MODIFIED="1533894509213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_search_image Coverage Results" MODIFIED="1533894852904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params Coverage Results" MODIFIED="1533896402111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params Coverage Results" MODIFIED="1533896526151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -23,7 +23,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result Coverage Results" MODIFIED="1533893696989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533895737391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_order.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order Coverage Results" MODIFIED="1533893629673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books Coverage Results" MODIFIED="1533896433102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books Coverage Results" MODIFIED="1533896497365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit Coverage Results" MODIFIED="1533893936216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533893274861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_words_excluded.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded Coverage Results" MODIFIED="1533893746567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -38,22 +38,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="6" />
+          <entry key="py" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="6" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1688" />
+          <entry key="py" value="1759" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1688" />
+          <entry key="Python" value="1759" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -87,13 +87,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="521">
+              <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,8 +150,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/GoogleSearch.py" />
-        <option value="$PROJECT_DIR$/GoogleBooks.py" />
         <option value="$PROJECT_DIR$/GoogleImages.py" />
+        <option value="$PROJECT_DIR$/GoogleBooks.py" />
+        <option value="$PROJECT_DIR$/../setup.py" />
       </list>
     </option>
   </component>
@@ -176,6 +189,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../setup.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -197,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books">
+  <component name="RunManager" selected="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params">
     <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -282,8 +296,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" />
         <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" />
+        <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" />
         <item itemvalue="Python tests.Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params" />
         <item itemvalue="Python tests.Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" />
         <item itemvalue="Python tests.Unittests for GoogleImages.BuiltInSearchTest.test_search_image" />
@@ -304,21 +318,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params - 2018.08.10 at 11h 58m 51s.xml">
-      <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params - 2018.08.10 at 11h 59m 31s.xml">
-      <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params - 2018.08.10 at 12h 00m 12s.xml">
-      <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params - 2018.08.10 at 12h 01m 33s.xml">
-      <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params - 2018.08.10 at 12h 02m 43s.xml">
-      <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books - 2018.08.10 at 12h 06m 41s.xml">
       <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" configurationId="tests" />
     </history-entry>
@@ -332,6 +331,21 @@
       <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 14m 51s.xml">
+      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 19m 12s.xml">
+      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 20m 04s.xml">
+      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books - 2018.08.10 at 12h 20m 34s.xml">
+      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books - 2018.08.10 at 12h 21m 43s.xml">
+      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 22m 10s.xml">
       <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
     </history-entry>
   </component>
@@ -411,10 +425,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="521">
+          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

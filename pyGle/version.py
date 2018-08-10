@@ -6,10 +6,11 @@
 #
 
 __version__ = "v0.954b"
+__version_code__ = 50
 
 
 def print_ver_info():
     import sys
 
-    print("py-google-search {0}".format(__version__))
+    print("pyGle {0}".format(__version__))
     print("Python {0}".format(sys.version.replace("\n", ' ')))
