@@ -16,7 +16,8 @@ from pyGle.values import (GooglePages,
                           AvailableImageFormats,
                           AvailableImagesTypes,
                           AvailableSizes,
-                          AvailableRights)
+                          AvailableRights,
+                          GoogleBooks)
 
 
 class BuiltInSearchTest(unittest.TestCase):
@@ -45,4 +46,10 @@ class BuiltInSearchTest(unittest.TestCase):
         params.setImageSize(AvailableSizes.BiggerThan640x480)
         params.setColorType(AvailableColorsType.Full_color)
         self.search.withImageParams(params).withQuery("test")
+        self.__search()
+
+    def test_fail_search_no_image_params(self):
+        params = GoogleBooks()
+        params.searchOnlyBooks()
+        self.search.withBookParams(params).withQuery("test")
         self.__search()

@@ -813,7 +813,14 @@ class BookExtractor(BaseExtractor):
             parts = section.get_text(strip=True).strip().split("-")
             for i in range(len(parts)):
                 parts[i] = self.cleanupString(parts[i])
-            return parts[0][:-1], parts[1][1:][:-1]
+            try:
+                age = parts[1][1:][:-1]
+                author = parts[0][:-1]
+                int(age)
+                return author, age
+            except ValueError:
+                return "unavailable", "unavailable"
+            # return parts[0][:-1], parts[1][1:][:-1] if parts[1][1:][:-1] is int else ("unavailable", "unavailable")
         except (AttributeError, IndexError):
             return "unavailable", "unavailable"
 
