@@ -17,6 +17,7 @@ from .extractor import (BaseExtractor,
                         BookExtractor,
                         Future)
 from .url.url_constants import __google_url_modifiers__
+from .version import print_ver_info
 
 
 class PyGle(GoogleSearch):
@@ -113,6 +114,10 @@ class PyGle(GoogleSearch):
                     elif key == "Videos":
                         self.__videos_extractor.printOverallTime()
         # self.__search_extractor.printOverallTime()
+
+    @staticmethod
+    def version():
+        print_ver_info()
 
 
 def main():

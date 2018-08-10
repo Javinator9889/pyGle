@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../pyGle/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleBooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleBooks.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
