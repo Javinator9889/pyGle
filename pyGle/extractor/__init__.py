@@ -599,9 +599,11 @@ class PatentExtractor(BaseExtractor):
             return "unavailable"
 
     def __get_patent_extras(self, details_section) -> tuple:
+        import re
         try:
             section = details_section.find("div", {"class": "slp f"})
-            parts = section.get_text(strip=True).strip().split(" - ")
+            first_parts = section.get_text(strip=True).strip()
+            parts = re.split("\s-\s", first_parts)
             for i in range(len(parts)):
                 parts[i] = self.cleanupString(parts[i])
             return parts[0][:-1], parts[1][1:][:-1], parts[2][1:][:-1], parts[3][1:], parts[4][1:]

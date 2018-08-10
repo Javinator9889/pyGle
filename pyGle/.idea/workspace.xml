@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Created PyGle class for working with queries">
-      <change afterPath="$PROJECT_DIR$/../tests/GooglePatents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/GoogleBooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleBooks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/GoogleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/GoogleSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleSearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,14 +49,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7321" />
+          <entry key="py" value="7367" />
           <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="141" />
-          <entry key="Python" value="7321" />
+          <entry key="Python" value="7367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -132,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/version.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            <state relative-caret-position="136">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -150,11 +149,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="815" column="33" selection-start-line="815" selection-start-column="33" selection-end-line="815" selection-end-column="33" />
+            <state relative-caret-position="389">
+              <caret line="610" column="62" selection-start-line="610" selection-start-column="62" selection-end-line="610" selection-end-column="62" />
               <folding>
                 <element signature="e#299#310#0" expanded="true" />
-                <marker date="1533896484209" expanded="true" signature="36668:37143" ph="..." />
+                <marker date="1533897939668" expanded="true" signature="36732:37207" ph="..." />
               </folding>
             </state>
           </provider>
@@ -284,10 +283,10 @@
         <option value="$PROJECT_DIR$/url/__init__.py" />
         <option value="$PROJECT_DIR$/url/url_constants.py" />
         <option value="$PROJECT_DIR$/values/OptionsForPictures.py" />
-        <option value="$PROJECT_DIR$/extractor/__init__.py" />
-        <option value="$PROJECT_DIR$/extractor/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/extractor/__init__.py" />
+        <option value="$PROJECT_DIR$/extractor/__init__.py" />
         <option value="$PROJECT_DIR$/version.py" />
       </list>
     </option>
@@ -342,7 +341,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last.edited.regexp" value="" />
+    <property name="last.edited.regexp" value="test - hi" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/values" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -581,6 +580,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19932885" />
@@ -786,17 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="815" column="33" selection-start-line="815" selection-start-column="33" selection-end-line="815" selection-end-column="33" />
-          <folding>
-            <element signature="e#299#310#0" expanded="true" />
-            <marker date="1533896484209" expanded="true" signature="36668:37143" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -808,10 +797,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="610" column="62" selection-start-line="610" selection-start-column="62" selection-end-line="610" selection-end-column="62" />
+          <folding>
+            <element signature="e#299#310#0" expanded="true" />
+            <marker date="1533897939668" expanded="true" signature="36732:37207" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/version.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="136">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>

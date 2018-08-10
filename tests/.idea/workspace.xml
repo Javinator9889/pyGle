@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GooglePatents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleBooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleBooks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleSearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +18,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533897469889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533897595167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533897675197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params Coverage Results" MODIFIED="1533895361713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_results_at_country.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_results_at_country Coverage Results" MODIFIED="1533894678878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -95,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
-              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -335,9 +333,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 14m 51s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 19m 12s.xml">
       <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
     </history-entry>
@@ -365,9 +360,13 @@
     <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 39m 57s.xml">
       <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 41m 19s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
@@ -452,7 +451,7 @@
     <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
           </folding>
