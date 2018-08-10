@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoogleVideos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/url/url_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/url_constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/values/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/values/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleVideos.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleVideos.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +28,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_synonymous_searching_word.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word Coverage Results" MODIFIED="1533894509213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params Coverage Results" MODIFIED="1533897386444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleNews_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleNews.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533901107459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleVideos_BuiltInSearchTest_test_search_with_params.coverage" NAME="Unittests for GoogleVideos.BuiltInSearchTest.test_search_with_params Coverage Results" MODIFIED="1533902809759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleVideos_BuiltInSearchTest_test_search.coverage" NAME="Unittests for GoogleVideos.BuiltInSearchTest.test_search Coverage Results" MODIFIED="1533901210292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleNews_BuiltInSearchTest_test_search_with_params.coverage" NAME="Unittests for GoogleNews.BuiltInSearchTest.test_search_with_params Coverage Results" MODIFIED="1533901061767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -41,6 +37,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result Coverage Results" MODIFIED="1533893696989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533895737391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleShops_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533900786084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleVideos_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533902839119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit Coverage Results" MODIFIED="1533893936216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -53,22 +50,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="11" />
+          <entry key="py" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="11" />
+          <entry key="Python" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2405" />
+          <entry key="py" value="2545" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2405" />
+          <entry key="Python" value="2545" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -142,7 +139,7 @@
         <entry file="file://$PROJECT_DIR$/GoogleNews.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="23" />
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -153,8 +150,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GoogleVideos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="38">
+              <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -177,15 +174,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__init__.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyGle-0.932b0-py3.6.egg/pyGle/url/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="326" column="60" selection-start-line="326" selection-start-column="60" selection-end-line="326" selection-end-column="60" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -269,7 +257,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_search">
+  <component name="RunManager" selected="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params">
     <configuration name="Unittests for GoogleNews.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -282,21 +270,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;GoogleNews.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for GoogleNews.BuiltInSearchTest.test_search" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="tests" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleNews.BuiltInSearchTest.test_search&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -315,7 +288,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -326,7 +299,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
+      <option name="_new_target" value="&quot;GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -345,20 +318,35 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for GoogleVideos.BuiltInSearchTest.test_search_with_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="tests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;GoogleVideos.BuiltInSearchTest.test_search_with_params&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params" />
-      <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_search" />
       <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_search_with_params" />
       <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_fail_search_no_image_params" />
       <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_search" />
+      <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_search_with_params" />
+      <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_fail_search_no_image_params" />
+        <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_search_with_params" />
         <item itemvalue="Python tests.Unittests for GoogleVideos.BuiltInSearchTest.test_search" />
         <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_fail_search_no_image_params" />
         <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_search_with_params" />
-        <item itemvalue="Python tests.Unittests for GoogleNews.BuiltInSearchTest.test_search" />
-        <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params" />
       </list>
     </recent_temporary>
   </component>
@@ -376,9 +364,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleShops_BuiltInSearchTest_test_search_with_params - 2018.08.10 at 13h 25m 48s.xml">
-      <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GoogleShops_BuiltInSearchTest_test_fail_search_no_image_params - 2018.08.10 at 13h 33m 06s.xml">
       <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_fail_search_no_image_params" configurationId="tests" />
     </history-entry>
@@ -406,10 +391,12 @@
     <history-entry file="Unittests_for_GoogleVideos_BuiltInSearchTest_test_search - 2018.08.10 at 13h 40m 11s.xml">
       <configuration name="Unittests for GoogleVideos.BuiltInSearchTest.test_search" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_GoogleVideos_BuiltInSearchTest_test_search_with_params - 2018.08.10 at 14h 06m 51s.xml">
+      <configuration name="Unittests for GoogleVideos.BuiltInSearchTest.test_search_with_params" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
@@ -422,7 +409,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7673759" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7673759" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.73758864" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -524,17 +511,22 @@
     <entry file="file://$PROJECT_DIR$/GoogleNews.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="23" />
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyGle-0.9b0-py3.6.egg/pyGle/values/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5344" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GoogleVideos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="38">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
           </folding>

@@ -10,7 +10,8 @@ import pprint
 from pyGle import PyGle
 from pyGle.values import (GooglePages,
                           GoogleImages,
-                          AvailableColors)
+                          AvailableColors,
+                          GoogleVideos)
 
 PyGle.version()
 
@@ -32,4 +33,15 @@ class BuiltInSearchTest(unittest.TestCase):
         self.__search()
 
     def test_search_with_params(self):
+        params = GoogleVideos()
+        params.withShortDuration()
+        params.withHighQualityVideos()
+        params.withSubtitles()
+        self.search.withQuery("test").withVideoParams(params)
+        self.__search()
 
+    def test_fail_search_no_image_params(self):
+        params = GoogleImages()
+        params.setColor(AvailableColors.Orange)
+        self.search.withImageParams(params).withQuery("test")
+        self.__search()
