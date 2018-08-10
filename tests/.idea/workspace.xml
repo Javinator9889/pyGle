@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/values/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/values/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,14 +66,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="7271" />
-          <entry key="py" value="2547" />
+          <entry key="py" value="2704" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="18" />
           <entry key="Markdown" value="7234" />
-          <entry key="Python" value="2566" />
+          <entry key="Python" value="2723" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -89,7 +88,7 @@
               <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
-                <marker date="1533897386349" expanded="true" signature="684:690" ph="..." />
+                <marker date="1533911636684" expanded="true" signature="684:690" ph="..." />
               </folding>
             </state>
           </provider>
@@ -102,7 +101,7 @@
               <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="56" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
-                <marker date="1533897386411" expanded="true" signature="871:872" ph="..." />
+                <marker date="1533911636681" expanded="true" signature="871:872" ph="..." />
               </folding>
             </state>
           </provider>
@@ -168,7 +167,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -180,13 +179,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+            <state relative-caret-position="527">
+              <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+                <marker date="1533912116242" expanded="true" signature="224:317" ph="..." />
               </folding>
             </state>
           </provider>
@@ -212,7 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../setup.py" />
         <option value="$PROJECT_DIR$/GoogleImages.py" />
         <option value="$PROJECT_DIR$/GoogleSearch.py" />
         <option value="$PROJECT_DIR$/GoogleBooks.py" />
@@ -221,6 +220,7 @@
         <option value="$PROJECT_DIR$/GoogleNews.py" />
         <option value="$PROJECT_DIR$/GoogleVideos.py" />
         <option value="$PROJECT_DIR$/../README.md" />
+        <option value="$PROJECT_DIR$/../setup.py" />
       </list>
     </option>
   </component>
@@ -469,23 +469,13 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GoogleImages.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="56" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
-            <marker date="1533897386411" expanded="true" signature="871:872" ph="..." />
+            <marker date="1533911636681" expanded="true" signature="871:872" ph="..." />
           </folding>
         </state>
       </provider>
@@ -551,7 +541,7 @@
           <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
-            <marker date="1533897386349" expanded="true" signature="684:690" ph="..." />
+            <marker date="1533911636684" expanded="true" signature="684:690" ph="..." />
           </folding>
         </state>
       </provider>
@@ -563,6 +553,17 @@
             <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1533912116242" expanded="true" signature="224:317" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

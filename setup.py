@@ -1,5 +1,10 @@
 from setuptools import setup
+from sys import version
+
 from pyGle.version import __version__
+
+if version < '3':
+    raise RuntimeError("Python v3 at least needed")
 
 
 def requirements() -> list:
@@ -8,24 +13,31 @@ def requirements() -> list:
     return req
 
 
+def long_description():
+    with open("README.md", "r") as fh:
+        long_desc = fh.read()
+    return long_desc
+
+
 setup(
     name='pyGle',
     version=__version__,
     packages=['pyGle', 'pyGle.url', 'pyGle.values', 'pyGle.extractor'],
-    url='',
+    url='https://github.com/Javinator9889/pyGle',
     license='GPL-3.0',
     author='Javinator9889',
     author_email='javialonso007@hotmail.es',
     description='A tool for searching the entire web with the Google technology',
+    long_description=long_description(),
+    long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=requirements(),
     zip_safe=False,
+    download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
             'Development Status :: 5 - Production/Stable',
             'Programming Language :: Python',
-            'Environment :: Console',
             'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-            'Operating System :: POSIX :: Linux',
             'Natural Language :: English',
             'Programming Language :: Python :: 3',
             'Programming Language :: Python :: 3.1',
