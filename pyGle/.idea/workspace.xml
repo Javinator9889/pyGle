@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Created PyGle class for working with queries">
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tests/GooglePatents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/GoogleBooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleBooks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/GoogleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/GoogleSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleSearch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="810">
-              <caret line="114" column="66" lean-forward="true" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
+              <caret line="114" column="66" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
               <folding>
                 <element signature="e#336#377#0" expanded="true" />
                 <marker date="1533897292027" expanded="true" signature="2290:2292" ph="..." />
@@ -579,7 +581,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19932885" />
@@ -799,7 +800,7 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
-          <caret line="114" column="66" lean-forward="true" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
+          <caret line="114" column="66" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
           <folding>
             <element signature="e#336#377#0" expanded="true" />
             <marker date="1533897292027" expanded="true" signature="2290:2292" ph="..." />

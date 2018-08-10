@@ -9,6 +9,8 @@ import pprint
 
 from pyGle import PyGle
 
+PyGle.version()
+
 
 class BuiltInSearchTest(unittest.TestCase):
     def setUp(self):

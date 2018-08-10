@@ -19,6 +19,8 @@ from pyGle.values import (GooglePages,
                           AvailableRights,
                           GoogleBooks)
 
+PyGle.version()
+
 
 class BuiltInSearchTest(unittest.TestCase):
     def setUp(self):

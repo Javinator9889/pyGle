@@ -9,9 +9,8 @@ import pprint
 
 from pyGle import PyGle
 from pyGle.values import (GooglePages,
-                          GoogleBooks,
-                          GoogleImages,
-                          AvailableColors)
+                          GooglePatents,
+                          GoogleImages)
 
 PyGle.version()
 
@@ -20,7 +19,7 @@ class BuiltInSearchTest(unittest.TestCase):
     def setUp(self):
         self.search = PyGle(enable_history=True, use_session_cookies=True)
         page = GooglePages()
-        page.searchBooks()
+        page.searchPatents()
         self.search.withSearchingAtDifferentGooglePages(page)
         self.printer = pprint.PrettyPrinter(indent=4)
 
@@ -28,20 +27,6 @@ class BuiltInSearchTest(unittest.TestCase):
         ft = self.search.doSearch()
         self.printer.pprint(ft.result())
 
-    def test_search_books(self):
+    def test_search_patent(self):
         self.search.withQuery("test")
-        self.__search()
-
-    def test_search_books_with_params(self):
-        params = GoogleBooks()
-        params.searchOnlyBooks()
-        params.searchOnlyBooksWithPreview()
-        params.searchOnlyFreeEBooks()
-        self.search.withQuery("test").withBookParams(params)
-        self.__search()
-
-    def test_fail_search_no_image_params(self):
-        params = GoogleImages()
-        params.setColor(AvailableColors.Orange)
-        self.search.withImageParams(params).withQuery("test")
         self.__search()
