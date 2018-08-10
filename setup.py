@@ -24,7 +24,7 @@ except:
 
 
 setup(
-    name='pyGle',
+    name='g-pyGle',
     version=__version__,
     packages=['pyGle', 'pyGle.url', 'pyGle.values', 'pyGle.extractor'],
     url='https://github.com/Javinator9889/pyGle',

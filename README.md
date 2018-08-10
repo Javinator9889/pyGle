@@ -1,7 +1,7 @@
-# pyGle
+# [pyGle](https://github.com/Javinator9889/pyGle)
 A tool for searching the entire web with the Google technology
 
-[![PyPi](https://img.shields.io/badge/v1.0%20-PyPi-green.svg)](https://pypi.org/project/pyGle/)
+[![PyPi](https://img.shields.io/badge/v1.0%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
 [![ZIP](https://img.shields.io/badge/Package%20-Zip-blue.svg)](https://github.com/Javinator9889/pyGle/archive/master.zip)
 [![GIT](https://img.shields.io/badge/Package%20-Git-red.svg)](https://github.com/Javinator9889/pyGle.git)
 
@@ -47,9 +47,9 @@ whose functionality is the following:
 + You want to *do a research* at Google.
 + As explained before, it needs about **~1 second** to complete, so it is a lot of time for you to do *other things* 
 that do not depend on the result of your search.
-+ So when you *ask pyGle* to scrap the web with Google, it returns a **Future** object. At the first moment, it does 
-have **nothing**, but when pyGle ends its work, the Future object will contain all the data.
-+ pyGle automatically detects the *number of processors* of your system so it can speed-up all the process.
++ So when you *ask [pyGle](https://github.com/Javinator9889/pyGle)* to scrap the web with Google, it returns a **Future** object. At the first moment, it does 
+have **nothing**, but when [pyGle](https://github.com/Javinator9889/pyGle) ends its work, the Future object will contain all the data.
++ [pyGle](https://github.com/Javinator9889/pyGle) automatically detects the *number of processors* of your system so it can speed-up all the process.
 
 ## 2. Purpose
 
@@ -57,12 +57,12 @@ Searching the web with Google *is very easy* from a web browser such as Chrome o
 **information** to be available for a program that we are developing or similar. Or just we need to *transform and work 
 with that info*.
 
-For that situation, pyGle is the real solution. By using the powerful 
+For that situation, [pyGle](https://github.com/Javinator9889/pyGle) is the real solution. By using the powerful 
 *[Python lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)* and also 
-*[Python dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)*, pyGle will give you all 
+*[Python dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)*, [pyGle](https://github.com/Javinator9889/pyGle) will give you all 
 what you need. Let me exemplify you with a simple search of the term *"test"*:
 
-1. Here is the simplicity of pyGle in code for achieving that:
+1. Here is the simplicity of [pyGle](https://github.com/Javinator9889/pyGle) in code for achieving that:
     ```python
     from pprint import pprint  # Not necessary but for a beautiful print
     from pyGle import PyGle
@@ -191,28 +191,28 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
     sudo easy_install pip
     ```
 
-+ Installing pyGle:
++ Installing [pyGle](https://github.com/Javinator9889/pyGle):
     
-    Once you did what said before, now you are able to install pyGle
+    Once you did what said before, now you are able to install [pyGle](https://github.com/Javinator9889/pyGle)
     ```bash
     #### USING PIP ####
-    sudo pip3 install pyGle
+    sudo pip3 install g-pyGle
   
     ## If pip3 is not available ##
-    sudo pip install pyGle
+    sudo pip install g-pyGle
   
     ## Via Python 3 ##
-    sudo python3 -m pip install pyGle
+    sudo python3 -m pip install g-pyGle
 
     ## Without admin permissions ##
-    pip3 install -U pyGle 
+    pip3 install -U g-pyGle 
     OR
-    python3 -m pip install -U pyGle
+    python3 -m pip install -U g-pyGle
     ```
 
 ### *Installing via easy install*
 
-+ Basically, we will install *Python 3* on our systems, and then we will be able to install pyGle:
++ Basically, we will install *Python 3* on our systems, and then we will be able to install [pyGle](https://github.com/Javinator9889/pyGle):
     
     + [Windows](https://realpython.com/installing-python/#windows)
     + [Linux (all systems)](https://realpython.com/installing-python/#linux)
@@ -220,7 +220,7 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
     + [iOS](https://realpython.com/installing-python/#ios-iphone-ipad)
     + [Android](https://realpython.com/installing-python/#android-phones-tablets)
     
-+ Now, we can install pyGle as follows:
++ Now, we can install [pyGle](https://github.com/Javinator9889/pyGle) as follows:
     ```bash
     #### USING EASY INSTALL ####
     git clone https://github.com/Javinator9889/pyGle.git
@@ -230,18 +230,18 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
     
 ## 4. Instructions
 
-Every time we want to use pyGle, we will do the following:
+Every time we want to use [pyGle](https://github.com/Javinator9889/pyGle), we will do the following:
 
 ```python
 from pyGle import PyGle
 ```
 
-pyGle allows us to **enable a history** and **keep the session cookies** (for a faster browsing):
+[pyGle](https://github.com/Javinator9889/pyGle) allows us to **enable a history** and **keep the session cookies** (for a faster browsing):
 ```python
 pSearch = PyGle(enable_history=True, use_session_cookies=True)
 ```
 
-As normal, pyGle will only do a normal Google search if we add a query:
+As normal, [pyGle](https://github.com/Javinator9889/pyGle) will only do a normal Google search if we add a query:
 ```python
 pSearch.withQuery("what we want to search")
 ```
@@ -294,7 +294,7 @@ If you really appreciate my work, you can *contribute to this project* perfectly
 
 1. If you find **bugs** 🔎🐞, you can comment at [issues](https://github.com/Javinator9889/pyGle/issues) what happened to 
 you and *I will try to find a solution*.
-2. You can **fork** this repository and *include all what you think* pyGle should have. Create a pull request and, if I
+2. You can **fork** this repository and *include all what you think* [pyGle](https://github.com/Javinator9889/pyGle) should have. Create a pull request and, if I
  like your changes, I will include it on the official repo and you will automatically become a developer and 
  maintainer 😄
 3. Also, if you are a great fan, you can donate me what you want by clicking here 🤑
