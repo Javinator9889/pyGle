@@ -5,8 +5,8 @@
 #                 under certain conditions; type "-L" for details.
 #
 
-__version__ = "v0.97b"
-__version_code__ = 62
+__version__ = "v0.972b"
+__version_code__ = 64
 
 
 def print_ver_info():

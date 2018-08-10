@@ -347,7 +347,9 @@ class URLBuilder:
             for key, value in self.params.book_params.items():
                 tbs_attributes.append(value)
         if self.params.shop_params:
-            for key, value in self.params.book_params.items():
+            if self.params.shop_params["min_price"] is not None or self.params.shop_params["max_price"] is not None:
+                tbs_attributes.append(__google_url_modifiers__["with_shop_params"]["with_custom_price"])
+            for key, value in self.params.shop_params.items():
                 tbs_attributes.append(value)
 
         final_query = '+'.join(main_query)
