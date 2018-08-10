@@ -88,3 +88,11 @@ class BuiltInSearchTest(unittest.TestCase):
     def test_with_synonymous_searching_word(self):
         self.search.withQuery("test").withSynonymousSearchingToAWord("prueba")
         self.__search()
+
+    def test_search_with_results_at_country(self):
+        from pyGle.values import Countries, AvailableCountries
+
+        c = Countries()
+        c.setCountry(AvailableCountries.UnitedKingdom)
+        self.search.withQuery("spain").withResultsAtCountry(c)
+        self.__search()

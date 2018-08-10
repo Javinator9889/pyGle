@@ -409,7 +409,7 @@ __google_url_modifiers__ = {
         "image_type": {
             "face": "itp:face",
             "photo": "itp:photo",
-            "clip-art": "itp:clip-art",
+            "clip-art": "itp:clipart",
             "line-drawing": "itp:lineart",
             "animated": "itp:animated"
         },
