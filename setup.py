@@ -13,10 +13,14 @@ def requirements() -> list:
     return req
 
 
-def long_description():
-    with open("README.md", "r") as fh:
-        long_desc = fh.read()
-    return long_desc
+try:
+    import codecs
+
+    readme = codecs.open(filename="README.md", mode="r", encoding="utf-8")
+    long_description = readme.read()
+    readme.close()
+except:
+    long_description = ''
 
 
 setup(
@@ -28,7 +32,7 @@ setup(
     author='Javinator9889',
     author_email='javialonso007@hotmail.es',
     description='A tool for searching the entire web with the Google technology',
-    long_description=long_description(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=requirements(),
