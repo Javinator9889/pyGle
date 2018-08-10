@@ -21,7 +21,7 @@ setup(
     install_requires=requirements(),
     zip_safe=False,
     classifiers=[
-            'Development Status :: 4 - Production/Beta',
+            'Development Status :: 5 - Production/Stable',
             'Programming Language :: Python',
             'Environment :: Console',
             'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
