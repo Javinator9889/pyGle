@@ -9,7 +9,6 @@ import pprint
 
 from pyGle import PyGle
 from pyGle.values import (GooglePages,
-                          GoogleShop,
                           GoogleImages,
                           AvailableColors)
 
@@ -20,7 +19,7 @@ class BuiltInSearchTest(unittest.TestCase):
     def setUp(self):
         self.search = PyGle(enable_history=True, use_session_cookies=True)
         page = GooglePages()
-        page.searchShops()
+        page.searchNews()
         self.search.withSearchingAtDifferentGooglePages(page)
         self.printer = pprint.PrettyPrinter(indent=4)
 
@@ -33,11 +32,10 @@ class BuiltInSearchTest(unittest.TestCase):
         self.__search()
 
     def test_search_with_params(self):
-        params = GoogleShop()
-        params.orderByReviewScore()
-        params.onlyNewProducts()
-        params.withMaxPrice(20)
-        self.search.withQuery("test").withShopOptions(params)
+        from pyGle.url import URLBuilder
+
+        self.search.withSiteSearch("ABC.es").withQuery("test")
+        # print(URLBuilder(self.search).build())
         self.__search()
 
     def test_fail_search_no_image_params(self):
