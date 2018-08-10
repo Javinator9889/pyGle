@@ -41,7 +41,7 @@ class BuiltInSearchTest(unittest.TestCase):
         params.setAspectRatio(AvailableAspectRatios.Panoramic)
         params.setImageFormat(AvailableImageFormats.jpg)
         params.setImageRights(AvailableRights.Labeled_for_reuse_with_modifications)
-        params.setImageType(AvailableImagesTypes.Animated)
+        params.setImageType(AvailableImagesTypes.Clip_art)
         params.setImageSize(AvailableSizes.BiggerThan640x480)
         params.setColorType(AvailableColorsType.Full_color)
         self.search.withImageParams(params).withQuery("test")

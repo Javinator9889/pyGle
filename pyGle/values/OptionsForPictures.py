@@ -58,7 +58,7 @@ class AvailableSizes(metaclass=__ABCMeta):
 class AvailableImagesTypes(metaclass=__ABCMeta):
     Face = "itp:face"
     Photo = "itp:photo"
-    Clip_art = "itp:clip-art"
+    Clip_art = "itp:clipart"
     Line_drawing = "itp:lineart"
     Animated = "itp:animated"
 
