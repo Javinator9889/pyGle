@@ -32,5 +32,6 @@ class BuiltInSearchTest(unittest.TestCase):
         params = GoogleBooks()
         params.searchOnlyBooks()
         params.searchOnlyBooksWithPreview()
+        # params.searchOnlyFreeEBooks()
         self.search.withQuery("test").withBookParams(params)
         self.__search()

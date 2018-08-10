@@ -813,7 +813,7 @@ class BookExtractor(BaseExtractor):
             parts = section.get_text(strip=True).strip().split("-")
             for i in range(len(parts)):
                 parts[i] = self.cleanupString(parts[i])
-            first_part = parts[0][:-1]
+            first_part = parts[0]
             second_part = parts[1][1:][:-1]
             try:
                 int(second_part)
