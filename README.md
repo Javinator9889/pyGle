@@ -6,12 +6,12 @@ A tool for searching the entire web with the Google technology
 [![GIT](https://img.shields.io/badge/Package%20-Git-red.svg)](https://github.com/Javinator9889/pyGle.git)
 
 ## Index
-1. [Introduction](https://github.com/Javinator9889/pyGle#Introduction)
-2. [Purpose](https://github.com/Javinator9889/pyGle#Purpose)
-3. [Installation](https://github.com/Javinator9889/pyGle#Installation)
-4. [Instructions](https://github.com/Javinator9889/pyGle#Instructions)
-5. [Contribute](https://github.com/Javinator9889/pyGle#Contribute)
-6. [License](https://github.com/Javinator9889/pyGle#License)
+1. [1-introduction](https://github.com/Javinator9889/pyGle#Introduction)
+2. [2-purpose](https://github.com/Javinator9889/pyGle#Purpose)
+3. [3-installation](https://github.com/Javinator9889/pyGle#Installation)
+4. [4-instructions](https://github.com/Javinator9889/pyGle#Instructions)
+5. [5-contribute](https://github.com/Javinator9889/pyGle#Contribute)
+6. [6-license](https://github.com/Javinator9889/pyGle#License)
 
 ## 1. Introduction
 
