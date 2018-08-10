@@ -347,8 +347,8 @@ __google_url_modifiers__ = {
         "Zimbabwe": "ZW"
     },
     "with_document_county": "gl={0}",
-    "with_extra_attributes": "tbs={0}",
-    "with_search_between_two_dates": "cdr:1,cd_min:{0},cd_max:{1}",
+    "with_extra_attributes": "tbs=cdr:1,{0}",
+    "with_search_between_two_dates": "cd_min:{0},cd_max:{1}",
     "with_search_between_two_dates_by_update_time": "sbd:1,cd_min:{0},cd_max:{1}",
     "with_search_by_update_time": "sbd:1",
     "with_searching_at_different_google_pages": "tbm={0}",
