@@ -346,6 +346,9 @@ class URLBuilder:
         if self.params.book_params:
             for key, value in self.params.book_params.items():
                 tbs_attributes.append(value)
+        if self.params.shop_params:
+            for key, value in self.params.book_params.items():
+                tbs_attributes.append(value)
 
         final_query = '+'.join(main_query)
         final_attributes = '&'.join(extra_attributes_query)

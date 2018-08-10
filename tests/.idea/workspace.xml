@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/GoogleShops.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GooglePatents.py" beforeDir="false" afterPath="$PROJECT_DIR$/GooglePatents.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +20,18 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533897469889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533899399751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533899464849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_with_patents_params.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params Coverage Results" MODIFIED="1533899712426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533899777575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params Coverage Results" MODIFIED="1533895361713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_results_at_country.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_results_at_country Coverage Results" MODIFIED="1533894678878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleShops_BuiltInSearchTest_test_search_with_params.coverage" NAME="Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params Coverage Results" MODIFIED="1533899939787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result Coverage Results" MODIFIED="1533893696989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533895737391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_order.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order Coverage Results" MODIFIED="1533893629673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books Coverage Results" MODIFIED="1533896497365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleShops_BuiltInSearchTest_test_search.coverage" NAME="Unittests for GoogleShops.BuiltInSearchTest.test_search Coverage Results" MODIFIED="1533899880411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit Coverage Results" MODIFIED="1533893936216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533893274861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_words_excluded.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded Coverage Results" MODIFIED="1533893746567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -41,22 +46,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="8" />
+          <entry key="py" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="8" />
+          <entry key="Python" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1898" />
+          <entry key="py" value="2148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1898" />
+          <entry key="Python" value="2148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -93,8 +98,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
+            <state relative-caret-position="470">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="46" selection-end-column="23" />
+              <folding>
+                <element signature="e#315#330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GooglePatents.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="31" selection-end-column="40" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -103,10 +120,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GooglePatents.py">
+        <entry file="file://$PROJECT_DIR$/GoogleShops.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -169,6 +186,7 @@
         <option value="$PROJECT_DIR$/GoogleSearch.py" />
         <option value="$PROJECT_DIR$/GoogleBooks.py" />
         <option value="$PROJECT_DIR$/GooglePatents.py" />
+        <option value="$PROJECT_DIR$/GoogleShops.py" />
       </list>
     </option>
   </component>
@@ -227,8 +245,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_search_patent">
-    <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params">
+    <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -239,52 +257,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="tests" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleBooks.BuiltInSearchTest.test_search_books&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="tests" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleBooks.BuiltInSearchTest.test_search_books_with_params&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="tests" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
+      <option name="_new_target" value="&quot;GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -303,20 +276,65 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="tests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;GooglePatents.BuiltInSearchTest.test_with_patents_params&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_search" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="tests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;GoogleShops.BuiltInSearchTest.test_search&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="tests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;GoogleShops.BuiltInSearchTest.test_search_with_params&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" />
-      <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" />
-      <item itemvalue="Python tests.Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params" />
-      <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params" />
       <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" />
+      <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params" />
+      <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params" />
+      <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_search" />
+      <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_search_with_params" />
+        <item itemvalue="Python tests.Unittests for GoogleShops.BuiltInSearchTest.test_search" />
+        <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params" />
+        <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params" />
         <item itemvalue="Python tests.Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" />
-        <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params" />
-        <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" />
-        <item itemvalue="Python tests.Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" />
-        <item itemvalue="Python tests.Unittests for GoogleImages.BuiltInSearchTest.test_fail_search_no_image_params" />
       </list>
     </recent_temporary>
   </component>
@@ -334,27 +352,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 53m 06s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 56m 18s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 59m 19s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 00m 08s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 01m 57s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 03m 06s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 04m 04s.xml">
-      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 05m 16s.xml">
       <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
     </history-entry>
@@ -364,10 +361,30 @@
     <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 08m 08s.xml">
       <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 08m 28s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 10m 01s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 11m 06s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_with_patents_params - 2018.08.10 at 13h 13m 03s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_with_patents_params - 2018.08.10 at 13h 15m 13s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_with_patents_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_fail_search_no_image_params - 2018.08.10 at 13h 16m 18s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_fail_search_no_image_params" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleShops_BuiltInSearchTest_test_search - 2018.08.10 at 13h 18m 02s.xml">
+      <configuration name="Unittests for GoogleShops.BuiltInSearchTest.test_search" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
@@ -451,8 +468,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GoogleBooks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="28" selection-end-column="40" />
+        <state relative-caret-position="470">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="46" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
           </folding>
@@ -461,8 +478,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GooglePatents.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="31" selection-end-column="40" />
+          <folding>
+            <element signature="e#315#330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoogleShops.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
           </folding>

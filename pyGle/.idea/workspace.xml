@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Created PyGle class for working with queries">
-      <change beforePath="$PROJECT_DIR$/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tests/GoogleShops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/GooglePatents.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GooglePatents.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,14 +50,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7555" />
+          <entry key="py" value="7564" />
           <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="141" />
-          <entry key="Python" value="7555" />
+          <entry key="Python" value="7564" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -149,11 +150,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="606" column="67" selection-start-line="606" selection-start-column="67" selection-end-line="606" selection-end-column="67" />
+            <state relative-caret-position="338">
+              <caret line="607" column="55" selection-start-line="607" selection-start-column="55" selection-end-line="607" selection-end-column="55" />
               <folding>
                 <element signature="e#299#310#0" expanded="true" />
-                <marker date="1533899286441" expanded="true" signature="36911:37386" ph="..." />
+                <marker date="1533899428787" expanded="true" signature="36870:37345" ph="..." />
               </folding>
             </state>
           </provider>
@@ -580,7 +581,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19932885" />
@@ -799,11 +799,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="606" column="67" selection-start-line="606" selection-start-column="67" selection-end-line="606" selection-end-column="67" />
+        <state relative-caret-position="338">
+          <caret line="607" column="55" selection-start-line="607" selection-start-column="55" selection-end-line="607" selection-end-column="55" />
           <folding>
             <element signature="e#299#310#0" expanded="true" />
-            <marker date="1533899286441" expanded="true" signature="36911:37386" ph="..." />
+            <marker date="1533899428787" expanded="true" signature="36870:37345" ph="..." />
           </folding>
         </state>
       </provider>

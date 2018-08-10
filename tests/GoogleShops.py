@@ -9,12 +9,7 @@ import pprint
 
 from pyGle import PyGle
 from pyGle.values import (GooglePages,
-                          GooglePatents,
-                          GoogleImages,
-                          OfficePatents,
-                          PatentStatus,
-                          AvailablePatentTypes,
-                          AvailableColors)
+                          GoogleShop)
 
 PyGle.version()
 
@@ -23,7 +18,7 @@ class BuiltInSearchTest(unittest.TestCase):
     def setUp(self):
         self.search = PyGle(enable_history=True, use_session_cookies=True)
         page = GooglePages()
-        page.searchPatents()
+        page.searchShops()
         self.search.withSearchingAtDifferentGooglePages(page)
         self.printer = pprint.PrettyPrinter(indent=4)
 
@@ -31,20 +26,14 @@ class BuiltInSearchTest(unittest.TestCase):
         ft = self.search.doSearch()
         self.printer.pprint(ft.result())
 
-    def test_search_patent(self):
+    def test_search(self):
         self.search.withQuery("test")
         self.__search()
 
-    def test_with_patents_params(self):
-        params = GooglePatents()
-        params.setOfficePatent(OfficePatents.Europe)
-        params.setPatentStatus(PatentStatus.Applications)
-        params.setPatentType(AvailablePatentTypes.Design)
-        self.search.withQuery("test").withPatentParams(params)
-        self.__search()
-
-    def test_fail_search_no_image_params(self):
-        params = GoogleImages()
-        params.setColor(AvailableColors.Orange)
-        self.search.withImageParams(params).withQuery("test")
+    def test_search_with_params(self):
+        params = GoogleShop()
+        params.orderByReviewScore()
+        params.onlyNewProducts()
+        params.withMaxPrice(20)
+        self.search.withQuery("test").withShopOptions(params)
         self.__search()
