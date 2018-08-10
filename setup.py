@@ -6,13 +6,6 @@ from pyGle.version import __version__
 if version < '3':
     raise RuntimeError("Python v3 at least needed")
 
-
-def requirements() -> list:
-    with open("pyGle/requirements.txt", 'r') as f:
-        req = f.read().splitlines()
-    return req
-
-
 try:
     import codecs
 
@@ -35,7 +28,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    install_requires=requirements(),
+    install_requires=["lxml", "beautifulsoup4", "ujson"],
     zip_safe=False,
     download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
