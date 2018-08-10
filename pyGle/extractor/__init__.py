@@ -182,8 +182,6 @@ class SearchExtractor(BaseExtractor):
             return web_section.find_all("div", {"class": "s"})[0]
         except IndexError:
             return None
-            # raise GoogleOverloadedException("It looks like Google is blocking your requests. Try enabling the "
-            #                                 "proxy mode or wait for a few minutes")
 
     @staticmethod
     def __obtain_web_cache(detailed_section) -> str:
@@ -829,7 +827,6 @@ class BookExtractor(BaseExtractor):
                     return second_part, first_part
                 except ValueError:
                     return "unavailable", "unavailable"
-            # return parts[0][:-1], parts[1][1:][:-1] if parts[1][1:][:-1] is int else ("unavailable", "unavailable")
         except (AttributeError, IndexError):
             return "unavailable", "unavailable"
 

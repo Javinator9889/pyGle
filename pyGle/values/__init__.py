@@ -72,7 +72,6 @@ class Languages:
 
     def setLanguage(self, language: AvailableLanguages):
         self.__lang = language
-        # self.__lang = self.__available_lang[language]
 
     def getLanguage(self):
         # type: () -> str
@@ -159,80 +158,24 @@ class GoogleImages:
 
     def setColor(self, color: AvailableColors):
         self.__image_params["image_color"] = color
-        # if not color:
-        #     self.showColors()
-        # else:
-        #     if color in self.__available_images_modifiers["color"]:
-        #         self.__image_params["image_color"] = self.__available_images_modifiers["color"][color]
-        #     else:
-        #         print("Color not found. Colors:")
-        #         self.showColors()
 
     def setColorType(self, color_type: AvailableColorsType):
         self.__image_params["color_type"] = color_type
-        # if not color_type:
-        #     self.showColorTypes()
-        # else:
-        #     if color_type in self.__available_images_modifiers["color_type"]:
-        #         self.__image_params["color_type"] = self.__available_images_modifiers["color_type"][color_type]
-        #     else:
-        #         print("Color-Type not found. Color-Types:")
-        #         self.showColorTypes()
 
     def setImageRights(self, rights: AvailableRights):
         self.__image_params["rights"] = rights
-        # if not rights:
-        #     self.showImageRights()
-        # else:
-        #     if rights in self.__available_images_modifiers["image_rights"]:
-        #         self.__image_params["rights"] = self.__available_images_modifiers["image_rights"][rights]
-        #     else:
-        #         print("Rights not found. Rights:")
-        #         self.showImageRights()
 
     def setImageSize(self, size: AvailableSizes):
         self.__image_params["size"] = size
-        # if not size:
-        #     self.showImageSizes()
-        # else:
-        #     if size in self.__available_images_modifiers["image_size"]:
-        #         self.__image_params["size"] = self.__available_images_modifiers["image_size"][size]
-        #     else:
-        #         print("Size not found. Sizes:")
-        #         self.showImageSizes()
 
     def setImageType(self, image_type: AvailableImagesTypes):
         self.__image_params["type"] = image_type
-        # if not image_type:
-        #     self.showImageTypes()
-        # else:
-        #     if image_type in self.__available_images_modifiers["image_type"]:
-        #         self.__image_params["type"] = self.__available_images_modifiers["image_type"][image_type]
-        #     else:
-        #         print("Image type not found. Types:")
-        #         self.showImageTypes()
 
     def setAspectRatio(self, aspect_ratio: AvailableAspectRatios):
         self.__image_params["aspect_ratio"] = aspect_ratio
-        # if not aspect_ratio:
-        #     self.showAspectRatios()
-        # else:
-        #     if aspect_ratio in self.__available_images_modifiers["aspect_ratio"]:
-        #         self.__image_params["aspect_ratio"] = self.__available_images_modifiers["aspect_ratio"][aspect_ratio]
-        #     else:
-        #         print("Aspect ratio not found. Ratios:")
-        #         self.showAspectRatios()
 
     def setImageFormat(self, image_format: AvailableImageFormats):
         self.__image_params["image_format"] = image_format
-        # if not image_format:
-        #     self.showImageFormats()
-        # else:
-        #     if image_format in self.__available_images_modifiers["format"]:
-        #         self.__image_params["image_format"] = self.__available_images_modifiers["format"][image_format]
-        #     else:
-        #         print("Format not found. Formats:")
-        #         self.showImageFormats()
 
     def getImageParams(self) -> dict:
         return self.__image_params

@@ -28,9 +28,7 @@ class GoogleSearch:
         self.words_in_anchor = None
         self.between_two_numbers = None
         self.synonym = None
-        # self.define = None
         self.containing_two_words = None
-        # self.operation = None
         self.safe = None
         self.related = None
         self.linked = None
@@ -49,7 +47,6 @@ class GoogleSearch:
         self.interface_language = None
         self.book_params = None
         self.video_params = None
-        # self.search_extractor = None
 
     def withQuery(self, query: str):
         self.query = query.replace(' ', '+')
@@ -115,17 +112,9 @@ class GoogleSearch:
         self.synonym = word.replace(' ', '+')
         return self
 
-    # def withDefiningTerm(self, term: str):
-    #     self.define = term.replace(' ', '+')
-    #     return self
-
     def withContainingTwoTerms(self, first_term: str, second_term: str):
         self.containing_two_words = [first_term.replace(' ', '+'), second_term.replace(' ', '+')]
         return self
-
-    # def withArithmeticOperation(self, operation: str):
-    #     self.operation = operation.replace(' ', '').replace('+', "%2B")
-    #     return self
 
     def withSafeModeActivated(self):
         self.safe = __google_url_modifiers__["with_safe_active"]
@@ -261,12 +250,9 @@ class URLBuilder:
         from errors import NullQueryError
 
         self.__params_validator()
-        # if not self.params.operation:
         main_query = []
         if self.params.query:
             main_query.append(__google_url_modifiers__["query"].format(self.params.query))
-        # elif self.params.define:
-        #     main_query.append(__google_url_modifiers__["with_defining"].format(self.params.define))
         else:
             raise NullQueryError("At least \"query\" must be provided")
         if self.params.words_in_title:
@@ -390,9 +376,3 @@ class URLBuilder:
         else:
             attributes_query = final_query
         return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,~")
-        # return __google_base_url__ + attributes_query
-
-        # else:
-        #     main_query = [__google_url_modifiers__["query"].format(self.params.operation)]
-        #     return urllib.parse.quote_plus(__google_base_url__ + main_query[0], safe="/?+&:=_.(|)*-%")
-        #     # return __google_base_url__ + main_query[0]

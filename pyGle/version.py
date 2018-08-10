@@ -6,7 +6,7 @@
 #
 
 __version__ = "v1.0"
-__version_code__ = 71
+__version_code__ = 75
 
 
 def print_ver_info():
