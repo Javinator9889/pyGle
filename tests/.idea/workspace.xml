@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pyGle/values/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/values/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoogleSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleSearch.py" afterDir="false" />
     </list>
@@ -18,7 +16,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533892447517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533892644131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1438136652">
@@ -30,37 +28,47 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="564" />
+          <entry key="py" value="609" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="564" />
+          <entry key="Python" value="609" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GoogleSearch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+              <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
-                <marker date="1533891699794" expanded="true" signature="667:673" ph="..." />
+                <marker date="1533892614409" expanded="true" signature="667:673" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyGle-0.932b0-py3.6.egg/pyGle/url/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="326" column="60" selection-start-line="326" selection-start-column="60" selection-end-line="326" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -230,12 +238,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest - 2018.08.10 at 10h 51m 42s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang - 2018.08.10 at 10h 55m 40s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang - 2018.08.10 at 10h 57m 42s.xml">
       <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang" configurationId="tests" />
     </history-entry>
@@ -254,6 +256,18 @@
     <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 08m 22s.xml">
       <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 12m 53s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 14m 09s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 16m 56s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 17m 25s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -270,7 +284,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7673759" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7673759" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -300,11 +314,18 @@
     <entry file="file://$PROJECT_DIR$/GoogleSearch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
-            <marker date="1533891699794" expanded="true" signature="667:673" ph="..." />
+            <marker date="1533892614409" expanded="true" signature="667:673" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyGle-0.932b0-py3.6.egg/pyGle/url/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="326" column="60" selection-start-line="326" selection-start-column="60" selection-end-line="326" selection-end-column="60" />
         </state>
       </provider>
     </entry>

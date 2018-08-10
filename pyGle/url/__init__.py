@@ -324,7 +324,7 @@ class URLBuilder:
             if self.params.sort_by_update_time:
                 tbs_attributes.append(
                     __google_url_modifiers__["with_search_between_two_dates_by_update_time"].format(
-                        self.params.search_between_two_dates))
+                        self.params.search_between_two_dates[0], self.params.search_between_two_dates[1]))
             else:
                 tbs_attributes.append(__google_url_modifiers__["with_search_between_two_dates"].format(
                     self.params.search_between_two_dates[0], self.params.search_between_two_dates[1]))

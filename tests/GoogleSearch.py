@@ -51,3 +51,6 @@ class BuiltInSearchTest(unittest.TestCase):
         date.setSecondDate(10, 11, 2018)
         self.search.withQuery("test").withSearchBetweenTwoDates(date)
         self.__search()
+
+        self.search.withQuery("test").withSortByUpdateTime()
+        self.__search()
