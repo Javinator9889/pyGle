@@ -73,7 +73,7 @@ what you need. Let me exemplify you with a simple search of the term *"test"*:
     ```
 
 2. And now, when the Future is done, here is the result:
-    ```json
+    ```python
     [   {   'cached_version': 'http://webcache.googleusercontent.com/search?q=cache:jNPwduM3zRgJ:www.eljueves.es/news/test-que-meme-eres_2448+&cd=1&hl=es&ct=clnk&gl=es',
         'date': '30 may. 2018',
         'description': '30 may. 2018 -Olvídalas Lo mejor para definir tu '
