@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/extractor/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
     </list>
@@ -18,7 +19,7 @@
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleBooks_BuiltInSearchTest_test_fail_search_no_image_params.coverage" NAME="Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params Coverage Results" MODIFIED="1533897469889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533897675197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent.coverage" NAME="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent Coverage Results" MODIFIED="1533899399751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleImages_BuiltInSearchTest_test_search_image_params.coverage" NAME="Unittests for GoogleImages.BuiltInSearchTest.test_search_image_params Coverage Results" MODIFIED="1533895361713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_results_at_country.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_results_at_country Coverage Results" MODIFIED="1533894678878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -333,34 +334,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 19m 12s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 20m 04s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books - 2018.08.10 at 12h 20m 34s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books - 2018.08.10 at 12h 21m 43s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 22m 10s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 35m 52s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_search_books_with_params - 2018.08.10 at 12h 36m 30s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_search_books_with_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleBooks_BuiltInSearchTest_test_fail_search_no_image_params - 2018.08.10 at 12h 37m 50s.xml">
-      <configuration name="Unittests for GoogleBooks.BuiltInSearchTest.test_fail_search_no_image_params" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 39m 57s.xml">
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 53m 06s.xml">
       <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 41m 19s.xml">
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 56m 18s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 12h 59m 19s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 00m 08s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 01m 57s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 03m 06s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 04m 04s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 05m 16s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 06m 08s.xml">
+      <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GooglePatents_BuiltInSearchTest_test_search_patent - 2018.08.10 at 13h 08m 08s.xml">
       <configuration name="Unittests for GooglePatents.BuiltInSearchTest.test_search_patent" configurationId="tests" />
     </history-entry>
   </component>
@@ -380,7 +381,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7673759" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.73758864" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />

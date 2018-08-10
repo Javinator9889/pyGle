@@ -602,11 +602,13 @@ class PatentExtractor(BaseExtractor):
         import re
         try:
             section = details_section.find("div", {"class": "slp f"})
-            first_parts = section.get_text(strip=True).strip()
-            parts = re.split("\s-\s", first_parts)
+            first_parts = section.get_text(strip=True)
+            regex_list = re.split(pattern="-(\xa0|\s)", string=first_parts,
+                                  flags=re.IGNORECASE | re.MULTILINE | re.ASCII)
+            parts = [x for x in regex_list if x != ' ']
             for i in range(len(parts)):
                 parts[i] = self.cleanupString(parts[i])
-            return parts[0][:-1], parts[1][1:][:-1], parts[2][1:][:-1], parts[3][1:], parts[4][1:]
+            return parts[0][:-1], parts[1][:-1], parts[2][:-1], parts[3], parts[4]
         except (AttributeError, IndexError):
             return "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"
 
