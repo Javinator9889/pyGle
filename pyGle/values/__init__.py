@@ -4,7 +4,7 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from url.url_constants import __google_url_modifiers__
+from pyGle.url.url_constants import __google_url_modifiers__
 from .AvailableLanguages import AvailableLanguages
 from .AvailableCountries import AvailableCountries
 from .OptionsForPictures import *

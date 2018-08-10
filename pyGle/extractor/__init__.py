@@ -16,9 +16,9 @@ from bs4 import BeautifulSoup
 from concurrent.futures import Future, ThreadPoolExecutor
 from multiprocessing import cpu_count
 
-from url import URLBuilder
-from url.url_constants import __user_agents__
-from errors import GoogleOverloadedException, GoogleBlockingConnectionsError
+from pyGle.url import URLBuilder
+from pyGle.url.url_constants import __user_agents__
+from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 
 
 class BaseExtractor:
@@ -28,6 +28,7 @@ class BaseExtractor:
         self.cpu_count = cpu_count() * 2
         self.session_cookies = {"cookie": None} if must_use_session else {"cookie": "disabled"}
         self.history = [] if with_history_enabled else None
+        self.url = None
 
     def extract_url(self, url: URLBuilder) -> Future:
         pass
@@ -35,8 +36,8 @@ class BaseExtractor:
     def obtain_html_object(self, url: URLBuilder) -> tuple:
         try:
             start_time = time.time()
-            # built_url = urllib.parse.quote_plus(url.build(), safe="/?+&:=_.(|)*-%")
             built_url = url.build()
+            self.url = built_url
             request = urllib.request.Request(url=built_url, headers=self.headers)
             if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
                 request.add_header("cookie", self.session_cookies["cookie"])
@@ -147,7 +148,8 @@ class ImageExtractor(BaseExtractor):
                 "overall_time": str((time.time() - start_time)) + " s",
                 "google_search_time": str(search_time) + " s",
                 "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-            }
+            },
+            "url": self.url
         })
         if self.history is not None:
             self.history.append(images)
@@ -313,7 +315,8 @@ class SearchExtractor(BaseExtractor):
                                    "overall_time": str((time.time() - start_time)) + " s",
                                    "google_search_time": str(search_time) + " s",
                                    "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                               }})
+                               },
+                               "url": self.url})
         if self.history is not None:
             self.history.append(search_results)
         super().change_header()
@@ -431,7 +434,8 @@ class NewsExtractor(BaseExtractor):
                                  "overall_time": str((time.time() - start_time)) + " s",
                                  "google_search_time": str(search_time) + " s",
                                  "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                             }})
+                             },
+                             "url": self.url})
         if self.history is not None:
             self.history.append(news_results)
         super().change_header()
@@ -542,7 +546,8 @@ class VideoExtractor(BaseExtractor):
                                 "overall_time": str((time.time() - start_time)) + " s",
                                 "google_search_time": str(search_time) + " s",
                                 "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                            }})
+                            },
+                            "url": self.url})
         if self.history is not None:
             self.history.append(vid_results)
         super().change_header()
@@ -661,7 +666,8 @@ class PatentExtractor(BaseExtractor):
                                     "overall_time": str((time.time() - start_time)) + " s",
                                     "google_search_time": str(search_time) + " s",
                                     "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                                }})
+                                },
+                                "url": self.url})
         if self.history is not None:
             self.history.append(patents_results)
         super().change_header()
@@ -750,7 +756,8 @@ class ShopExtractor(BaseExtractor):
                                  "overall_time": str((time.time() - start_time)) + " s",
                                  "google_search_time": str(search_time) + " s",
                                  "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                             }})
+                             },
+                             "url": self.url})
         if self.history is not None:
             self.history.append(shop_results)
         super().change_header()
@@ -859,7 +866,8 @@ class BookExtractor(BaseExtractor):
                                  "overall_time": str((time.time() - start_time)) + " s",
                                  "google_search_time": str(search_time) + " s",
                                  "parsing_page_time": str((elements_end_time - elements_start_time)) + " s"
-                             }})
+                             },
+                             "url": self.url})
         if self.history is not None:
             self.history.append(book_results)
         super().change_header()

@@ -4,7 +4,7 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from errors import InvalidTimeException
+from pyGle.errors import InvalidTimeException
 
 
 def check_time_limit(input_value: str):

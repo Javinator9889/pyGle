@@ -4,17 +4,19 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from url import GoogleSearch, URLBuilder
-from extractor import (BaseExtractor,
-                       ImageExtractor,
-                       SearchExtractor,
-                       NewsExtractor,
-                       VideoExtractor,
-                       PatentExtractor,
-                       ShopExtractor,
-                       BookExtractor,
-                       Future)
-from url.url_constants import __google_url_modifiers__
+__all__ = ['PyGle']
+
+from .url import GoogleSearch, URLBuilder
+from .extractor import (BaseExtractor,
+                        ImageExtractor,
+                        SearchExtractor,
+                        NewsExtractor,
+                        VideoExtractor,
+                        PatentExtractor,
+                        ShopExtractor,
+                        BookExtractor,
+                        Future)
+from .url.url_constants import __google_url_modifiers__
 
 
 class PyGle(GoogleSearch):
