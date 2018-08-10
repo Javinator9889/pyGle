@@ -55,3 +55,36 @@ class BuiltInSearchTest(unittest.TestCase):
 
         self.search.withQuery("test").withSearchBetweenTwoDates(date)
         self.__search()
+
+    def test_words_in_order(self):
+        self.search.withQuery("test").withWordsInSpecificOrderSearch(["speed", "test"])
+        self.__search()
+
+    def test_words_in_result(self):
+        self.search.withQuery("test").withOneOrMoreWordsInResult(["speed"])
+        self.__search()
+
+    def test_with_words_excluded(self):
+        self.search.withQuery("test").withExcludedWords(["speed"])
+        self.__search()
+
+    def test_with_timelimit(self):
+        from pyGle.values import TimeLimit
+
+        limit = TimeLimit()
+        limit.setDay()
+        self.search.withQuery("test").withTimeLimit(limit)
+        self.__search()
+        limit.setMonth()
+        self.search.withQuery("test").withTimeLimit(limit)
+        self.__search()
+        limit.setMonths(3)
+        self.search.withQuery("test").withTimeLimit(limit)
+        self.__search()
+        limit.setYear()
+        self.search.withQuery("test").withTimeLimit(limit)
+        self.__search()
+
+    def test_with_synonymous_searching_word(self):
+        self.search.withQuery("test").withSynonymousSearchingToAWord("prueba")
+        self.__search()

@@ -361,7 +361,7 @@ class URLBuilder:
             attributes_query = final_query + '&' + extra_attributes
         else:
             attributes_query = final_query
-        return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,")
+        return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,~")
         # return __google_base_url__ + attributes_query
 
         # else:

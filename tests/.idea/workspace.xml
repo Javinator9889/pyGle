@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="548ed672-8929-4673-8691-98cef848b895" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../pyGle/url/url_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/url_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pyGle/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/url/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pyGle/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pyGle/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleSearch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,10 +14,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_synonymous_searching_word.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word Coverage Results" MODIFIED="1533894106076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_interface_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang Coverage Results" MODIFIED="1533891542410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result Coverage Results" MODIFIED="1533893696989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest Coverage Results" MODIFIED="1533891100283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_order.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order Coverage Results" MODIFIED="1533893629673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_with_lang.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang Coverage Results" MODIFIED="1533891338802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533893040781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit Coverage Results" MODIFIED="1533893936216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates Coverage Results" MODIFIED="1533893274861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tests$Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_words_excluded.coverage" NAME="Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded Coverage Results" MODIFIED="1533893746567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1438136652">
@@ -27,22 +34,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="3" />
+          <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="3" />
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="613" />
+          <entry key="py" value="1006" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="613" />
+          <entry key="Python" value="1006" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -54,13 +61,18 @@
         <entry file="file://$PROJECT_DIR$/GoogleSearch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="53" selection-end-column="23" />
+              <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
-                <marker date="1533892952418" expanded="true" signature="667:673" ph="..." />
+                <marker date="1533894105093" expanded="true" signature="667:673" ph="..." />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -147,8 +159,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates">
-    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word">
+    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,11 +171,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest&quot;" />
+      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -174,11 +186,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_search_dates&quot;" />
+      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_with_timelimit&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -189,11 +201,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang&quot;" />
+      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_with_words_excluded&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="tests" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -204,22 +216,39 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_search_with_lang&quot;" />
+      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_words_in_order&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="tests" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;GoogleSearch.BuiltInSearchTest.test_words_in_result&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest" />
-      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang" />
-      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang" />
-      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" />
+      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order" />
+      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result" />
+      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded" />
+      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit" />
+      <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" />
-        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_interface_lang" />
-        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_search_with_lang" />
-        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest" />
+        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word" />
+        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit" />
+        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded" />
+        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result" />
+        <item itemvalue="Python tests.Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order" />
       </list>
     </recent_temporary>
   </component>
@@ -237,35 +266,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 05m 29s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 08m 22s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 12m 53s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 14m 09s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 16m 56s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 17m 25s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 20m 01s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 21m 43s.xml">
-      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 22m 34s.xml">
       <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 24m 02s.xml">
       <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_search_dates - 2018.08.10 at 11h 27m 56s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_search_dates" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_order - 2018.08.10 at 11h 33m 51s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_order" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result - 2018.08.10 at 11h 34m 40s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_words_in_result - 2018.08.10 at 11h 34m 58s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_words_in_result" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_words_excluded - 2018.08.10 at 11h 35m 48s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_words_excluded" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit - 2018.08.10 at 11h 38m 10s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_timelimit - 2018.08.10 at 11h 38m 59s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_timelimit" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_GoogleSearch_BuiltInSearchTest_test_with_synonymous_searching_word - 2018.08.10 at 11h 41m 47s.xml">
+      <configuration name="Unittests for GoogleSearch.BuiltInSearchTest.test_with_synonymous_searching_word" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -317,13 +346,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GoogleSearch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="53" selection-end-column="23" />
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
           <folding>
             <element signature="e#315#330#0" expanded="true" />
-            <marker date="1533892952418" expanded="true" signature="667:673" ph="..." />
+            <marker date="1533894105093" expanded="true" signature="667:673" ph="..." />
           </folding>
         </state>
       </provider>
