@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Created PyGle class for working with queries">
-      <change afterPath="$PROJECT_DIR$/../tests/GoogleNews.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tests/GoogleVideos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/url/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/url/url_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/url/url_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/values/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/values/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tests/GoogleShops.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tests/GoogleShops.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,14 +52,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7694" />
+          <entry key="py" value="8587" />
           <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="141" />
-          <entry key="Python" value="7694" />
+          <entry key="Python" value="8587" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -69,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/url/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="242" column="49" lean-forward="true" selection-start-line="242" selection-start-column="49" selection-end-line="242" selection-end-column="49" />
+            <state relative-caret-position="323">
+              <caret line="363" column="44" lean-forward="true" selection-start-line="363" selection-start-column="44" selection-end-line="363" selection-end-column="44" />
               <folding>
                 <element signature="e#299#318#0" expanded="true" />
               </folding>
@@ -81,10 +82,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/values/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2958">
-              <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
+            <state relative-caret-position="606">
+              <caret line="378" column="34" selection-start-line="378" selection-start-column="34" selection-end-line="378" selection-end-column="34" />
               <folding>
                 <element signature="e#299#359#0" expanded="true" />
+                <marker date="1533901788024" expanded="true" signature="12285:13259" ph="..." />
               </folding>
             </state>
           </provider>
@@ -142,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/url/url_constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="458" column="27" selection-start-line="458" selection-start-column="8" selection-end-line="458" selection-end-column="27" />
+            <state relative-caret-position="334">
+              <caret line="480" column="31" selection-start-line="480" selection-start-column="31" selection-end-line="480" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -152,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-36">
-              <caret line="405" column="41" lean-forward="true" selection-start-line="405" selection-start-column="41" selection-end-line="405" selection-end-column="41" />
+              <caret line="405" column="41" selection-start-line="405" selection-start-column="41" selection-end-line="405" selection-end-column="41" />
               <folding>
                 <element signature="e#299#310#0" expanded="true" />
                 <marker date="1533899428787" expanded="true" signature="36870:37345" ph="..." />
@@ -280,14 +282,14 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/url/checker.py" />
         <option value="$PROJECT_DIR$/tests/GoogleSearch.py" />
-        <option value="$PROJECT_DIR$/values/__init__.py" />
-        <option value="$PROJECT_DIR$/url/url_constants.py" />
-        <option value="$PROJECT_DIR$/url/url_constants.py" />
         <option value="$PROJECT_DIR$/values/OptionsForPictures.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/extractor/__init__.py" />
         <option value="$PROJECT_DIR$/extractor/__init__.py" />
+        <option value="$PROJECT_DIR$/url/url_constants.py" />
+        <option value="$PROJECT_DIR$/url/url_constants.py" />
+        <option value="$PROJECT_DIR$/values/__init__.py" />
         <option value="$PROJECT_DIR$/url/__init__.py" />
         <option value="$PROJECT_DIR$/url/__init__.py" />
         <option value="$PROJECT_DIR$/version.py" />
@@ -773,27 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/values/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2958">
-          <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
-          <folding>
-            <element signature="e#299#359#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/url/url_constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="458" column="27" selection-start-line="458" selection-start-column="8" selection-end-line="458" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-36">
-          <caret line="405" column="41" lean-forward="true" selection-start-line="405" selection-start-column="41" selection-end-line="405" selection-end-column="41" />
+          <caret line="405" column="41" selection-start-line="405" selection-start-column="41" selection-end-line="405" selection-end-column="41" />
           <folding>
             <element signature="e#299#310#0" expanded="true" />
             <marker date="1533899428787" expanded="true" signature="36870:37345" ph="..." />
@@ -801,10 +786,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/url/url_constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="480" column="31" selection-start-line="480" selection-start-column="31" selection-end-line="480" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/values/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="378" column="34" selection-start-line="378" selection-start-column="34" selection-end-line="378" selection-end-column="34" />
+          <folding>
+            <element signature="e#299#359#0" expanded="true" />
+            <marker date="1533901788024" expanded="true" signature="12285:13259" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/url/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="242" column="49" lean-forward="true" selection-start-line="242" selection-start-column="49" selection-end-line="242" selection-end-column="49" />
+        <state relative-caret-position="323">
+          <caret line="363" column="44" lean-forward="true" selection-start-line="363" selection-start-column="44" selection-end-line="363" selection-end-column="44" />
           <folding>
             <element signature="e#299#318#0" expanded="true" />
           </folding>

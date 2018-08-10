@@ -470,6 +470,15 @@ __google_url_modifiers__ = {
         "with_searching_books": "bkt:b",
         "with_searching_news": "bkt:s",
         "with_searching_magazines": "bkt:m"
+    },
+    "with_video_params": {
+        "duration": {
+            "short": "dur:s",
+            "medium": "dur:m",
+            "long": "dur:l"
+        },
+        "high_quality": "hq:h",
+        "with_subtitles": "cc:1"
     }
 }
 

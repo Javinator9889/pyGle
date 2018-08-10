@@ -349,3 +349,31 @@ class GoogleBooks:
 
     def getBooksModifiers(self) -> dict:
         return self.__books_params
+
+
+class GoogleVideos:
+    def __init__(self):
+        self.__available_video_modifiers = __google_url_modifiers__["with_video_params"]
+        self.__video_params = {
+            "duration": None,
+            "high_quality": None,
+            "subtitles": None
+        }
+
+    def withShortDuration(self):
+        self.__video_params["duration"] = self.__available_video_modifiers["duration"]["short"]
+
+    def withMediumDuration(self):
+        self.__video_params["duration"] = self.__available_video_modifiers["duration"]["medium"]
+
+    def withLongDuration(self):
+        self.__video_params["duration"] = self.__available_video_modifiers["duration"]["long"]
+
+    def withHighQualityVideos(self):
+        self.__video_params["high_quality"] = self.__available_video_modifiers["high_quality"]
+
+    def withSubtitles(self):
+        self.__video_params["subtitles"] = self.__available_video_modifiers["with_subtitles"]
+
+    def getVideoModifiers(self) -> dict:
+        return self.__video_params

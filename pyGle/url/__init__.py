@@ -48,6 +48,7 @@ class GoogleSearch:
         self.shop_params = None
         self.interface_language = None
         self.book_params = None
+        self.video_params = None
         # self.search_extractor = None
 
     def withQuery(self, query: str):
@@ -211,6 +212,14 @@ class GoogleSearch:
                 self.book_params[key] = value
         return self
 
+    def withVideoParams(self, params: GoogleVideos):
+        params_dict = params.getVideoModifiers()
+        self.video_params = {}
+        for key, value in params_dict.items():
+            if value:
+                self.video_params[key] = value
+        return self
+
 
 class URLBuilder:
     def __init__(self, google_search_params: GoogleSearch):
@@ -223,20 +232,24 @@ class URLBuilder:
             raise TimeCombinationNonValid("You cannot search between two dates and a define a time limit")
         if self.params.search_at_different_pages:
             if self.params.search_at == __google_url_modifiers__["with_searching"]["books"]:
-                if self.params.image_params or self.params.patents_params or self.params.shop_params:
+                if self.params.image_params or self.params.patents_params or self.params.shop_params \
+                        or self.params.video_params:
                     raise MixedSearchException("You cannot combine a Google Books Search with non-proper params")
             elif self.params.search_at == __google_url_modifiers__["with_searching"]["images"]:
-                if self.params.shop_params or self.params.patents_params or self.params.book_params:
+                if self.params.shop_params or self.params.patents_params or self.params.book_params \
+                        or self.params.video_params:
                     raise MixedSearchException("You cannot combine a Google Images Search with non-proper params")
             elif self.params.search_at == __google_url_modifiers__["with_searching"]["news"]:
                 if self.params.shop_params or self.params.patents_params or self.params.book_params or \
-                        self.params.image_params:
+                        self.params.image_params or self.params.video_params:
                     raise MixedSearchException("You cannot combine a Google News Search with non-proper params")
             elif self.params.search_at == __google_url_modifiers__["with_searching"]["patents"]:
-                if self.params.shop_params or self.params.image_params or self.params.book_params:
+                if self.params.shop_params or self.params.image_params or self.params.book_params \
+                        or self.params.video_params:
                     raise MixedSearchException("You cannot combine a Google Patents Search with non-proper params")
             elif self.params.search_at == __google_url_modifiers__["with_searching"]["shops"]:
-                if self.params.patents_params or self.params.book_params or self.params.image_params:
+                if self.params.patents_params or self.params.book_params or self.params.image_params \
+                        or self.params.video_params:
                     raise MixedSearchException("You cannot combine a Google Shops Search with non-proper params")
             elif self.params.search_at == __google_url_modifiers__["with_searching"]["videos"]:
                 if self.params.shop_params or self.params.patents_params or self.params.book_params or \
@@ -345,6 +358,9 @@ class URLBuilder:
                 tbs_attributes.append(value)
         if self.params.book_params:
             for key, value in self.params.book_params.items():
+                tbs_attributes.append(value)
+        if self.params.video_params:
+            for key, value in self.params.video_params.items():
                 tbs_attributes.append(value)
         if self.params.shop_params:
             try:
