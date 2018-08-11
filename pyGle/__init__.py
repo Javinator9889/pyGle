@@ -113,26 +113,7 @@ class PyGle(GoogleSearch):
                         self.__shops_extractor.printOverallTime()
                     elif key == "Videos":
                         self.__videos_extractor.printOverallTime()
-        # self.__search_extractor.printOverallTime()
 
     @staticmethod
     def version():
         print_ver_info()
-
-
-def main():
-    import pprint
-
-    printer = pprint.PrettyPrinter(indent=4)
-    search = PyGle(enable_history=True)
-    for i in range(5):
-        search.withQuery("test")
-        printer.pprint(search.doSearch().result())
-        search.withQuery("test2")
-        printer.pprint(search.doSearch().result())
-    search.pprintHistory()
-    search.printOverallTime()
-
-
-if __name__ == '__main__':
-    main()

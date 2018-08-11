@@ -9,7 +9,7 @@ if version < '3':
 try:
     import codecs
 
-    readme = codecs.open(filename="README.md", mode="r", encoding="utf-8")
+    readme = codecs.open(filename="README.rst", mode="r", encoding="utf-8")
     long_description = readme.read()
     readme.close()
 except:
@@ -26,9 +26,9 @@ setup(
     author_email='javialonso007@hotmail.es',
     description='A tool for searching the entire web with the Google technology',
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     include_package_data=True,
-    install_requires=["lxml", "beautifulsoup4", "ujson"],
+    install_requires=['lxml', 'beautifulsoup4', 'ujson'],
     zip_safe=False,
     download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
