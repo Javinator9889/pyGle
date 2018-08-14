@@ -9,7 +9,7 @@ if version < '3':
 try:
     import codecs
 
-    readme = codecs.open(filename="README.rst", mode="r", encoding="utf-8")
+    readme = codecs.open(filename="README.rst", encoding="utf-8")
     long_description = readme.read()
     readme.close()
 except:

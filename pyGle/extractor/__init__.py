@@ -4,21 +4,19 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-import lxml
-import urllib.request
-import urllib.parse
-import urllib.error
-import ujson as json
 import random
 import time
-
-from bs4 import BeautifulSoup
+import ujson as json
+import urllib.error
+import urllib.parse
+import urllib.request
 from concurrent.futures import Future, ThreadPoolExecutor
 from multiprocessing import cpu_count
 
+from bs4 import BeautifulSoup
+from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 from pyGle.url import URLBuilder
 from pyGle.url.url_constants import __user_agents__
-from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 
 
 class BaseExtractor:

@@ -6,12 +6,6 @@
 #
 
 
-class InvalidTimeException(RuntimeError):
-    def __init__(self, message: str = None):
-        self.__message = message
-        super().__init__(message)
-
-
 class InvalidCombinationException(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message

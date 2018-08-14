@@ -1,4 +1,4 @@
-`pyGle <https://github.com/Javinator9889/pyGle>`__
+pyGle
 ==================================================
 
 A tool for searching the entire web with the Google technology
@@ -322,7 +322,7 @@ If you really appreciate my work, you can *contribute to this project* perfectly
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.`
 
-.. |PyPi| image:: https://img.shields.io/badge/v1.11%20-PyPi-green.svg
+.. |PyPi| image:: https://img.shields.io/badge/v1.12%20-PyPi-green.svg
    :target: https://pypi.org/project/g-pyGle/
 .. |ZIP| image:: https://img.shields.io/badge/Package%20-Zip-blue.svg
    :target: https://github.com/Javinator9889/pyGle/archive/master.zip

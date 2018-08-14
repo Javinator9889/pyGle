@@ -6,7 +6,6 @@
 #
 __all__ = ['PyGle']
 
-from .url import GoogleSearch, URLBuilder
 from .extractor import (BaseExtractor,
                         ImageExtractor,
                         SearchExtractor,
@@ -16,6 +15,7 @@ from .extractor import (BaseExtractor,
                         ShopExtractor,
                         BookExtractor,
                         Future)
+from .url import GoogleSearch, URLBuilder
 from .url.url_constants import __google_url_modifiers__
 from .version import print_ver_info
 

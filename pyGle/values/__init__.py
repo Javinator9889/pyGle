@@ -5,10 +5,11 @@
 #                 under certain conditions; type "-L" for details.
 #
 from pyGle.url.url_constants import __google_url_modifiers__
-from .AvailableLanguages import AvailableLanguages
+
 from .AvailableCountries import AvailableCountries
-from .OptionsForPictures import *
+from .AvailableLanguages import AvailableLanguages
 from .OptionsForPatents import *
+from .OptionsForPictures import *
 
 
 class TimeLimit:
@@ -221,8 +222,8 @@ class GooglePatents:
     def setPatentStatus(self, status: PatentStatus):
         self.__patents_params["patent_status"] = status
 
-    def setPatentType(self, type: AvailablePatentTypes):
-        self.__patents_params["patent_type"] = type
+    def setPatentType(self, patent_type: AvailablePatentTypes):
+        self.__patents_params["patent_type"] = patent_type
 
     def getPatentModifiers(self) -> dict:
         return self.__patents_params

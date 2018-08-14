@@ -6,9 +6,10 @@
 #
 import urllib.parse
 
-from .url_constants import __google_base_url__, __google_url_modifiers__
 from pyGle.values import *
 from pyGle.values.InterfaceLanguages import InterfaceLanguages
+
+from .url_constants import __google_base_url__, __google_url_modifiers__
 
 
 class GoogleSearch:
