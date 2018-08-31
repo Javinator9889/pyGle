@@ -86,7 +86,8 @@ class PyGle(GoogleSearch):
         else:
             print("History is not enabled or no petition has been done yet")
 
-    def getHistory(self) -> dict:
+    def getHistory(self):
+        # type: () -> dict
         return {"Books": self.__books_extractor.getHistory(),
                 "Images": self.__image_extractor.getHistory(),
                 "News": self.__news_extractor.getHistory(),
