@@ -4,6 +4,7 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
+# -*- coding: utf-8 -*-
 
 __google_base_url__ = "https://www.google.com/search?"
 __google_url_modifiers__ = {

@@ -4,6 +4,7 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
+# -*- coding: utf-8 -*-
 
 
 class AvailableLanguages:
