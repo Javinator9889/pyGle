@@ -1,11 +1,10 @@
+# -*- coding: utf-8 -*-
 #
 #                py-google-search  Copyright (C) 2018  Javinator9889
 #   This program comes with ABSOLUTELY NO WARRANTY; for details add the "-h" option.
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
 import random
 import time
