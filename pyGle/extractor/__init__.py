@@ -5,6 +5,8 @@
 #                 under certain conditions; type "-L" for details.
 #
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import random
 import time
 import ujson as json
