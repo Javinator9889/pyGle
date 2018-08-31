@@ -29,6 +29,7 @@ setup(
     long_description_content_type="text/x-rst",
     include_package_data=True,
     install_requires=['lxml', 'beautifulsoup4', 'ujson', 'futures; python_version <= "2.7"', 'typing'],
+    setup_requires=['lxml', 'beautifulsoup4', 'ujson', 'futures; python_version <= "2.7"', 'typing'],
     zip_safe=False,
     download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
