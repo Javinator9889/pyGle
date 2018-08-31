@@ -284,7 +284,7 @@ class URLBuilder:
 
     def build(self):
         # type: () -> tuple
-        from errors import NullQueryError
+        from pyGle.errors import NullQueryError
 
         self.__params_validator()
         main_query = []
