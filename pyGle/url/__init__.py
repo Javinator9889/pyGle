@@ -252,7 +252,7 @@ class URLBuilder:
         self.params = google_search_params
 
     def __params_validator(self):
-        from errors import TimeCombinationNonValid, MixedSearchException
+        from pyGle.errors import TimeCombinationNonValid, MixedSearchException
 
         if self.params.search_between_two_dates and self.params.time_limit:
             raise TimeCombinationNonValid("You cannot search between two dates and a define a time limit")
