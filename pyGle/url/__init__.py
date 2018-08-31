@@ -16,7 +16,8 @@ except ImportError:
 
 
 class GoogleSearch:
-    def __init__(self, query: str = None):
+    def __init__(self, query=None):
+        # type: (str) -> None
         self.query = query
         self.words_in_order = None
         self.or_words = None
@@ -52,71 +53,88 @@ class GoogleSearch:
         self.book_params = None
         self.video_params = None
 
-    def withQuery(self, query: str):
+    def withQuery(self, query):
+        # type: (str) -> GoogleSearch
         self.query = query.replace(' ', '+')
         return self
 
-    def withWordsInSpecificOrderSearch(self, words: list):
+    def withWordsInSpecificOrderSearch(self, words):
+        # type: (list) -> GoogleSearch
         self.words_in_order = '+'.join(words)
         return self
 
-    def withOneOrMoreWordsInResult(self, words: list):
+    def withOneOrMoreWordsInResult(self, words):
+        # type: (list) -> GoogleSearch
         self.or_words = '+'.join(words)
         return self
 
-    def withExcludedWords(self, words: list):
+    def withExcludedWords(self, words):
+        # type: (list) -> GoogleSearch
         self.words_excluded = '+'.join(words)
         return self
 
-    def withNumberOfResults(self, results: int = 10):
+    def withNumberOfResults(self, results=10):
+        # type: (int) -> GoogleSearch
         self.number_of_results = str(results)
         return self
 
-    def withFileSearchByFileType(self, filetype: str):
+    def withFileSearchByFileType(self, filetype):
+        # type: (str) -> GoogleSearch
         self.filetype = filetype.replace(' ', '+')
         return self
 
-    def withSiteSearch(self, site: str):
+    def withSiteSearch(self, site):
+        # type: (str) -> GoogleSearch
         self.sitesearch = site.replace(' ', '+')
         return self
 
-    def withTimeLimit(self, time_limit: TimeLimit):
+    def withTimeLimit(self, time_limit):
+        # type: (TimeLimit) -> GoogleSearch
         self.time_limit = time_limit.getTimeLimit()
         return self
 
-    def withRights(self, rights: Rights):
+    def withRights(self, rights):
+        # type: (Rights) -> GoogleSearch
         self.rights = rights.getRights()
         return self
 
-    def withTextInTitle(self, text: str):
+    def withTextInTitle(self, text):
+        # type: (str) -> GoogleSearch
         self.words_in_title = text.replace(' ', '+')
         return self
 
-    def withTextInBody(self, text: str):
+    def withTextInBody(self, text):
+        # type: (str) -> GoogleSearch
         self.words_in_body = text.replace(' ', '+')
         return self
 
-    def withTextInUrl(self, text: str):
+    def withTextInUrl(self, text):
+        # type: (str) -> GoogleSearch
         self.words_in_url = text.replace(' ', '+')
         return self
 
-    def withTextInAnchor(self, text: str):
+    def withTextInAnchor(self, text):
+        # type: (str) -> GoogleSearch
         self.words_in_anchor = text.replace(' ', '+')
         return self
 
-    def withResultBetweenTwoNumbers(self, first_number: float, second_number: float):
+    def withResultBetweenTwoNumbers(self, first_number, second_number):
+        # type: (float, float) -> GoogleSearch
         self.between_two_numbers = [str(first_number), str(second_number)]
         return self
 
-    def withRelatedPagesToADocument(self, document_url: str):
+    def withRelatedPagesToADocument(self, document_url):
+        # type: (str) -> GoogleSearch
         self.related = document_url.replace(' ', '+')
         return self
 
-    def withSynonymousSearchingToAWord(self, word: str):
+    def withSynonymousSearchingToAWord(self, word):
+        # type: (str) -> GoogleSearch
         self.synonym = word.replace(' ', '+')
         return self
 
-    def withContainingTwoTerms(self, first_term: str, second_term: str):
+    def withContainingTwoTerms(self, first_term, second_term):
+        # type: (str, str) -> GoogleSearch
         self.containing_two_words = [first_term.replace(' ', '+'), second_term.replace(' ', '+')]
         return self
 
@@ -128,7 +146,8 @@ class GoogleSearch:
         self.safe = __google_url_modifiers__["with_safe_deactivated"]
         return self
 
-    def withLinkingToUrl(self, url: str):
+    def withLinkingToUrl(self, url):
+        # type: (str) -> GoogleSearch
         self.linked = url.replace(' ', '+')
         return self
 
@@ -140,19 +159,23 @@ class GoogleSearch:
         self.personalized_search = __google_url_modifiers__["with_no_personalized_search"]
         return self
 
-    def withResultsLanguage(self, lang: Languages):
+    def withResultsLanguage(self, lang):
+        # type: (Languages) -> GoogleSearch
         self.results_lang = lang.getLanguage()
         return self
 
-    def withResultsAtCountry(self, country: Countries):
+    def withResultsAtCountry(self, country):
+        # type: (Countries) -> GoogleSearch
         self.country = country.getCountry()
         return self
 
-    def withDocumentCountry(self, country: Countries):
+    def withDocumentCountry(self, country):
+        # type: (Countries) -> GoogleSearch
         self.document_country = country.getCountry()
         return self
 
-    def withSearchBetweenTwoDates(self, dates: Dates):
+    def withSearchBetweenTwoDates(self, dates):
+        # type: (Dates) -> GoogleSearch
         self.search_between_two_dates = dates.getDates()
         return self
 
@@ -160,16 +183,19 @@ class GoogleSearch:
         self.sort_by_update_time = True
         return self
 
-    def withSearchingAtDifferentGooglePages(self, google_pages: GooglePages):
+    def withSearchingAtDifferentGooglePages(self, google_pages):
+        # type: (GooglePages) -> GoogleSearch
         self.search_at_different_pages = True
         self.search_at = google_pages.getGooglePage()
         return self
 
-    def withSearchStartPositionAt(self, index: int):
+    def withSearchStartPositionAt(self, index):
+        # type: (int) -> GoogleSearch
         self.start_position = str(index)
         return self
 
-    def withImageParams(self, params: GoogleImages):
+    def withImageParams(self, params):
+        # type: (GoogleImages) -> GoogleSearch
         params_dict = params.getImageParams()
         self.image_params = {}
         for key, value in params_dict.items():
@@ -177,7 +203,8 @@ class GoogleSearch:
                 self.image_params[key] = value
         return self
 
-    def withPatentParams(self, params: GooglePatents):
+    def withPatentParams(self, params):
+        # type: (GooglePatents) -> GoogleSearch
         params_dict = params.getPatentModifiers()
         self.patents_params = {}
         for key, value in params_dict.items():
@@ -185,7 +212,8 @@ class GoogleSearch:
                 self.patents_params[key] = value
         return self
 
-    def withShopOptions(self, params: GoogleShop):
+    def withShopOptions(self, params):
+        # type: (GoogleShop) -> GoogleSearch
         params_dict = params.getShopModifiers()
         self.shop_params = {}
         for key, value in params_dict.items():
@@ -193,11 +221,13 @@ class GoogleSearch:
                 self.shop_params[key] = value
         return self
 
-    def withInterfaceLanguage(self, language: InterfaceLanguages):
+    def withInterfaceLanguage(self, language):
+        # type: (InterfaceLanguages) -> GoogleSearch
         self.interface_language = language
         return self
 
-    def withBookParams(self, params: GoogleBooks):
+    def withBookParams(self, params):
+        # type: (GoogleBooks) -> GoogleSearch
         params_dict = params.getBooksModifiers()
         self.book_params = {}
         for key, value in params_dict.items():
@@ -205,7 +235,8 @@ class GoogleSearch:
                 self.book_params[key] = value
         return self
 
-    def withVideoParams(self, params: GoogleVideos):
+    def withVideoParams(self, params):
+        # type: (GoogleVideos) -> GoogleSearch
         params_dict = params.getVideoModifiers()
         self.video_params = {}
         for key, value in params_dict.items():
@@ -215,7 +246,8 @@ class GoogleSearch:
 
 
 class URLBuilder:
-    def __init__(self, google_search_params: GoogleSearch):
+    def __init__(self, google_search_params):
+        # type: (GoogleSearch) -> None
         self.params = google_search_params
 
     def __params_validator(self):

@@ -71,7 +71,8 @@ class Languages:
         for key, value in self.__available_lang.items():
             print(key)
 
-    def setLanguage(self, language: AvailableLanguages):
+    def setLanguage(self, language):
+        # type: (AvailableLanguages) -> None
         self.__lang = language
 
     def getLanguage(self):
@@ -88,7 +89,8 @@ class Countries:
         for key, values in self.__available_countries.items():
             print(key)
 
-    def setCountry(self, country: AvailableCountries):
+    def setCountry(self, country):
+        # type: (AvailableCountries) -> None
         self.__country = country
 
     def getCountry(self):
@@ -101,12 +103,14 @@ class Dates:
         self.__date_one = None
         self.__date_two = None
 
-    def setFirstDate(self, day: int, month: int, year: int):
+    def setFirstDate(self, day, month, year):
+        # type: (int, int, int) -> None
         from datetime import datetime
 
         self.__date_one = datetime(year, month, day).strftime("%d.%m.%Y")
 
-    def setSecondDate(self, day: int, month: int, year: int):
+    def setSecondDate(self, day, month, year):
+        # type: (int, int, int) -> None
         from datetime import datetime
 
         self.__date_two = datetime(year, month, day).strftime("%d.%m.%Y")
@@ -157,28 +161,36 @@ class GoogleImages:
             "image_format": None
         }
 
-    def setColor(self, color: AvailableColors):
+    def setColor(self, color):
+        # type: (AvailableColors) -> None
         self.__image_params["image_color"] = color
 
-    def setColorType(self, color_type: AvailableColorsType):
+    def setColorType(self, color_type):
+        # type: (AvailableColorsType) -> None
         self.__image_params["color_type"] = color_type
 
-    def setImageRights(self, rights: AvailableRights):
+    def setImageRights(self, rights):
+        # type: (AvailableRights) -> None
         self.__image_params["rights"] = rights
 
-    def setImageSize(self, size: AvailableSizes):
+    def setImageSize(self, size):
+        # type: (AvailableSizes) -> None
         self.__image_params["size"] = size
 
-    def setImageType(self, image_type: AvailableImagesTypes):
+    def setImageType(self, image_type):
+        # type: (AvailableImagesTypes) -> None
         self.__image_params["type"] = image_type
 
-    def setAspectRatio(self, aspect_ratio: AvailableAspectRatios):
+    def setAspectRatio(self, aspect_ratio):
+        # type: (AvailableAspectRatios) -> None
         self.__image_params["aspect_ratio"] = aspect_ratio
 
-    def setImageFormat(self, image_format: AvailableImageFormats):
+    def setImageFormat(self, image_format):
+        # type: (AvailableImageFormats) -> None
         self.__image_params["image_format"] = image_format
 
-    def getImageParams(self) -> dict:
+    def getImageParams(self):
+        # type: () -> dict
         return self.__image_params
 
     def showColors(self):
@@ -202,7 +214,8 @@ class GoogleImages:
     def showImageFormats(self):
         self.__print_keys_in_dict("format")
 
-    def __print_keys_in_dict(self, source_key: str):
+    def __print_keys_in_dict(self, source_key):
+        # type: (str) -> None
         for key, value in self.__available_images_modifiers[source_key].items():
             print(key)
 
@@ -216,16 +229,20 @@ class GooglePatents:
             "patent_type": None
         }
 
-    def setOfficePatent(self, office_patent: OfficePatents):
+    def setOfficePatent(self, office_patent):
+        # type: (OfficePatents) -> None
         self.__patents_params["office_patents"] = office_patent
 
-    def setPatentStatus(self, status: PatentStatus):
+    def setPatentStatus(self, status):
+        # type: (PatentStatus) -> None
         self.__patents_params["patent_status"] = status
 
-    def setPatentType(self, patent_type: AvailablePatentTypes):
+    def setPatentType(self, patent_type):
+        # type: (AvailablePatentTypes) -> None
         self.__patents_params["patent_type"] = patent_type
 
-    def getPatentModifiers(self) -> dict:
+    def getPatentModifiers(self):
+        # type: () -> dict
         return self.__patents_params
 
 
@@ -251,17 +268,21 @@ class GoogleShop:
     def orderByReviewScore(self):
         self.__shop_params["sort_order"] = self.__available_shop_modifiers["sort_order_reviews"]
 
-    def withMinPrice(self, price: int):
+    def withMinPrice(self, price):
+        # type: (int) -> None
         self.__shop_params["min_price"] = self.__available_shop_modifiers["with_min_price"].format(str(price))
 
-    def withMaxPrice(self, price: int):
+    def withMaxPrice(self, price):
+        # type: (int) -> None
         self.__shop_params["max_price"] = self.__available_shop_modifiers["with_max_price"].format(str(price))
 
-    def betweenTwoPrices(self, min_price: int, max_price: int):
+    def betweenTwoPrices(self, min_price, max_price):
+        # type: (int, int) -> None
         self.__shop_params["min_price"] = self.__available_shop_modifiers["with_min_price"].format(str(min_price))
         self.__shop_params["max_price"] = self.__available_shop_modifiers["with_max_price"].format(str(max_price))
 
-    def getShopModifiers(self) -> dict:
+    def getShopModifiers(self):
+        # type: () -> dict
         return self.__shop_params
 
 
@@ -291,7 +312,8 @@ class GoogleBooks:
     def searchOnlyMagazines(self):
         self.__books_params["with_searching"] = self.__available_books_modifiers["with_searching_magazines"]
 
-    def getBooksModifiers(self) -> dict:
+    def getBooksModifiers(self):
+        # type: () -> dict
         return self.__books_params
 
 
@@ -319,5 +341,6 @@ class GoogleVideos:
     def withSubtitles(self):
         self.__video_params["subtitles"] = self.__available_video_modifiers["with_subtitles"]
 
-    def getVideoModifiers(self) -> dict:
+    def getVideoModifiers(self):
+        # type: () -> dict
         return self.__video_params
