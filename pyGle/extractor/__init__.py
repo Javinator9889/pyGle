@@ -7,7 +7,6 @@
 import random
 import time
 import ujson as json
-import sys
 
 from multiprocessing import cpu_count
 from bs4 import BeautifulSoup
@@ -17,10 +16,10 @@ from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsErr
 from pyGle.url import URLBuilder
 from pyGle.url.url_constants import __user_agents__
 
-if sys.version_info[0] >= 3:
+try:
     from urllib.error import HTTPError
     from urllib.request import Request, urlopen
-else:
+except ImportError:
     from urllib2 import HTTPError, Request, urlopen
 
 

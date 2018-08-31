@@ -4,16 +4,14 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-import sys
-
 from pyGle.values import *
 from pyGle.values.InterfaceLanguages import InterfaceLanguages
 
 from .url_constants import __google_base_url__, __google_url_modifiers__
 
-if sys.version_info >= 3:
+try:
     import urllib.parse as parse
-else:
+except ImportError:
     import urllib as parse
 
 
