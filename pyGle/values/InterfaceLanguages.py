@@ -7,7 +7,6 @@
 #
 
 
-
 class InterfaceLanguages:
     Afrikaans = "af"
     Luo = "ach"

@@ -26,7 +26,7 @@ except ImportError:
     from urllib2 import HTTPError, Request, urlopen
 
 
-class BaseExtractor:
+class BaseExtractor(object):
     def __init__(self, must_use_session=False, with_history_enabled=False):
         # type: (bool, bool) -> None
         key = random.choice(list(__user_agents__.keys()))

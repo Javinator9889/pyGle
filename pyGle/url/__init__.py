@@ -16,7 +16,7 @@ except ImportError:
     import urllib as parse
 
 
-class GoogleSearch:
+class GoogleSearch(object):
     def __init__(self, query=None):
         # type: (str) -> None
         self.query = query
