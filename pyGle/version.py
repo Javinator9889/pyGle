@@ -6,12 +6,12 @@
 #                 under certain conditions; type "-L" for details.
 #
 
-__version__ = "v1.23b"
-__version_code__ = 98
+__version__ = "v1.24b"
+__version_code__ = 100
 
 
 def print_ver_info():
     import sys
 
-    print("pyGle {0}".format(__version__))
+    print("pyGle {0} ({1})".format(__version__, __version_code__))
     print("Python {0}".format(sys.version.replace("\n", ' ')))
