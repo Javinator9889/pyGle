@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #                py-google-search  Copyright (C) 2018  Javinator9889                
 #   This program comes with ABSOLUTELY NO WARRANTY; for details add the "-h" option.

@@ -1,26 +1,34 @@
+# -*- coding: utf-8 -*-
 #
 #                py-google-search  Copyright (C) 2018  Javinator9889
 #   This program comes with ABSOLUTELY NO WARRANTY; for details add the "-h" option.
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
+
 import random
 import time
 import ujson as json
-import urllib.error
-import urllib.parse
-import urllib.request
-from concurrent.futures import Future, ThreadPoolExecutor
-from multiprocessing import cpu_count
 
+from multiprocessing import cpu_count
 from bs4 import BeautifulSoup
+from concurrent.futures import Future, ThreadPoolExecutor
+from typing import Any
+
 from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 from pyGle.url import URLBuilder
 from pyGle.url.url_constants import __user_agents__
 
+try:
+    from urllib.error import HTTPError
+    from urllib.request import Request, urlopen
+except ImportError:
+    from urllib2 import HTTPError, Request, urlopen
 
-class BaseExtractor:
-    def __init__(self, must_use_session: bool = False, with_history_enabled: bool = False):
+
+class BaseExtractor(object):
+    def __init__(self, must_use_session=False, with_history_enabled=False):
+        # type: (bool, bool) -> None
         key = random.choice(list(__user_agents__.keys()))
         self.headers = {"User-Agent": __user_agents__[key]}
         self.cpu_count = cpu_count() * 2
@@ -28,18 +36,20 @@ class BaseExtractor:
         self.history = [] if with_history_enabled else None
         self.url = None
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         pass
 
-    def obtain_html_object(self, url: URLBuilder) -> tuple:
+    def obtain_html_object(self, url):
+        # type: (URLBuilder) -> tuple
         try:
             start_time = time.time()
             built_url = url.build()
             self.url = built_url
-            request = urllib.request.Request(url=built_url, headers=self.headers)
+            request = Request(url=built_url, headers=self.headers)
             if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
                 request.add_header("cookie", self.session_cookies["cookie"])
-            web_content = urllib.request.urlopen(request)
+            web_content = urlopen(request)
             if self.session_cookies["cookie"] != "disabled":
                 self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
             requested_data = web_content.read().decode("utf-8")
@@ -48,7 +58,7 @@ class BaseExtractor:
             local_executor.submit(web_content.close)
             local_executor.shutdown(wait=False)
             return BeautifulSoup(requested_data, "lxml"), (end_time - start_time)
-        except urllib.error.HTTPError as request_error:
+        except HTTPError as request_error:
             raise GoogleBlockingConnectionsError("It looks like Google is blocking errors.\n\t- Headers: "
                                                  + str(request_error.headers) + "\n\t- Error: "
                                                  + request_error.read().decode("utf-8"))
@@ -57,10 +67,12 @@ class BaseExtractor:
         new_key = random.choice(list(__user_agents__.keys()))
         self.headers["User-Agent"] = __user_agents__[new_key]
 
-    def getHistory(self) -> list:
+    def getHistory(self):
+        # type: () -> list
         return self.history
 
-    def getOverallTime(self) -> tuple:
+    def getOverallTime(self):
+        # type: () -> tuple
         if self.history:
             time_amount = 0
             google_search_amount = 0
@@ -87,7 +99,8 @@ class BaseExtractor:
             print("History is disabled or not petition has been done yet")
 
     @staticmethod
-    def is_valid_url(url) -> bool:
+    def is_valid_url(url):
+        # type: (str) -> bool
         import re
 
         # From: https://stackoverflow.com/questions/7160737/python-how-to-validate-a-url-in-python-malformed-or-not
@@ -101,15 +114,17 @@ class BaseExtractor:
         return re.match(regex, url) is not None
 
     @staticmethod
-    def cleanupString(text: str) -> str:
+    def cleanupString(text):
+        # type: (str) -> str
         import re
 
         return re.sub(u'[^a-zA-Z0-9áéíóúÁÉÍÓÚâêîôÂÊÎÔãõÃÕçÇñÑÄËÏÖÜäëïöü: \-.()/]', '', text)
 
 
 class ImageExtractor(BaseExtractor):
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(ImageExtractor, self).obtain_html_object(url)
         images = []
         elements_start_time = time.time()
         for a in html.find_all("div", {"class": "rg_meta"}):
@@ -151,10 +166,11 @@ class ImageExtractor(BaseExtractor):
         })
         if self.history is not None:
             self.history.append(images)
-        super().change_header()
+        super(ImageExtractor, self).change_header()
         return images
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -164,7 +180,8 @@ class ImageExtractor(BaseExtractor):
 
 class SearchExtractor(BaseExtractor):
     @staticmethod
-    def __get_web_page_title_link(web_section) -> tuple:
+    def __get_web_page_title_link(web_section):
+        # type: (Any) -> tuple
         try:
             search_title_object = web_section.find_all("h3", {"class": "r"})[0].find_all("a")
             link = search_title_object[0].get("href")
@@ -175,14 +192,16 @@ class SearchExtractor(BaseExtractor):
         return link, web_page_title
 
     @staticmethod
-    def __obtain_detailed_section(web_section) -> BeautifulSoup:
+    def __obtain_detailed_section(web_section):
+        # type: (Any) -> BeautifulSoup
         try:
             return web_section.find_all("div", {"class": "s"})[0]
         except IndexError:
             return None
 
     @staticmethod
-    def __obtain_web_cache(detailed_section) -> str:
+    def __obtain_web_cache(detailed_section):
+        # type: (Any) -> str
         try:
             web_cache_version = detailed_section.find_all("li",
                                                           {"class": "action-menu-item ab_dropdownitem",
@@ -193,7 +212,8 @@ class SearchExtractor(BaseExtractor):
         return web_cache_link
 
     @staticmethod
-    def __obtain_date(detailed_section) -> str:
+    def __obtain_date(detailed_section):
+        # type: (Any) -> str
         try:
             date = detailed_section.find_all("span", {"class": "f"})[0].string
         except IndexError:
@@ -201,7 +221,8 @@ class SearchExtractor(BaseExtractor):
         return date
 
     @staticmethod
-    def __obtain_related_pages(detailed_section) -> list:
+    def __obtain_related_pages(detailed_section):
+        # type: (Any) -> list
         try:
             related_pages = []
             for related_page in detailed_section.find_all("div", {"class": "VNLkW"}):
@@ -243,7 +264,8 @@ class SearchExtractor(BaseExtractor):
         return stats
 
     @staticmethod
-    def __find_pages_in_selection(web_section) -> list:
+    def __find_pages_in_selection(web_section):
+        # type: (Any) -> list
         try:
             in_search_page = web_section.find_all("table", {"class": "nrgt"})[0]
             pages = in_search_page.find_all("div", {"class": "sld vsc"})
@@ -266,8 +288,9 @@ class SearchExtractor(BaseExtractor):
         except IndexError:
             return []
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(SearchExtractor, self).obtain_html_object(url)
         search_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "bkWMgd"})
@@ -315,10 +338,11 @@ class SearchExtractor(BaseExtractor):
                                "url": self.url})
         if self.history is not None:
             self.history.append(search_results)
-        super().change_header()
+        super(SearchExtractor, self).change_header()
         return search_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -328,7 +352,8 @@ class SearchExtractor(BaseExtractor):
 
 class NewsExtractor(BaseExtractor):
     @staticmethod
-    def __obtain_thumbnail(picture_class) -> str:
+    def __obtain_thumbnail(picture_class):
+        # type: (Any) -> str
         try:
             a_section = picture_class.find("a", {"class": "top NQHJEb dfhHve"})
             image_found = a_section.find("img", {"class": "th BbeB2d"}).get("src")
@@ -337,7 +362,8 @@ class NewsExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __get_title_link(html) -> tuple:
+    def __get_title_link(html):
+        # type: (Any) -> tuple
         try:
             header = html.find_all("h3", {"class": "r dO0Ag"})[0].find_all("a")[0]
             link = header.get("href")
@@ -348,7 +374,8 @@ class NewsExtractor(BaseExtractor):
         return link, title
 
     @staticmethod
-    def __obtain_publisher_date_extra(main_content) -> tuple:
+    def __obtain_publisher_date_extra(main_content):
+        # type: (Any) -> tuple
         publisher = main_content.find("span", {"class": "xQ82C e8fRJf"}).get_text(strip=True)
         if not publisher:
             publisher = "unavailable"
@@ -359,12 +386,14 @@ class NewsExtractor(BaseExtractor):
         extra = extra_data.get_text(strip=True) if extra_data else None
         return publisher, date, extra
 
-    def __obtain_description(self, main_content) -> str:
+    def __obtain_description(self, main_content):
+        # type: (Any) -> str
         description = main_content.get_text(strip=True)
         return self.cleanupString(description) if description else "unavailable"
 
     @staticmethod
-    def __obtain_related_articles(section) -> list:
+    def __obtain_related_articles(section):
+        # type: (Any) -> list
         found_articles = []
         articles = section.find_all("div", class_="card-section")
         for article in articles:
@@ -396,8 +425,9 @@ class NewsExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(NewsExtractor, self).obtain_html_object(url)
         news_results = []
         elements_start_time = time.time()
         results_area = html.find_all("div", {"id": "ires"})[0]
@@ -434,10 +464,11 @@ class NewsExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(news_results)
-        super().change_header()
+        super(NewsExtractor, self).change_header()
         return news_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -447,7 +478,8 @@ class NewsExtractor(BaseExtractor):
 
 class VideoExtractor(BaseExtractor):
     @staticmethod
-    def __get_web_page_title_link(web_section) -> tuple:
+    def __get_web_page_title_link(web_section):
+        # type: (Any) -> tuple
         try:
             search_title_object = web_section.find_all("h3", {"class": "r"})[0].find_all("a")
             link = search_title_object[0].get("href")
@@ -458,7 +490,8 @@ class VideoExtractor(BaseExtractor):
         return link, web_page_title
 
     @staticmethod
-    def __obtain_detailed_section(web_section) -> BeautifulSoup:
+    def __obtain_detailed_section(web_section):
+        # type: (Any) -> BeautifulSoup
         try:
             return web_section.find_all("div", {"class": "s"})[0]
         except IndexError:
@@ -466,7 +499,8 @@ class VideoExtractor(BaseExtractor):
                                             "proxy mode or wait for a few minutes")
 
     @staticmethod
-    def __obtain_thumbnail(web_section) -> str:
+    def __obtain_thumbnail(web_section):
+        # type: (Any) -> str
         try:
             thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("g-img").find("img")
             return thumbnail_section.get("src")
@@ -474,7 +508,8 @@ class VideoExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __obtain_duration(web_section) -> str:
+    def __obtain_duration(web_section):
+        # type: (Any) -> str
         try:
             thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("span", {"class": "vdur"})
             return thumbnail_section.get_text(strip=True).replace("▶", '').strip()
@@ -482,7 +517,8 @@ class VideoExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __obtain_location(web_section) -> str:
+    def __obtain_location(web_section):
+        # type: (Any) -> str
         try:
             data_section = web_section.find("div", class_="hJND5c").find("cite")
             return data_section.get_text(strip=True)
@@ -490,14 +526,16 @@ class VideoExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __obtain_date(web_section) -> str:
+    def __obtain_date(web_section):
+        # type: (Any) -> str
         try:
             date_section = web_section.find("div", class_="slp f")
             return date_section.get_text(strip=True)
         except AttributeError:
             return "unavailable"
 
-    def __obtain_description(self, web_section) -> str:
+    def __obtain_description(self, web_section):
+        # type: (Any) -> str
         try:
             desc_section = web_section.find("span", {"class": "st"})
             return self.cleanupString(desc_section.get_text(strip=True))
@@ -512,8 +550,9 @@ class VideoExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(VideoExtractor, self).obtain_html_object(url)
         vid_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "srg"})
@@ -546,10 +585,11 @@ class VideoExtractor(BaseExtractor):
                             "url": self.url})
         if self.history is not None:
             self.history.append(vid_results)
-        super().change_header()
+        super(VideoExtractor, self).change_header()
         return vid_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -559,7 +599,8 @@ class VideoExtractor(BaseExtractor):
 
 class PatentExtractor(BaseExtractor):
     @staticmethod
-    def __get_title_link(current_value) -> tuple:
+    def __get_title_link(current_value):
+        # type: (Any) -> tuple
         try:
             section = current_value.find("h3", {"class": "r"}).find("a")
             link = section.get("href")
@@ -570,7 +611,8 @@ class PatentExtractor(BaseExtractor):
         return title, link
 
     @staticmethod
-    def __obtain_website(details_section) -> str:
+    def __obtain_website(details_section):
+        # type: (Any) -> str
         try:
             section = details_section.find_all("cite")[0]
             cite = section.get_text(strip=True).strip()
@@ -578,7 +620,8 @@ class PatentExtractor(BaseExtractor):
             cite = "unavailable"
         return cite
 
-    def __obtain_description(self, details_section) -> str:
+    def __obtain_description(self, details_section):
+        # type: (Any) -> str
         try:
             section = details_section.find("span", {"class": "st"})
             description = section.get_text(strip=True).strip()
@@ -586,7 +629,8 @@ class PatentExtractor(BaseExtractor):
             description = "unavailable"
         return self.cleanupString(description)
 
-    def __obtain_patent_image(self, details_section) -> str:
+    def __obtain_patent_image(self, details_section):
+        # type: (Any) -> str
         try:
             section = details_section.find("img", {"class": "rISBZc M4dUYb"})
             image_link = section.get("src")
@@ -594,7 +638,8 @@ class PatentExtractor(BaseExtractor):
         except AttributeError:
             return "unavailable"
 
-    def __get_patent_extras(self, details_section) -> tuple:
+    def __get_patent_extras(self, details_section):
+        # type: (Any) -> tuple
         import re
         try:
             section = details_section.find("div", {"class": "slp f"})
@@ -609,7 +654,8 @@ class PatentExtractor(BaseExtractor):
             return "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"
 
     @staticmethod
-    def __get_patent_description_related_forum(details_section) -> tuple:
+    def __get_patent_description_related_forum(details_section):
+        # type: (Any) -> tuple
         try:
             section = details_section.find("div", {"class": "osl"})
             parts = section.find_all("a")
@@ -625,8 +671,9 @@ class PatentExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(PatentExtractor, self).obtain_html_object(url)
         patents_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"id": "ires"})
@@ -670,10 +717,11 @@ class PatentExtractor(BaseExtractor):
                                 "url": self.url})
         if self.history is not None:
             self.history.append(patents_results)
-        super().change_header()
+        super(PatentExtractor, self).change_header()
         return patents_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -683,12 +731,14 @@ class PatentExtractor(BaseExtractor):
 
 class ShopExtractor(BaseExtractor):
     @staticmethod
-    def __find_thumbnail(result) -> str:
+    def __find_thumbnail(result):
+        # type: (Any) -> str
         img = result.find("div", {"class": "JRlvE XNeeld"}).find("img")
         return img.get("src")
 
     @staticmethod
-    def __find_link_title(extra_data) -> tuple:
+    def __find_link_title(extra_data):
+        # type: (Any) -> tuple
         try:
             section = extra_data.find("div", {"class": "eIuuYe"}).find("a")
             link = "https://google.com" + section.get("href")
@@ -699,7 +749,8 @@ class ShopExtractor(BaseExtractor):
         return link, title
 
     @staticmethod
-    def __find_price(extra_data) -> str:
+    def __find_price(extra_data):
+        # type: (Any) -> str
         try:
             section = extra_data.find("div", {"class": "mQ35Be"}).find("span", {"class": "O8U6h"})
             return section.get_text(strip=True).strip().replace(u"\xa0", " ")
@@ -707,7 +758,8 @@ class ShopExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __find_description(extra_data) -> str:
+    def __find_description(extra_data):
+        # type: (Any) -> str
         try:
             section = extra_data.find_all("div", {"class": "na4ICd"})
             description = None
@@ -721,15 +773,17 @@ class ShopExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __find_reviews_score(extra_data) -> str:
+    def __find_reviews_score(extra_data):
+        # type: (Any) -> str
         try:
             section = extra_data.find("div", {"class": "vq3ore"})
             return section.get("aria-label").replace(u"\xa0", " ")
         except AttributeError:
             return "unavailable"
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(ShopExtractor, self).obtain_html_object(url)
         shop_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"id": "ires"})
@@ -760,10 +814,11 @@ class ShopExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(shop_results)
-        super().change_header()
+        super(ShopExtractor, self).change_header()
         return shop_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)
@@ -773,7 +828,8 @@ class ShopExtractor(BaseExtractor):
 
 class BookExtractor(BaseExtractor):
     @staticmethod
-    def __get_book_title_link(web_section) -> tuple:
+    def __get_book_title_link(web_section):
+        # type: (Any) -> tuple
         try:
             search_title_object = web_section.find_all("h3", {"class": "r"})[0].find_all("a")
             link = search_title_object[0].get("href")
@@ -784,7 +840,8 @@ class BookExtractor(BaseExtractor):
         return link, web_page_title
 
     @staticmethod
-    def __obtain_detailed_section(web_section) -> BeautifulSoup:
+    def __obtain_detailed_section(web_section):
+        # type: (Any) -> BeautifulSoup
         try:
             return web_section.find_all("div", {"class": "s"})[0]
         except IndexError:
@@ -792,7 +849,8 @@ class BookExtractor(BaseExtractor):
                                             "proxy mode or wait for a few minutes")
 
     @staticmethod
-    def __obtain_thumbnail(web_section) -> str:
+    def __obtain_thumbnail(web_section):
+        # type: (Any) -> str
         try:
             thumbnail_section = web_section.find("div", class_="N3nEGc").find("a").find("g-img").find("img")
             return thumbnail_section.get("src")
@@ -800,14 +858,16 @@ class BookExtractor(BaseExtractor):
             return "unavailable"
 
     @staticmethod
-    def __obtain_google_books_url(detailed_section) -> str:
+    def __obtain_google_books_url(detailed_section):
+        # type: (Any) -> str
         try:
             url_section = detailed_section.find("div", {"class": "f hJND5c TbwUpd"}).find("cite", {"class": "iUh30"})
             return url_section.get_text(strip=True).strip()
         except AttributeError:
             return "unavailable"
 
-    def __get_books_extras(self, details_section) -> tuple:
+    def __get_books_extras(self, details_section):
+        # type: (Any) -> tuple
         try:
             section = details_section.find("div", {"class": "slp f"})
             parts = section.get_text(strip=True).strip().split("-")
@@ -829,7 +889,8 @@ class BookExtractor(BaseExtractor):
             return "unavailable", "unavailable"
 
     @staticmethod
-    def __get_book_description(details_section) -> str:
+    def __get_book_description(details_section):
+        # type: (Any) -> str
         try:
             section = details_section.find("span", {"class": "st"})
             return section.get_text(strip=True).strip().replace(u"\xa0", " ")
@@ -844,8 +905,9 @@ class BookExtractor(BaseExtractor):
             stats = "unavailable"
         return stats
 
-    def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+    def __extractor(self, url, start_time):
+        # type: (URLBuilder, float) -> list
+        html, search_time = super(BookExtractor, self).obtain_html_object(url)
         book_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "srg"})
@@ -881,10 +943,11 @@ class BookExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(book_results)
-        super().change_header()
+        super(BookExtractor, self).change_header()
         return book_results
 
-    def extract_url(self, url: URLBuilder) -> Future:
+    def extract_url(self, url):
+        # type: (URLBuilder) -> Future
         start_time = time.time()
         executor = ThreadPoolExecutor(max_workers=self.cpu_count)
         future = executor.submit(self.__extractor, url, start_time)

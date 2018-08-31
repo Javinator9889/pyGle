@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #                py-google-search  Copyright (C) 2018  Javinator9889                
 #   This program comes with ABSOLUTELY NO WARRANTY; for details add the "-h" option.
@@ -21,8 +22,9 @@ from .version import print_ver_info
 
 
 class PyGle(GoogleSearch):
-    def __init__(self, query: str = None, enable_history: bool = False, use_session_cookies: bool = False):
-        super().__init__(query)
+    def __init__(self, query=None, enable_history=False, use_session_cookies=False):
+        # type: (str, bool, bool) -> None
+        super(PyGle, self).__init__(query)
         self.__search_extractor = SearchExtractor(must_use_session=use_session_cookies,
                                                   with_history_enabled=enable_history)
         self.__books_extractor = BookExtractor(must_use_session=use_session_cookies,
@@ -48,7 +50,8 @@ class PyGle(GoogleSearch):
         socks.set_default_proxy(proxy_type=socks.PROXY_TYPE_SOCKS5, addr="127.0.0.1", port=9050)
         socket.socket = socks.socksocket
 
-    def doSearch(self, torify: bool = False) -> Future:
+    def doSearch(self, torify=False):
+        # type: (bool) -> Future
         url_builder_object = URLBuilder(self)
         ext = BaseExtractor(must_use_session=self.__session_cookies, with_history_enabled=self.__history_enabled)
         if self.search_at_different_pages:
@@ -84,7 +87,8 @@ class PyGle(GoogleSearch):
         else:
             print("History is not enabled or no petition has been done yet")
 
-    def getHistory(self) -> dict:
+    def getHistory(self):
+        # type: () -> dict
         return {"Books": self.__books_extractor.getHistory(),
                 "Images": self.__image_extractor.getHistory(),
                 "News": self.__news_extractor.getHistory(),

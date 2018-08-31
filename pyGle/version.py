@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #                py-google-search  Copyright (C) 2018  Javinator9889
 #   This program comes with ABSOLUTELY NO WARRANTY; for details add the "-h" option.
@@ -5,12 +6,12 @@
 #                 under certain conditions; type "-L" for details.
 #
 
-__version__ = "v1.12"
-__version_code__ = 80
+__version__ = "v1.24"
+__version_code__ = 100
 
 
 def print_ver_info():
     import sys
 
-    print("pyGle {0}".format(__version__))
+    print("pyGle {0} ({1})".format(__version__, __version_code__))
     print("Python {0}".format(sys.version.replace("\n", ' ')))

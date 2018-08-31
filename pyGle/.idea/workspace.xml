@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Created PyGle class for working with queries">
+    <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="ImportError solved">
+      <change beforePath="$PROJECT_DIR$/../README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/../README.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/url/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/url/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/url/checker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/values/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/values/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,52 +25,63 @@
     <session id="501556379">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="1" />
+          <entry key="cfg" value="1" />
+          <entry key="functionTypeComment" value="1" />
+          <entry key="md" value="2" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="65" />
-          <entry key="rst" value="1" />
-          <entry key="txt" value="2" />
+          <entry key="py" value="117" />
+          <entry key="rst" value="3" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Ini" value="1" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="65" />
-          <entry key="ReST" value="1" />
+          <entry key="Python" value="118" />
+          <entry key="ReST" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="1" />
-          <entry key="py" value="8670" />
-          <entry key="rst" value="1" />
-          <entry key="txt" value="141" />
+          <entry key="functionTypeComment" value="7" />
+          <entry key="md" value="2" />
+          <entry key="py" value="10432" />
+          <entry key="rst" value="10" />
+          <entry key="txt" value="478" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="141" />
-          <entry key="Python" value="8670" />
-          <entry key="ReST" value="1" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="478" />
+          <entry key="Python" value="10439" />
+          <entry key="ReST" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
@@ -83,11 +89,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <element signature="e#336#685#0" expanded="true" />
-                <marker date="1534266889888" expanded="true" signature="2290:2292" ph="..." />
+                <marker date="1535734833909" expanded="true" signature="2344:2346" ph="..." />
               </folding>
             </state>
           </provider>
@@ -96,42 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5252">
-              <caret line="309" column="41" lean-forward="true" selection-start-line="309" selection-start-column="41" selection-end-line="309" selection-end-column="41" />
-              <folding>
-                <element signature="e#299#312#0" expanded="true" />
-                <marker date="1534266890033" expanded="true" signature="36539:37014" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/url/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2939">
-              <caret line="173" column="19" lean-forward="true" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
-              <folding>
-                <element signature="e#299#318#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/values/OptionsForPatents.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/values/OptionsForPictures.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+            <state relative-caret-position="204">
+              <caret line="12" column="5" selection-start-line="12" selection-end-line="12" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -139,41 +110,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/url/url_constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8160">
-              <caret line="480" column="31" selection-start-line="480" selection-start-column="31" selection-end-line="480" selection-end-column="31" />
+            <state relative-caret-position="208">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/errors.py">
+        <entry file="file://$PROJECT_DIR$/url/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="762">
+              <caret line="254" column="19" selection-start-line="254" selection-start-column="19" selection-end-line="254" selection-end-column="19" />
               <folding>
-                <marker date="1534266650800" expanded="true" signature="677:759" ph="..." />
+                <element signature="e#323#349#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/values/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="5" selection-start-line="7" selection-end-line="7" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/values/__init__.py">
+        <entry file="file://$PROJECT_DIR$/../README.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/values/InterfaceLanguages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="278" column="37" selection-start-line="278" selection-start-column="37" selection-end-line="278" selection-end-column="37" />
-              <folding>
-                <element signature="e#299#359#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/values/AvailableCountries.py">
+        <entry file="file://$PROJECT_DIR$/values/OptionsForPatents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="235" column="29" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/values/OptionsForPictures.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-14">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -182,7 +173,7 @@
         <entry file="file://$PROJECT_DIR$/version.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -200,20 +191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>[\&quot;*\&quot;]</find>
-      <find>[&quot;.*&quot;:]{3,}?\s</find>
-      <find>[&quot;.*&quot;: ]{3,}</find>
-      <find>[&quot;.*&quot;: &amp;^(&quot;\w)]{3,}</find>
-      <find>&quot;[^&quot;]*&quot;:</find>
-      <find>&quot;[^[\w]]*&quot;:</find>
-      <find>=</find>
-      <find />
-      <find>:</find>
-      <find>=ABCMeta</find>
-      <find>-</find>
-      <find>&gt;</find>
-      <find>l</find>
-      <find>&quot;</find>
       <find>&quot;:</find>
       <find>\b([ ])\b</find>
       <find>([a-z]{1,}[ ]{2,})\b</find>
@@ -228,8 +205,22 @@
       <find>other</find>
       <find>#</find>
       <find>\w</find>
-      <find />
-      <find />
+      <find>urllib.error</find>
+      <find>parse</find>
+      <find>urllib.parse</find>
+      <find>(metaclass=ABCMeta)</find>
+      <find>(metaclass=__ABCMeta)</find>
+      <find>super(</find>
+      <find>if</find>
+      <find>: str =</find>
+      <find>: str)</find>
+      <find>: list)</find>
+      <find>def __extractor(self, url: URLBuilder, start_time: float) -&gt; list:</find>
+      <find>is_valid</find>
+      <find>-&gt; str:</find>
+      <find>-&gt; list:</find>
+      <find>from</find>
+      <find>super</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;lang</replace>
@@ -242,7 +233,6 @@
       <replace>length</replace>
       <replace>utf-8</replace>
       <replace>a</replace>
-      <replace>=</replace>
       <replace />
       <replace>=__ABCMeta</replace>
       <replace>_</replace>
@@ -261,9 +251,12 @@
       <replace>non-proper</replace>
       <replace>\</replace>
       <replace>+</replace>
+      <replace>=</replace>
+      <replace>)</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\Nextcloud\Programming\pyGle\pyGle\values</dir>
+      <dir>E:\Nextcloud\Programming\pyGle\pyGle</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -273,6 +266,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -291,27 +289,28 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/url/checker.py" />
         <option value="$PROJECT_DIR$/tests/GoogleSearch.py" />
-        <option value="$PROJECT_DIR$/url/url_constants.py" />
-        <option value="$PROJECT_DIR$/url/url_constants.py" />
-        <option value="$PROJECT_DIR$/../setup.py" />
-        <option value="$PROJECT_DIR$/../README.rst" />
-        <option value="$PROJECT_DIR$/../README.md" />
         <option value="$PROJECT_DIR$/../tests/__init__.py" />
         <option value="$PROJECT_DIR$/../../tests.py" />
-        <option value="$PROJECT_DIR$/url/__init__.py" />
-        <option value="$PROJECT_DIR$/url/__init__.py" />
-        <option value="$PROJECT_DIR$/extractor/__init__.py" />
-        <option value="$PROJECT_DIR$/extractor/__init__.py" />
+        <option value="$PROJECT_DIR$/../setup.cfg" />
+        <option value="$PROJECT_DIR$/../README.md" />
+        <option value="$PROJECT_DIR$/url/url_constants.py" />
+        <option value="$PROJECT_DIR$/url/url_constants.py" />
         <option value="$PROJECT_DIR$/values/AvailableCountries.py" />
         <option value="$PROJECT_DIR$/values/AvailableLanguages.py" />
-        <option value="$PROJECT_DIR$/values/InterfaceLanguages.py" />
         <option value="$PROJECT_DIR$/values/OptionsForPatents.py" />
         <option value="$PROJECT_DIR$/values/OptionsForPictures.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/errors.py" />
-        <option value="$PROJECT_DIR$/version.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/values/__init__.py" />
+        <option value="$PROJECT_DIR$/../setup.py" />
+        <option value="$PROJECT_DIR$/values/InterfaceLanguages.py" />
+        <option value="$PROJECT_DIR$/extractor/__init__.py" />
+        <option value="$PROJECT_DIR$/extractor/__init__.py" />
+        <option value="$PROJECT_DIR$/url/__init__.py" />
+        <option value="$PROJECT_DIR$/url/__init__.py" />
+        <option value="$PROJECT_DIR$/version.py" />
+        <option value="$PROJECT_DIR$/../README.rst" />
       </list>
     </option>
   </component>
@@ -322,9 +321,26 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyCompatibilityInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -334,7 +350,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -361,6 +376,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,7 +386,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -599,15 +615,101 @@
       <option name="project" value="LOCAL" />
       <updated>1533647685843</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adaptation to Python 2.6/2.7">
+      <created>1535730974733</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1535730974733</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Code corrections">
+      <created>1535731719595</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1535731719595</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Changed to # type annotation instead of Python 3 specific">
+      <created>1535734325531</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1535734325531</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changed to # type annotation instead of Python 3 specific">
+      <created>1535734409725</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1535734409725</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Included &quot;coding&quot;">
+      <created>1535734568637</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1535734568637</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Possible solution to &quot;SyntaxError&quot; on line 121">
+      <created>1535734668768</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1535734668768</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Moved &quot;coding&quot; comment - removed &quot;future&quot; import">
+      <created>1535734857152</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1535734857152</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Solved error on line 33 on __init__@values">
+      <created>1535735157897</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1535735157897</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Correction on version">
+      <created>1535735199769</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1535735199769</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Classes inherit from &quot;object&quot;">
+      <created>1535735572597</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1535735572597</updated>
+    </task>
+    <task id="LOCAL-00036" summary="ImportError solved">
+      <created>1535736101796</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1535736101796</updated>
+    </task>
+    <task id="LOCAL-00037" summary="ImportError solved">
+      <created>1535736215455</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1535736215455</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19127516" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19932885" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" weight="0.32907802" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
@@ -640,16 +742,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Included URL formatting - project created and refactored" />
-    <MESSAGE value="Completed URLBuilder and methods definitions" />
-    <MESSAGE value="Included &quot;values&quot; class" />
-    <MESSAGE value="Completed URLParser and decoder - testings on &quot;main&quot;" />
-    <MESSAGE value="Included images attributes" />
-    <MESSAGE value="Accurate image search" />
-    <MESSAGE value="GoogleSearch extractor" />
-    <MESSAGE value="Testing different HTTPS requests optimizations" />
-    <MESSAGE value="Code optimization and refactor" />
-    <MESSAGE value="Session for urllib and requirements file included" />
     <MESSAGE value="Methods of News Searching" />
     <MESSAGE value="Exception when Google blocks connection" />
     <MESSAGE value="Completed GoogleNews receiver" />
@@ -665,7 +757,17 @@
     <MESSAGE value="Google Books searching finished" />
     <MESSAGE value="Updated params validator method" />
     <MESSAGE value="Created PyGle class for working with queries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created PyGle class for working with queries" />
+    <MESSAGE value="Adaptation to Python 2.6/2.7" />
+    <MESSAGE value="Code corrections" />
+    <MESSAGE value="Changed to # type annotation instead of Python 3 specific" />
+    <MESSAGE value="Included &quot;coding&quot;" />
+    <MESSAGE value="Possible solution to &quot;SyntaxError&quot; on line 121" />
+    <MESSAGE value="Moved &quot;coding&quot; comment - removed &quot;future&quot; import" />
+    <MESSAGE value="Solved error on line 33 on __init__@values" />
+    <MESSAGE value="Correction on version" />
+    <MESSAGE value="Classes inherit from &quot;object&quot;" />
+    <MESSAGE value="ImportError solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImportError solved" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/time_limit.py" />
@@ -687,12 +789,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/bs4/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_init.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/bs4/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -703,6 +799,18 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyGle/__init__.py" />
     <entry file="file://$PROJECT_DIR$/setup.py" />
     <entry file="file://$PROJECT_DIR$/tests/GoogleSearch.py" />
+    <entry file="file://$PROJECT_DIR$/../tests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/url/checker.py" />
+    <entry file="file://$PROJECT_DIR$/build/lib/url/checker.py" />
     <entry file="file://$PROJECT_DIR$/../README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -713,140 +821,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../README.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/../setup.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tests/__init__.py">
+    <entry file="file://$PROJECT_DIR$/old_init.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
+          <caret column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/values/AvailableLanguages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/values/InterfaceLanguages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/values/OptionsForPatents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/values/OptionsForPictures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/url/url_constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8160">
-          <caret line="480" column="31" selection-start-line="480" selection-start-column="31" selection-end-line="480" selection-end-column="31" />
+          <caret line="30" column="103" lean-forward="true" selection-start-line="30" selection-start-column="103" selection-end-line="30" selection-end-column="103" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/errors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <marker date="1534266650800" expanded="true" signature="677:759" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/url/checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/lib/url/checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        <state relative-caret-position="-227">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/values/AvailableCountries.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="235" column="29" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
+        <state relative-caret-position="-14">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version.py">
+    <entry file="file://$PROJECT_DIR$/values/AvailableLanguages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="-14">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/values/InterfaceLanguages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#336#685#0" expanded="true" />
-            <marker date="1534266889888" expanded="true" signature="2290:2292" ph="..." />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/values/OptionsForPatents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/values/OptionsForPictures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/url/url_constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/extractor/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5252">
-          <caret line="309" column="41" lean-forward="true" selection-start-line="309" selection-start-column="41" selection-end-line="309" selection-end-column="41" />
+        <state relative-caret-position="204">
+          <caret line="12" column="5" selection-start-line="12" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/values/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="5" selection-start-line="7" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-end-line="9" selection-end-column="5" />
           <folding>
-            <element signature="e#299#312#0" expanded="true" />
-            <marker date="1534266890033" expanded="true" signature="36539:37014" ph="..." />
+            <marker date="1535734833909" expanded="true" signature="2344:2346" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/url/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2939">
-          <caret line="173" column="19" lean-forward="true" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
+        <state relative-caret-position="762">
+          <caret line="254" column="19" selection-start-line="254" selection-start-column="19" selection-end-line="254" selection-end-column="19" />
           <folding>
-            <element signature="e#299#318#0" expanded="true" />
+            <element signature="e#323#349#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/values/__init__.py">
+    <entry file="file://$PROJECT_DIR$/version.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="278" column="37" selection-start-line="278" selection-start-column="37" selection-end-line="278" selection-end-column="37" />
-          <folding>
-            <element signature="e#299#359#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../README.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
