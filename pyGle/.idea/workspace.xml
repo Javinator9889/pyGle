@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="ImportError solved">
-      <change beforePath="$PROJECT_DIR$/../README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/../README.rst" afterDir="false" />
+    <list default="true" id="f4135c92-4f4e-4405-943f-cddfbe399269" name="Default" comment="Updated setup.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +41,9 @@
         <counts>
           <entry key="cfg" value="1" />
           <entry key="functionTypeComment" value="1" />
-          <entry key="md" value="2" />
+          <entry key="md" value="3" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="117" />
+          <entry key="py" value="118" />
           <entry key="rst" value="3" />
           <entry key="txt" value="4" />
         </counts>
@@ -52,27 +51,27 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Ini" value="1" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="118" />
+          <entry key="Python" value="119" />
           <entry key="ReST" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="functionTypeComment" value="7" />
-          <entry key="md" value="2" />
-          <entry key="py" value="10432" />
+          <entry key="md" value="117" />
+          <entry key="py" value="10507" />
           <entry key="rst" value="10" />
-          <entry key="txt" value="478" />
+          <entry key="txt" value="564" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="478" />
-          <entry key="Python" value="10439" />
+          <entry key="Markdown" value="117" />
+          <entry key="PLAIN_TEXT" value="564" />
+          <entry key="Python" value="10514" />
           <entry key="ReST" value="10" />
         </counts>
       </usages-collector>
@@ -129,6 +128,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-680">
+                <caret line="217" column="36" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/values/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -138,26 +149,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../README.rst">
           <provider selected="true" editor-type-id="restructured-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/values/InterfaceLanguages.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/values/OptionsForPatents.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -172,8 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            <state relative-caret-position="153">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -292,7 +297,6 @@
         <option value="$PROJECT_DIR$/../tests/__init__.py" />
         <option value="$PROJECT_DIR$/../../tests.py" />
         <option value="$PROJECT_DIR$/../setup.cfg" />
-        <option value="$PROJECT_DIR$/../README.md" />
         <option value="$PROJECT_DIR$/url/url_constants.py" />
         <option value="$PROJECT_DIR$/url/url_constants.py" />
         <option value="$PROJECT_DIR$/values/AvailableCountries.py" />
@@ -303,14 +307,15 @@
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/errors.py" />
         <option value="$PROJECT_DIR$/values/__init__.py" />
-        <option value="$PROJECT_DIR$/../setup.py" />
         <option value="$PROJECT_DIR$/values/InterfaceLanguages.py" />
         <option value="$PROJECT_DIR$/extractor/__init__.py" />
         <option value="$PROJECT_DIR$/extractor/__init__.py" />
         <option value="$PROJECT_DIR$/url/__init__.py" />
         <option value="$PROJECT_DIR$/url/__init__.py" />
-        <option value="$PROJECT_DIR$/version.py" />
         <option value="$PROJECT_DIR$/../README.rst" />
+        <option value="$PROJECT_DIR$/../README.md" />
+        <option value="$PROJECT_DIR$/version.py" />
+        <option value="$PROJECT_DIR$/../setup.py" />
       </list>
     </option>
   </component>
@@ -699,7 +704,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535736215455</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Version 1.24 - backwards compatibility with Python 2.6 and higher">
+      <created>1535736631443</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1535736631443</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Updated setup.py">
+      <created>1535737149973</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1535737149973</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -742,8 +761,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Methods of News Searching" />
-    <MESSAGE value="Exception when Google blocks connection" />
     <MESSAGE value="Completed GoogleNews receiver" />
     <MESSAGE value="Code clean-up and optimization - included more stats" />
     <MESSAGE value="Completed VideoSearching" />
@@ -767,7 +784,9 @@
     <MESSAGE value="Correction on version" />
     <MESSAGE value="Classes inherit from &quot;object&quot;" />
     <MESSAGE value="ImportError solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImportError solved" />
+    <MESSAGE value="Version 1.24 - backwards compatibility with Python 2.6 and higher" />
+    <MESSAGE value="Updated setup.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated setup.py" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/time_limit.py" />
@@ -811,16 +830,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/url/checker.py" />
     <entry file="file://$PROJECT_DIR$/build/lib/url/checker.py" />
-    <entry file="file://$PROJECT_DIR$/../README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="51">
-            <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../setup.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -835,16 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="30" column="103" lean-forward="true" selection-start-line="30" selection-start-column="103" selection-end-line="30" selection-end-column="103" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,15 +930,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+    <entry file="file://$PROJECT_DIR$/../README.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-680">
+            <caret line="217" column="36" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../README.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
