@@ -16,6 +16,11 @@ except:
     long_description = ''
 
 
+requirements = ['lxml', 'beautifulsoup4', 'ujson', 'typing']
+if version < '3':
+    requirements.append('futures')
+
+
 setup(
     name='g-pyGle',
     version=__version__,
@@ -28,8 +33,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/x-rst",
     include_package_data=True,
-    install_requires=['lxml', 'beautifulsoup4', 'ujson', 'futures; python_version <= "2.7"', 'typing'],
-    setup_requires=['lxml', 'beautifulsoup4', 'ujson', 'futures; python_version <= "2.7"', 'typing'],
+    install_requires=requirements,
     zip_safe=False,
     download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
