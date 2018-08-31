@@ -6,7 +6,7 @@
 #                 under certain conditions; type "-L" for details.
 #
 
-__version__ = "v1.24b"
+__version__ = "v1.24"
 __version_code__ = 100
 
 

@@ -20,14 +20,14 @@ Index
 
 `pyGle <https://github.com/Javinator9889/pyGle>`__ aims to be a *very powerful* tool for just **searching the entire web** by using the *Google* technology, without **any limitations** (or almost no one).
 
-Just with a *few lines* of code you will be able to: 
+Just with a *few lines* of code you will be able to:
 
--  Perform a *normal search* on Google 🔎 
--  Look at *Google Images* for obtaining all the information you need about a pic 🌅 
--  Search *the latest news* and also **a lot of articles** on *Google News* 📰 
--  Filter and obtain *patents* by using *Google Patents* 📝 
--  Have a look at hundreds of *different products* at *Google Shops* 🛒 
--  Look for *books*, *magazines* and more at *Google Books* 📘 
+-  Perform a *normal search* on Google 🔎
+-  Look at *Google Images* for obtaining all the information you need about a pic 🌅
+-  Search *the latest news* and also **a lot of articles** on *Google News* 📰
+-  Filter and obtain *patents* by using *Google Patents* 📝
+-  Have a look at hundreds of *different products* at *Google Shops* 🛒
+-  Look for *books*, *magazines* and more at *Google Books* 📘
 -  Videos, videos and more videos at *Google Videos* 🎥
 
 As the speed is a crucial factor, I developed this library in order to be the fastest one for each possible situation.
@@ -200,7 +200,7 @@ As usual, you have the `pip <https://pypi.org/project/pip/>`__ mode or the `easy
        sudo python3 -m pip install g-pyGle
 
        ## Without admin permissions ##
-       pip3 install -U g-pyGle 
+       pip3 install -U g-pyGle
        OR
        python3 -m pip install -U g-pyGle
 
@@ -322,7 +322,7 @@ If you really appreciate my work, you can *contribute to this project* perfectly
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.`
 
-.. |PyPi| image:: https://img.shields.io/badge/v1.12%20-PyPi-green.svg
+.. |PyPi| image:: https://img.shields.io/badge/v1.24%20-PyPi-green.svg
    :target: https://pypi.org/project/g-pyGle/
 .. |ZIP| image:: https://img.shields.io/badge/Package%20-Zip-blue.svg
    :target: https://github.com/Javinator9889/pyGle/archive/master.zip

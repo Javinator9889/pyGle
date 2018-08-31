@@ -1,7 +1,7 @@
 # [pyGle](https://github.com/Javinator9889/pyGle)
 A tool for searching the entire web with the Google technology
 
-[![PyPi](https://img.shields.io/badge/v1.12%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
+[![PyPi](https://img.shields.io/badge/v1.24%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
 [![ZIP](https://img.shields.io/badge/Package%20-Zip-blue.svg)](https://github.com/Javinator9889/pyGle/archive/master.zip)
 [![GIT](https://img.shields.io/badge/Package%20-Git-red.svg)](https://github.com/Javinator9889/pyGle.git)
 [![Downloads](https://pepy.tech/badge/g-pygle)](https://pepy.tech/project/g-pygle)
@@ -171,6 +171,8 @@ If another page must be searched, all the methods start with: ```with```. You ca
 
 ## 3. Installation
 
+### Now, *pyGle* is also compatible with Python 2, so you can install using *pip* from Python 2
+
 As usual, you have the [pip](https://pypi.org/project/pip/) mode or the 
 [easy install](https://setuptools.readthedocs.io/en/latest/easy_install.html) methods:
 
@@ -180,7 +182,7 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
 
 + In some Linux systems, *pip* is not directly available in command line, so we have two options:
     
-    *Installing pip for Python 3* (assuming that you **already have Python 3 installed**): 
+    *Installing pip for Python (2, 3)* (assuming that you **already have Python installed**): 
     ```bash
     ## DEBIAN SYSTEMS ##
     sudo apt update && sudo apt upgrade
@@ -213,7 +215,7 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
 
 ### *Installing via easy install*
 
-+ Basically, we will install *Python 3* on our systems, and then we will be able to install [pyGle](https://github.com/Javinator9889/pyGle):
++ Basically, we will install *Python* on our systems, and then we will be able to install [pyGle](https://github.com/Javinator9889/pyGle):
     
     + [Windows](https://realpython.com/installing-python/#windows)
     + [Linux (all systems)](https://realpython.com/installing-python/#linux)
