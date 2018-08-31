@@ -30,7 +30,8 @@ class TimeLimit:
     def setYear(self):
         self.__time_limit = self.__times["year"]
 
-    def setMonths(self, time: int):
+    def setMonths(self, time):
+        # type: (int) -> None
         if time <= 0:
             raise ValueError("Time must be greater than '0'")
         else:
