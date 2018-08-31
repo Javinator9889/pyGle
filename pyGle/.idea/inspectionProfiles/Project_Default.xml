@@ -4,11 +4,21 @@
     <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ourVersions">
         <value>
-          <list size="4">
-            <item index="0" class="java.lang.String" itemvalue="3.4" />
-            <item index="1" class="java.lang.String" itemvalue="3.5" />
-            <item index="2" class="java.lang.String" itemvalue="3.6" />
-            <item index="3" class="java.lang.String" itemvalue="3.7" />
+          <list size="5">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.4" />
+            <item index="2" class="java.lang.String" itemvalue="3.5" />
+            <item index="3" class="java.lang.String" itemvalue="3.6" />
+            <item index="4" class="java.lang.String" itemvalue="3.7" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="pyGle" />
           </list>
         </value>
       </option>
@@ -35,6 +45,7 @@
           <option value="urlencode.urlencoder" />
           <option value="url.GoogleSearch.*" />
           <option value="url.pyGle" />
+          <option value="extractor.urllib2" />
         </list>
       </option>
     </inspection_tool>

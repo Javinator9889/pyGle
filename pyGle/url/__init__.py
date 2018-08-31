@@ -4,12 +4,17 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-import urllib.parse
+import sys
 
 from pyGle.values import *
 from pyGle.values.InterfaceLanguages import InterfaceLanguages
 
 from .url_constants import __google_base_url__, __google_url_modifiers__
+
+if sys.version_info >= 3:
+    import urllib.parse as parse
+else:
+    import urllib as parse
 
 
 class GoogleSearch:
@@ -376,4 +381,4 @@ class URLBuilder:
             attributes_query = final_query + '&' + extra_attributes
         else:
             attributes_query = final_query
-        return urllib.parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,~")
+        return parse.quote_plus(__google_base_url__ + attributes_query, safe="/?+&:=_.(|)*-%,~")

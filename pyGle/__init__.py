@@ -22,7 +22,7 @@ from .version import print_ver_info
 
 class PyGle(GoogleSearch):
     def __init__(self, query: str = None, enable_history: bool = False, use_session_cookies: bool = False):
-        super().__init__(query)
+        super(PyGle, self).__init__(query)
         self.__search_extractor = SearchExtractor(must_use_session=use_session_cookies,
                                                   with_history_enabled=enable_history)
         self.__books_extractor = BookExtractor(must_use_session=use_session_cookies,

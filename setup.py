@@ -3,8 +3,8 @@ from sys import version
 
 from pyGle.version import __version__
 
-if version < '3':
-    raise RuntimeError("Python v3 at least needed")
+# if version < '3':
+#     raise RuntimeError("Python v3 at least needed")
 
 try:
     import codecs
@@ -28,7 +28,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/x-rst",
     include_package_data=True,
-    install_requires=['lxml', 'beautifulsoup4', 'ujson'],
+    install_requires=['lxml', 'beautifulsoup4', 'ujson', 'futures; python_version <= "2.7"'],
     zip_safe=False,
     download_url="https://github.com/Javinator9889/pyGle/archive/master.zip",
     classifiers=[
@@ -36,6 +36,8 @@ setup(
             'Programming Language :: Python',
             'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
             'Natural Language :: English',
+            'Programming Language :: Python :: 2.6',
+            'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3',
             'Programming Language :: Python :: 3.1',
             'Programming Language :: Python :: 3.2',

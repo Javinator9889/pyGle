@@ -4,10 +4,9 @@
 #      This is free software and you are welcome to redistribute it
 #              under certain conditions; type -L for details.
 #
-from abc import ABCMeta as __ABCMeta
 
 
-class AvailableColors(metaclass=__ABCMeta):
+class AvailableColors:
     Red = "ic:specific,isc:red"
     Orange = "ic:specific,isc:orange"
     Yellow = "ic:specific,isc:yellow"
@@ -22,20 +21,20 @@ class AvailableColors(metaclass=__ABCMeta):
     Brown = "ic:specific,isc:brown"
     
     
-class AvailableColorsType(metaclass=__ABCMeta):
+class AvailableColorsType:
     Full_color = "ic:color"
     Black_and_white = "ic:gray"
     Transparent = "ic:trans"
     
 
-class AvailableRights(metaclass=__ABCMeta):
+class AvailableRights:
     Labeled_for_reuse_with_modifications = "sur:fmc"
     Labeled_for_reuse = "sur:fc"
     Labeled_for_noncommercial_reuse_with_modification = "sur:fm"
     Labeled_for_noncommercial_reuse = "sur:f"
 
 
-class AvailableSizes(metaclass=__ABCMeta):
+class AvailableSizes:
     Large = "isz:l"
     Medium = "isz:m"
     Icon = "isz:i"
@@ -55,7 +54,7 @@ class AvailableSizes(metaclass=__ABCMeta):
     BiggerThan70MP = "isz:lt,islt:70mp"
     
 
-class AvailableImagesTypes(metaclass=__ABCMeta):
+class AvailableImagesTypes:
     Face = "itp:face"
     Photo = "itp:photo"
     Clip_art = "itp:clipart"
@@ -63,14 +62,14 @@ class AvailableImagesTypes(metaclass=__ABCMeta):
     Animated = "itp:animated"
 
 
-class AvailableAspectRatios(metaclass=__ABCMeta):
+class AvailableAspectRatios:
     Tall = "iar:t"
     Square = "iar:s"
     Wide = "iar:w"
     Panoramic = "iar:xw"
     
 
-class AvailableImageFormats(metaclass=__ABCMeta):
+class AvailableImageFormats:
     jpg = "ift:jpg"
     gif = "ift:gif"
     png = "ift:png"

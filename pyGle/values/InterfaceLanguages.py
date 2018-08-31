@@ -4,10 +4,9 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from abc import ABCMeta as __ABCMeta
 
 
-class InterfaceLanguages(metaclass=__ABCMeta):
+class InterfaceLanguages:
     Afrikaans = "af"
     Luo = "ach"
     Akan = "ak"

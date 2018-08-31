@@ -9,32 +9,32 @@
 class InvalidCombinationException(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message
-        super().__init__(message)
+        super(InvalidCombinationException, self).__init__(message)
 
 
 class TimeCombinationNonValid(InvalidCombinationException):
     def __init__(self, message: str = None):
-        super().__init__(message)
+        super(TimeCombinationNonValid, self).__init__(message)
 
 
 class MixedSearchException(InvalidCombinationException):
     def __init__(self, message: str = None):
-        super().__init__(message)
+        super(MixedSearchException, self).__init__(message)
 
 
 class NullQueryError(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message
-        super().__init__(message)
+        super(NullQueryError, self).__init__(message)
 
 
 class GoogleOverloadedException(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message
-        super().__init__(message)
+        super(GoogleOverloadedException, self).__init__(message)
 
 
 class GoogleBlockingConnectionsError(RuntimeError):
     def __init__(self, message: str = None):
         self.__message = message
-        super().__init__(message)
+        super(GoogleBlockingConnectionsError, self).__init__(message)

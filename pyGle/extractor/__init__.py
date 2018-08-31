@@ -7,16 +7,21 @@
 import random
 import time
 import ujson as json
-import urllib.error
-import urllib.parse
-import urllib.request
-from concurrent.futures import Future, ThreadPoolExecutor
-from multiprocessing import cpu_count
+import sys
 
+from multiprocessing import cpu_count
 from bs4 import BeautifulSoup
+from concurrent.futures import Future, ThreadPoolExecutor
+
 from pyGle.errors import GoogleOverloadedException, GoogleBlockingConnectionsError
 from pyGle.url import URLBuilder
 from pyGle.url.url_constants import __user_agents__
+
+if sys.version_info[0] >= 3:
+    from urllib.error import HTTPError
+    from urllib.request import Request, urlopen
+else:
+    from urllib2 import HTTPError, Request, urlopen
 
 
 class BaseExtractor:
@@ -36,10 +41,10 @@ class BaseExtractor:
             start_time = time.time()
             built_url = url.build()
             self.url = built_url
-            request = urllib.request.Request(url=built_url, headers=self.headers)
+            request = Request(url=built_url, headers=self.headers)
             if self.session_cookies["cookie"] != "disabled" and self.session_cookies["cookie"] is not None:
                 request.add_header("cookie", self.session_cookies["cookie"])
-            web_content = urllib.request.urlopen(request)
+            web_content = urlopen(request)
             if self.session_cookies["cookie"] != "disabled":
                 self.session_cookies["cookie"] = web_content.headers.get("Set-Cookie")
             requested_data = web_content.read().decode("utf-8")
@@ -48,7 +53,7 @@ class BaseExtractor:
             local_executor.submit(web_content.close)
             local_executor.shutdown(wait=False)
             return BeautifulSoup(requested_data, "lxml"), (end_time - start_time)
-        except urllib.error.HTTPError as request_error:
+        except HTTPError as request_error:
             raise GoogleBlockingConnectionsError("It looks like Google is blocking errors.\n\t- Headers: "
                                                  + str(request_error.headers) + "\n\t- Error: "
                                                  + request_error.read().decode("utf-8"))
@@ -109,7 +114,7 @@ class BaseExtractor:
 
 class ImageExtractor(BaseExtractor):
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(ImageExtractor, self).obtain_html_object(url)
         images = []
         elements_start_time = time.time()
         for a in html.find_all("div", {"class": "rg_meta"}):
@@ -151,7 +156,7 @@ class ImageExtractor(BaseExtractor):
         })
         if self.history is not None:
             self.history.append(images)
-        super().change_header()
+        super(ImageExtractor, self).change_header()
         return images
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -267,7 +272,7 @@ class SearchExtractor(BaseExtractor):
             return []
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(SearchExtractor, self).obtain_html_object(url)
         search_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "bkWMgd"})
@@ -315,7 +320,7 @@ class SearchExtractor(BaseExtractor):
                                "url": self.url})
         if self.history is not None:
             self.history.append(search_results)
-        super().change_header()
+        super(SearchExtractor, self).change_header()
         return search_results
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -397,7 +402,7 @@ class NewsExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(NewsExtractor, self).obtain_html_object(url)
         news_results = []
         elements_start_time = time.time()
         results_area = html.find_all("div", {"id": "ires"})[0]
@@ -434,7 +439,7 @@ class NewsExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(news_results)
-        super().change_header()
+        super(NewsExtractor, self).change_header()
         return news_results
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -513,7 +518,7 @@ class VideoExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(VideoExtractor, self).obtain_html_object(url)
         vid_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "srg"})
@@ -546,7 +551,7 @@ class VideoExtractor(BaseExtractor):
                             "url": self.url})
         if self.history is not None:
             self.history.append(vid_results)
-        super().change_header()
+        super(VideoExtractor, self).change_header()
         return vid_results
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -626,7 +631,7 @@ class PatentExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(PatentExtractor, self).obtain_html_object(url)
         patents_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"id": "ires"})
@@ -670,7 +675,7 @@ class PatentExtractor(BaseExtractor):
                                 "url": self.url})
         if self.history is not None:
             self.history.append(patents_results)
-        super().change_header()
+        super(PatentExtractor, self).change_header()
         return patents_results
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -729,7 +734,7 @@ class ShopExtractor(BaseExtractor):
             return "unavailable"
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(ShopExtractor, self).obtain_html_object(url)
         shop_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"id": "ires"})
@@ -760,7 +765,7 @@ class ShopExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(shop_results)
-        super().change_header()
+        super(ShopExtractor, self).change_header()
         return shop_results
 
     def extract_url(self, url: URLBuilder) -> Future:
@@ -845,7 +850,7 @@ class BookExtractor(BaseExtractor):
         return stats
 
     def __extractor(self, url: URLBuilder, start_time: float) -> list:
-        html, search_time = super().obtain_html_object(url)
+        html, search_time = super(BookExtractor, self).obtain_html_object(url)
         book_results = []
         elements_start_time = time.time()
         results_areas = html.find_all("div", {"class": "srg"})
@@ -881,7 +886,7 @@ class BookExtractor(BaseExtractor):
                              "url": self.url})
         if self.history is not None:
             self.history.append(book_results)
-        super().change_header()
+        super(BookExtractor, self).change_header()
         return book_results
 
     def extract_url(self, url: URLBuilder) -> Future:

@@ -4,10 +4,9 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from abc import ABCMeta
 
 
-class OfficePatents(metaclass=ABCMeta):
+class OfficePatents:
     USA = "ptso:us"
     Europe = "ptso:ep"
     International = "ptso:wo"
@@ -16,12 +15,12 @@ class OfficePatents(metaclass=ABCMeta):
     Canada = "ptso:ca"
     
 
-class PatentStatus(metaclass=ABCMeta):
+class PatentStatus:
     Applications = "ptss:a"
     IssuedPatents = "ptss:g"
 
 
-class AvailablePatentTypes(metaclass=ABCMeta):
+class AvailablePatentTypes:
     Utility = "ptst:u"
     Design = "ptst:d"
     Plant = "ptst:pp"

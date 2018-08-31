@@ -4,10 +4,9 @@
 #           This is free software, and you are welcome to redistribute it
 #                 under certain conditions; type "-L" for details.
 #
-from abc import ABCMeta
 
 
-class AvailableCountries(metaclass=ABCMeta):
+class AvailableCountries:
     Afghanistan = "AF"
     AlandIslands = "AX"
     Albania = "AL"
