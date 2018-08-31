@@ -1,7 +1,7 @@
 # [pyGle](https://github.com/Javinator9889/pyGle)
 A tool for searching the entire web with the Google technology
 
-[![PyPi](https://img.shields.io/badge/v1.24%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
+[![PyPi](https://img.shields.io/badge/v1.25%20-PyPi-green.svg)](https://pypi.org/project/g-pyGle/)
 [![ZIP](https://img.shields.io/badge/Package%20-Zip-blue.svg)](https://github.com/Javinator9889/pyGle/archive/master.zip)
 [![GIT](https://img.shields.io/badge/Package%20-Git-red.svg)](https://github.com/Javinator9889/pyGle.git)
 [![Downloads](https://pepy.tech/badge/g-pygle)](https://pepy.tech/project/g-pygle)
@@ -177,6 +177,21 @@ As usual, you have the [pip](https://pypi.org/project/pip/) mode or the
 [easy install](https://setuptools.readthedocs.io/en/latest/easy_install.html) methods:
 
 *The commands for *Windows* are the same but without `sudo`*
+
+### Dependencies
+There are some modules you must install in order to make *pyGle* work as expected:
++ **Common dependencies**:
+```bash
+pip install ujson
+pip install lxml
+pip install beautifulsoup4
+pip install typing
+```
+
++ **Python 2 dependencies**:
+```bash
+pip install futures
+```
 
 ### *Installing via PyPi (pip)*
 
